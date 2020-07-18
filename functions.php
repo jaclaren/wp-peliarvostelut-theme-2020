@@ -1,7 +1,5 @@
 <?php
 
-require_once(__DIR__.'/blocks/gamelist.php');
-
 /**
  * Peliarvostelut.NET 2020 Theme functions and definitions
  *
