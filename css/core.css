@@ -1,2 +1,29 @@
 .c-compilationcard {
-  outline: solid 1px red; }
+  display: flex;
+  flex-direction: column;
+  margin: 2px;
+  background: blue;
+  flex-shrink: 0;
+  flex-grow: 0;
+  max-width: 150px; }
+  .c-compilationcard span:first-child {
+    flex-basis: 90% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .c-compilationcard span {
+    padding: 15px; }
+  .c-compilationcard span:nth-child(2) {
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    background: green;
+    min-width: 0; }
+
+.c-gamequery {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  overflow: auto;
+  white-space: nowrap; }
