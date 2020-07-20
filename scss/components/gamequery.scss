@@ -1,7 +1,17 @@
-.c-gamequery {
+%gamequery {
   padding: 10px;
   display: flex;
   flex-direction: row;
-  overflow: auto;
+}
+
+.c-gamequery {
+  @extend %gamequery;
   white-space: nowrap;
+  overflow: auto;
+
+  &--single {
+    @extend %gamequery;
+    display: flex;
+    flex-flow: column;
+  }
 }

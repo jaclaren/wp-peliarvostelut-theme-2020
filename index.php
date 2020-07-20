@@ -15,7 +15,7 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+	<main id="primary" class="col-xs-6 col-lg-4">
 
 		<?php
 		if ( have_posts() ) :

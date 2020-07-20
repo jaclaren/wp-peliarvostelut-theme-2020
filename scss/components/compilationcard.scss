@@ -2,12 +2,16 @@
   // outline: solid 1px red;
   display: flex;
   flex-direction: column;
-  margin: 2px;
+  margin: 5px;
   background: blue;
 
   flex-shrink: 0;
   flex-grow: 0;
   max-width: 150px;
+
+  border: solid 2px var(--color-grey4);
+  background: var(--color-grey4);
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.3);
 
   span:first-child {
     flex-basis: 90% !important;
@@ -24,7 +28,7 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    background: green;
+    background: var(--color-grey3);
     min-width: 0;
   }
 }
