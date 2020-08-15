@@ -979,7 +979,7 @@ h1, h2, h3, h4 {
     margin: 0 auto;
     max-width: 1200px; }
     .row.main {
-      padding-top: 190px !important; } }
+      padding-top: 180px !important; } }
 
 @keyframes mymove {
   0% {
@@ -1144,6 +1144,9 @@ h1, h2, h3, h4 {
   .c-mobilemenu__button {
     display: none; } }
 
+.c-mobilemenu__submenu {
+  line-height: 2.5rem; }
+
 header.small .c-mobilemenu__submenu {
   height: 0px;
   padding-top: 0;
@@ -1188,7 +1191,7 @@ header.small .c-mobilemenu__submenu {
       text-align: center;
       border-bottom: solid 1px var(--color-grey1); }
       .c-mobilemenu ul li a {
-        line-height: 5rem !important; }
+        line-height: 6rem !important; }
 
 @media only screen and (min-width: 800px) {
   .c-mobilemenu__submenu {
@@ -1343,7 +1346,8 @@ header {
   width: 100%;
   z-index: 50;
   box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.2);
-  background: var(--color-grey3); }
+  background: var(--color-grey3);
+  top: 0; }
 
 table td {
   padding: 19px;

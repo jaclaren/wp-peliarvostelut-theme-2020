@@ -10,6 +10,10 @@
   .c-mobilemenu__button { display: none; }
 }
 
+.c-mobilemenu__submenu {
+  line-height: 2.5rem;
+}
+
 header.small .c-mobilemenu__submenu {
   // transform: scaleY(0);
   height: 0px;
@@ -76,10 +80,11 @@ header.small .c-mobilemenu__submenu {
     li {
       font-family: $fontPrimary;
       text-align: center;
+
       border-bottom: solid 1px var(--color-grey1);
 
       a {
-        line-height: 5rem !important;
+        line-height: 6rem !important;
       }
     }
   }
