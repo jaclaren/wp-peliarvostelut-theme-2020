@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 const Score = props => {
   const circumference = props.radius * 2 * Math.PI;
   let progress = props.score / 100;
-  const [gaugeDashArray, setGaugeDashArray] = useState(0)
+  const [gaugeDashArray, setGaugeDashArray] = useState(`0 ${circumference}`)
 
   useEffect(() => {
     setGaugeDashArray(`${circumference*progress} ${circumference}`);

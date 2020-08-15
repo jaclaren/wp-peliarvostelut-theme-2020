@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 
 import Score from './components/score/index.jsx'
+import CardScroller from './components/cardscroller/index.jsx'
 
 document.querySelectorAll('.c-score').forEach(_ => {
   ReactDOM.render(
@@ -13,4 +14,16 @@ document.querySelectorAll('.c-score').forEach(_ => {
     _
   );
 
+})
+
+document.querySelectorAll('.games').forEach(_ => {
+  ReactDOM.render(
+    <CardScroller
+      maxItems={21}
+      itemsToLoad={20}
+      itemsPerPage="7"
+    />
+    ,
+    _
+  );
 })
