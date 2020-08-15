@@ -21,8 +21,8 @@ const TrackedItem = props => {
       intersectionObserver.observe(ref.current);
   }, [])
 
-  // className={show && props.isLoaded ? 'compilationcard' : 'compilationcard--skeleton'}
-  return <a href="#"
+  // className={show && props.isLoaded ? 'compilationcard' : 'compilationcard--skeleton'}  
+  return <a href={ props.item ? props.item.href : '#' }
       className={show && props.isLoaded ? props.loadedClass : props.defaultClass }
       style={ !props.isLoaded ? {animationDelay: `${props.index/10}s`} : null}
       ref={ref}>

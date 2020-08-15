@@ -4,11 +4,11 @@ const GameCard = props => {
   return (
     <React.Fragment>
       <span>
-        {props.displayImage ? <img src={props.img} /> : null}
+        {props.coverimage ? <img src={props.coverimage} /> : null}
       </span>
       <div class="compilationcard__title">
         <div>
-          {props.displayImage ? props.title : ''}
+          {props.coverimage ? props.title : ''}
         </div>
       </div>
     </React.Fragment>

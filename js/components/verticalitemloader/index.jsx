@@ -15,11 +15,12 @@ const VerticalItemLoader = props => {
 
   React.useEffect(() => {
     window.addEventListener('resize', () => {
-      ref.current.scrollLeft = 0;
+      ref.current.scrollLeft = 0;     // reset scroll on resize to avoid mode overlap
     })
 
     generateSkeletonObjects(_setItems, items, props.itemsToLoad)
-    fetch('data/mock_games.json')
+
+    fetch(`/wp-json/gamesapi/latest_games?limit=${props.maxItems}`)
       .then(response => response.json())
       .then(response => {
         setTimeout(() => {
