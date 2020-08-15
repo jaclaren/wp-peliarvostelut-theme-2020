@@ -13,15 +13,14 @@ document.querySelectorAll('.c-score').forEach(_ => {
     ,
     _
   );
-
 })
 
 document.querySelectorAll('.games').forEach(_ => {
   ReactDOM.render(
     <CardScroller
-      maxItems={21}
+      maxItems={7*3}
       itemsToLoad={20}
-      itemsPerPage="7"
+      itemsPerPage={7}
     />
     ,
     _

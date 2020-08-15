@@ -17,7 +17,7 @@ const CardScroller = props => {
   }, [])
 
   React.useEffect(() => {
-    const lastPage = props.maxItems / props.itemsPerPage
+    const lastPage = (props.maxItems / props.itemsPerPage) -1
 
     setControllerVisibility(
        {
@@ -29,7 +29,7 @@ const CardScroller = props => {
   }, [page])
 
   const incrementPage = () => {
-    if(props.itemsPerPage * page < props.maxItems)
+    if(props.itemsPerPage * (page+1) < props.maxItems)
       setPage(page+1)
   }
 
