@@ -1,0 +1,14 @@
+// Flexboxgrid overrides
+
+.row {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+
+@media only screen and (max-width: 800px) {
+  .col-md--full {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

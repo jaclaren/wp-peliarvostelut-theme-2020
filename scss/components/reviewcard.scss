@@ -1,0 +1,35 @@
+.reviewcard {
+  display: flex;
+  padding: 0;
+
+  // outline: solid 1px red;
+  margin-bottom: 20px;
+
+  &--skeleton {
+    background: var(--color-grey5);
+    // height: 150px;
+    margin: 12px;
+  }
+
+  img {
+    $i : 80px;
+    width: $i;
+    height: $i;
+    border-radius: 12px;
+    // filter: saturate(0.2);
+    filter: brightness(0.3) saturate(0);
+  }
+}
+
+.c-reviewcard__col {
+  padding-left: 12px;
+
+  &:first-child() {
+    padding: 0;
+  }
+}
+
+.reviewcardlist {
+  display: flex;
+  flex-direction: column;
+}

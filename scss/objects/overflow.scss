@@ -1,0 +1,16 @@
+.o-box {
+  &--horizontal {
+    padding-right: 0;
+    position: relative;
+  }
+
+  &--centered {
+    display: flex; justify-content: center; align-items: center; padding: 2vw;
+  }
+}
+
+@media only screen and (min-width: $breakpoint-lg) {
+  .o-box--horizontal {
+    padding-right: 2rem;
+  }
+}

@@ -1,0 +1,16 @@
+%icon {
+  fill: var(--color-white1);
+}
+
+.c-icon {
+  &__search {
+    @extend %icon;
+  }
+
+  &__chevron {
+    @extend %icon;
+    svg {
+      fill: var(--color-white1);
+    }
+  }
+}

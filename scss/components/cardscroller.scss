@@ -1,0 +1,42 @@
+.c-cardscroller {
+  position: relative;
+  // background: blue;
+  // pointer-events: none;
+  max-width: 1200px;
+  background: purple;
+
+  &__control {
+    display: block;
+    position: absolute;
+    z-index: 5;
+    pointer-events: all;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    top: 90px;
+    bottom: 20px;
+    width: calc(1200px / 20);
+
+    background: var(--color-grey5);
+    display: none;
+
+    transition: opacity 1s, background 1.5s ease 0s;
+
+    &:hover() {
+      background: var(--color-grey4);
+    }
+
+    &:first-child() {
+      left: -60px;
+    }
+
+    &:nth-child(3) {
+      right: -40px;
+    }
+  }
+}
+
+@media only screen and (min-width: $breakpoint-lg) {
+  .c-cardscroller__control { display: flex; }
+}

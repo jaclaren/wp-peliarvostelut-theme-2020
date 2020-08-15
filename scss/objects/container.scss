@@ -1,0 +1,19 @@
+.o-container {
+  display: flex;
+}
+
+@each $key, $width in $breakpoints {
+  @include add-breakpoint($key) {
+    .o-container {
+      &-#{$key} {
+        &--center {
+          align-items: center;
+        }
+
+        &--middle {
+          justify-content: center;
+        }
+      }
+    }
+  }
+}

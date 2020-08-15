@@ -1173,7 +1173,7 @@ header.small .c-mobilemenu__submenu {
     .c-mobilemenu__submenu ul {
       display: flex;
       justify-content: space-around; }
-  .c-mobilemenu ul {
+  .c-mobilemenu__menu {
     margin-top: 88px;
     transition: all 0.5s ease-in;
     transition-delay: 0.3s;
@@ -1182,12 +1182,10 @@ header.small .c-mobilemenu__submenu {
     line-height: 3em;
     font-size: 1.5em;
     padding: 0; }
-    .c-mobilemenu ul li {
+    .c-mobilemenu__menu li {
       font-family: "Poppins", sans-serif;
       text-align: center;
       border-bottom: solid 1px var(--color-grey1); }
-      .c-mobilemenu ul li a {
-        line-height: 5rem !important; }
 
 @media only screen and (min-width: 800px) {
   .c-mobilemenu__submenu {
@@ -1195,13 +1193,13 @@ header.small .c-mobilemenu__submenu {
   .c-mobilemenu {
     transform: none;
     position: relative; }
-    .c-mobilemenu ul {
-      margin-top: 0;
+    .c-mobilemenu__menu {
+      margin-top: 20px;
       opacity: 1;
       display: flex;
       justify-content: space-around;
       align-items: center; }
-      .c-mobilemenu ul li {
+      .c-mobilemenu__menu li {
         border: none;
         line-height: normal; } }
 
@@ -1352,9 +1350,7 @@ table td {
   font-family: Poppins; }
 
 ul {
-  padding-left: 0;
-  margin: 0;
-  padding: 0; }
+  padding-left: 0; }
 
 footer {
   background: var(--color-grey5);

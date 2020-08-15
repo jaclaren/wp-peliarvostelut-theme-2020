@@ -1,0 +1,22 @@
+@use "sass:list";
+@use "sass:map";
+
+$breakpoint-xs: 350px;
+$breakpoint-sm: 500px;
+$breakpoint-md: 800px;
+$breakpoint-lg: 1200px;
+
+$breakpoints: (
+  "xs" : $breakpoint-xs,
+  "sm" : $breakpoint-sm,
+  "md" : $breakpoint-md,
+  "lg" : $breakpoint-lg
+  );
+
+@mixin add-breakpoint($size) {
+  @if(map-has-key($breakpoints, $size)) {
+    @media (min-width: map-get($breakpoints, $size)) {
+      @content;
+    }
+  }
+}

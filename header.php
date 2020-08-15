@@ -20,40 +20,26 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body>
 <?php wp_body_open(); ?>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'peliarvostelut-net-2020-theme' ); ?></a>
-
-	<header id="masthead" class="c-header">
-		<nav id="site-navigation" class="main-navigation">
+	<header class="c-header">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'peliarvostelut-net-2020-theme' ); ?></button>
 			<?php
 			wp_nav_menu(
 				array(
 					'theme_location' => 'menu-1',
 					'menu_id'        => 'primary-menu',
+					'menu_class' => 'c-mobilemenu'
 				)
 			);
 			?>
-		</nav><!-- #site-navigation -->
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$peliarvostelut_net_2020_theme_description = get_bloginfo( 'description', 'display' );
-			if ( $peliarvostelut_net_2020_theme_description || is_customize_preview() ) :
-				?>
-				
-			<?php endif; ?>
-		</div>
 
+			<div class="c-mobilemenu__submenu">
+				<ul>
+					<li><a href="#">Diablo 4</a></li>
+					<li><a href="#">Death Stranding</a></li>
+					<li><a href="#">Persona 4 Golden</a></li>
+					<li><a href="#">Astral Chain</a></li>
+				</ul>
+			</div>
 	</header><!-- #masthead -->

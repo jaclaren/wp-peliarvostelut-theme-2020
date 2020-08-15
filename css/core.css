@@ -903,7 +903,8 @@ template {
   --color-white1: #D2D2D2; }
 
 body {
-  background: var(--color-grey3); }
+  background: var(--color-grey3);
+  color: var(--color-white1); }
 
 .c-compilationcard {
   display: flex;
@@ -943,6 +944,11 @@ body {
     display: flex;
     flex-flow: column; }
 
+.c-button {
+  background: var(--color-default-accent);
+  padding: 10px 20px;
+  border-radius: 25px; }
+
 .c-row--g1 {
   background: var(--color-grey1); }
 
@@ -954,4 +960,5 @@ body {
 
 a, a:visited {
   color: var(--color-default-accent);
-  color: var(--color-white1); }
+  color: var(--color-white1);
+  display: inline-block; }

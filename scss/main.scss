@@ -1,0 +1,55 @@
+
+@import 'generic/flexboxgrid.min';
+@import 'generic/normalize';
+@import 'settings/colors';
+@import 'settings/breakpoints';
+@import 'settings/fonts';
+@import 'generic/overrides';
+@import 'components/nav';
+@import 'objects/overflow';
+@import 'objects/container';
+
+body {
+  background: var(--color-grey3);
+  color: var(--color-white1);
+
+  font-family: $fontSecondary;
+}
+
+h1,h2,h3,h4 {
+  font-family: $fontPrimary;
+}
+
+.row {
+  &.main {
+    padding-top: 90px !important;
+  }
+}
+
+@media only screen and (min-width: $breakpoint-md) {
+  .row {
+    margin: 0 auto;
+    max-width: 1200px;
+    &.main {
+      padding-top: 190px !important;
+    }
+  }
+}
+
+@import 'components/compilationcard';
+@import 'components/icon';
+@import 'components/reviewcard';
+@import 'components/gamequery';
+@import 'components/button';
+@import 'components/mobilemenu';
+@import 'components/row';
+@import 'components/score';
+@import 'components/videocontainer';
+@import 'components/reviewlist';
+@import 'components/cardscroller';
+
+@import 'elements/a';
+@import 'elements/header';
+@import 'elements/table';
+@import 'elements/ul';
+@import 'elements/footer';
