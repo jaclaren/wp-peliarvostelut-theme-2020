@@ -12,6 +12,7 @@ const VerticalItemLoader = props => {
   const [items, _setItems] = React.useState([]);
   const ref = React.useRef()
   const [page, _setPage] = React.useState(0);
+  const [pageWidth, _setPageWidth] = React.useState(0);
 
   React.useEffect(() => {
     window.addEventListener('resize', () => {
@@ -27,9 +28,14 @@ const VerticalItemLoader = props => {
           _setItems(response)
         }, 800)
     })
+
+    if(ref.current && pageWidth == 0) {
+      _setPageWidth(ref.current.clientWidth)
+    }
+
   }, [])
 
-  return <div ref={ref} style={{ marginLeft: `-${(1152 * props.page) + (props.page * 10)}px` }} className={props.class}>
+  return <div ref={ref} style={{ marginLeft: `-${(pageWidth * props.page) + (props.page * 10)}px` }} className={props.class}>
       {
         items.map((item, index) => {
 
