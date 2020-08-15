@@ -16,7 +16,7 @@
 .compilationcardlist {
   display: flex;
   position: relative;
-  justify-content: space-between;    
+  justify-content: space-between;
   overflow-x: auto;
   // -webkit-overflow-scrolling: touch;
   // scroll-snap-type: x mandatory;
@@ -37,6 +37,7 @@
 
 .compilationcard {
   @extend %c;
+  min-width: 146px;
   background: var(--color-grey4);
 
   &:nth-child(1) {
