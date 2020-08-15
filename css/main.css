@@ -1343,8 +1343,7 @@ header {
   width: 100%;
   z-index: 50;
   box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.2);
-  background: var(--color-grey3);
-  top: 0; }
+  background: var(--color-grey3); }
 
 table td {
   padding: 19px;

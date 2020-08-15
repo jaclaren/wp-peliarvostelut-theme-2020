@@ -4,6 +4,8 @@ import ReactDOM from "react-dom";
 import Score from './components/score/index.jsx'
 import CardScroller from './components/cardscroller/index.jsx'
 
+import initHeader from './header.js'
+
 document.querySelectorAll('.c-score').forEach(_ => {
   ReactDOM.render(
     <Score
@@ -26,3 +28,5 @@ document.querySelectorAll('.games').forEach(_ => {
     _
   );
 })
+
+initHeader();
