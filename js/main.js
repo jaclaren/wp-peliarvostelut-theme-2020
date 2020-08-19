@@ -23,6 +23,7 @@ document.querySelectorAll('.games').forEach(_ => {
       maxItems={7*3}
       itemsToLoad={20}
       itemsPerPage={7}
+      mode={_.dataset.mode}
     />
     ,
     _

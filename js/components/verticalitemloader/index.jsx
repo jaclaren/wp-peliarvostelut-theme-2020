@@ -21,12 +21,16 @@ const VerticalItemLoader = props => {
 
     generateSkeletonObjects(_setItems, items, props.maxItems)
 
-    fetch(`/wp-json/gamesapi/latest_games?limit=${props.maxItems}`)
+
+    fetch(`/wp-json/compilations/${props.mode}`)
+    // fetch(`/wp-json/gamesapi/latest_games?limit=${props.maxItems}`)
       .then(response => response.json())
       .then(response => {
-        setTimeout(() => {
-          _setItems(response)
-        }, 800)
+        if(response.body) {
+          setTimeout(() => {
+            _setItems(response.body.compilations)
+          }, 800)
+        }
     })
 
     if(ref.current && pageWidth == 0) {
@@ -34,6 +38,8 @@ const VerticalItemLoader = props => {
     }
 
   }, [])
+
+  console.log(items)
 
   return <div ref={ref} style={{ marginLeft: `-${(pageWidth * props.page) + (props.page * 10)}px` }} className={props.class}>
       {
