@@ -6,7 +6,7 @@
     ?>
     <div class="row">
       <div class="col-xs-12 o-box--horizontal" style="position: relative">
-        <h2>Uudet koosteet</h2>
+        <h2><?php echo @$args['title']; ?></h2>
         <div class="games" data-mode="<?php echo @$args['mode']; ?>" id="games"></div>
       </div>
     </div>
