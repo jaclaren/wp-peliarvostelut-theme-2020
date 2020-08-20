@@ -1062,6 +1062,14 @@ h1, h2, h3, h4 {
   justify-content: center; }
   .compilationcard--primary > * {
     padding: 0; }
+  .compilationcard--primary section > * {
+    margin-bottom: 0.5rem; }
+  .compilationcard--primary h2 {
+    margin-bottom: 0rem; }
+
+.compilationcard__meta {
+  color: var(--color-grey2);
+  display: block; }
 
 @media only screen and (min-width: 1200px) {
   .compilationcardlist {
@@ -1126,8 +1134,9 @@ h1, h2, h3, h4 {
 
 .button {
   background: var(--color-default-accent);
-  padding: 10px 20px;
-  border-radius: 25px; }
+  padding: 0.6rem 1.5rem;
+  border-radius: 2rem;
+  font-size: 1.3rem; }
 
 .button--secondary {
   background: var(--color-grey5);

@@ -108,6 +108,19 @@
   > * {
     padding: 0;
   }
+
+  section > * {
+    margin-bottom: 0.5rem;    
+  }
+
+  h2 {
+    margin-bottom: 0rem;
+  }
+}
+
+.compilationcard__meta {
+  color: var(--color-grey2);
+  display: block;
 }
 
 //
