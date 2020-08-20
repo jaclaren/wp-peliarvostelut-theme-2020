@@ -24,7 +24,7 @@
         <div class="row compilationcard--primary">
           <section class="col-xs-8 col-sm-12">
             <h2><?php echo $game->get_title(); ?></h2>
-            <div><?php echo count($game->get_reviews()); ?> arvostelua</div>
+            <div><?php echo $game->get_review_count_as_string(); ?></div>
             <a href="<?php echo get_permalink($game->game_object); ?>" class="button button--solid">
               <?php echo __('Kooste'); ?>
             </a>
