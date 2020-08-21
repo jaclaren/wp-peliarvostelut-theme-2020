@@ -38,7 +38,6 @@ $min : 100px;
 .c-score--tiny {
   border-radius: 6rem;
   background: var(--color-grey3);
-  border: solid 2px green;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,6 +45,13 @@ $min : 100px;
   font-size: 1.5rem;
   height: 3.5rem;
   width: 3.5rem;
+}
+
+.c-score {
+  $px : 2px;
+  &--high { border: solid $px var(--color-quality-high); }
+  &--medium { border: solid $px var(--color-quality-medium); }
+  &--poor { border: solid $px var(--color-quality-poor); }
 }
 
 .c-score__circle {
