@@ -73,7 +73,9 @@
               <div class="c-score--tiny"><?php echo $review->get_score(); ?></div>
               <div>
                 <h3><?php echo $review->get_site()->data['name']; ?></h3>
-                <div class="c-item__detail c-item__detail__creationdate">Lisätty eilen</div>
+                <div class="c-item__detail c-item__detail__creationdate">
+                  <?php echo \PANet\Utils::render_wp_post_creation_date($review->review_object); ?>
+                </div>
               </div>
             </header>
             <div class="c-reviewcard__summary">
