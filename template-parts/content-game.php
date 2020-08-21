@@ -38,9 +38,9 @@
   </div>
 
   <div class="col-xs-7">
-    <header class="box c-gameheader">
+    <header class="box c-gameheader c-item">
       <h1><?php echo $game->get_title(); ?></h1>
-      <span class="c-gameheader__reviewcount"><?php echo $game->get_added_as_string(); ?></span>
+      <span class="c-item__detail c-item__detail__creationdate"><?php echo $game->get_added_as_string(); ?></span>
     </header>
   </div>
   <div class="col-xs-5 col-sm-4 last-sm o-box--centered">
@@ -68,12 +68,14 @@
         $r = array_rand($loremArr);
 
         foreach($game->get_reviews() as $review): ?>
-          <div class="c-reviewlist__item">
+          <div class="c-reviewlist__item c-item">
             <header>
               <div class="c-score--tiny"><?php echo $review->get_score(); ?></div>
-              <h3><?php echo $review->get_site()->data['name']; ?></h3>
+              <div>
+                <h3><?php echo $review->get_site()->data['name']; ?></h3>
+                <div class="c-item__detail c-item__detail__creationdate">Lisätty eilen</div>
+              </div>
             </header>
-            <div><?php echo $review->get_platform()[0]; ?></div>
             <div class="c-reviewcard__summary">
               <blockquote>
               <?php echo $review->get_summary(); ?>

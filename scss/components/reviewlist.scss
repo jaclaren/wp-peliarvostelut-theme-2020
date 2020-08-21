@@ -19,8 +19,8 @@
   header {
     display: flex;
     align-items: center;
-    *:nth-child(2) {
-      margin-left: 0.5rem;
+    & > *:nth-child(2) {
+      margin-left: 0.75rem;
     }
   }
 
@@ -37,9 +37,9 @@
 
   background: var(--color-grey5);
 
-  *:nth-child(3) { // Summary
+  >*:nth-child(2) { // Summary
     flex-grow: 2;
-    margin-bottom: 1rem;
+    margin: 1rem 0;
   }
 
   div {
