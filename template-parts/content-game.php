@@ -124,20 +124,26 @@
       <table style="width: 100%;">
         <tr>
           <td>Nimi</td>
-          <td>Death Stranding</td>
+          <td><?php echo $game->get_title(); ?></td>
         </tr>
+        <?php if(!empty($game->get_developer())): ?>
         <tr>
           <td>Alustat</td>
-          <td>PC, PlayStation 4</td>
+          <td><?php echo implode(', ',$game->get_tax_platforms()); ?></td>
         </tr>
+        <?php endif; ?>
+        <?php if(!empty($game->get_tax_platforms())): ?>
         <tr>
           <td>Julkaistu</td>
-          <td>2020</td>
+          <td><?php echo $game->get_tax_release_year(); ?></td>
         </tr>
-        <tr>
-          <td>Genret</td>
-          <td>Seikkailu</td>
-        </tr>
+        <?php endif; ?>
+        <?php if(!empty($genres)): ?>
+          <tr>
+            <td>Genret</td>
+            <td><?php echo !empty($genres) ? implode(', ', $genres) : null; ?></td>
+          </tr>
+        <?php endif; ?>
         <tr>
           <td colspan="2">
             <?php #include('partials/svg.php'); ?>
