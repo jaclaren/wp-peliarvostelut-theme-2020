@@ -40,7 +40,7 @@
   <div class="col-xs-7">
     <header class="box c-gameheader c-item">
       <h1><?php echo $game->get_title(); ?></h1>
-      <span class="c-item__detail c-item__detail__creationdate"><?php echo $game->get_added_as_string(); ?></span>
+      <span class="c-item__detail c-item__detail__creationdate"><?php echo \PANet\Utils::render_wp_post_creation_date($game->game_object); ?></span>
     </header>
   </div>
   <div class="col-xs-5 col-sm-4 last-sm o-box--centered">
@@ -104,8 +104,16 @@
     <?php foreach(json_decode(@$game->get_news_items()[0]) as $news_item): ?>
       <a href="<?php echo $news_item->url; ?>" class="c-reviewlist__item">
         <h3><?php echo utf8_decode($news_item->title); ?></h3>
-        <span><?php echo get_site_name_from_url($news_item->url)->data["name"]; ?></span>
-        <span class="c-item__detail c-item__detail__creationdate"><?php echo \PANet\Utils::render_creation_date_ago(new \DateTime($news_item->write_date)); ?></span>
+        <div>
+          <span class="c-item__detail c-item__detail__creationdate">
+            <?php
+            $year = date("Y", strtotime($news_item->write_date));
+            if($year > 2016)
+            echo date("j.n.o", strtotime($news_item->write_date));
+            ?>
+          </span>
+        <span class="c-item__detail c-item__detail__sitename">-- <?php echo get_site_name_from_url($news_item->url)->data["name"]; ?></span>
+      </div>
       </a>
     <?php endforeach; ?>
   </div>
