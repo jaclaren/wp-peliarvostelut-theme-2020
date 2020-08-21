@@ -3,7 +3,15 @@
   padding: 0.6rem 1.5rem;
   border-radius: 2rem;
   font-size: 1.3rem;
+}
 
+.button--dark {
+  text-align: center;
+  border-radius: 2rem;
+  border: solid 2px var(--color-grey4);
+  background: var(--color-grey3);
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
 }
 
 .button--secondary {

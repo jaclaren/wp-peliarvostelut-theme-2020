@@ -1,28 +1,49 @@
 .c-reviewlist {
   display: flex;
   overflow-x: auto;
-  justify-content: space-between;
+  justify-content: flex-start;
   // outline: solid 1px green;
 
 }
 
 .c-reviewlist__item {
+  flex-shrink : 0;
+  flex-grow: 0;
+
+  align-items: baseline;
 
   &:first-child() {
     // margin-left: 0px;
   }
 
+  header {
+    display: flex;
+    align-items: center;
+    *:nth-child(2) {
+      margin-left: 0.5rem;
+    }
+  }
+
   h3 {
-    margin-top: 0;
+    margin: 0;
   }
 
   padding: 12px;
   width: calc(50%-0.5em);
   margin: 0.25em;
+  flex-basis: 250px;
+  display: flex;
+  flex-direction: column;
 
   background: var(--color-grey5);
+
+  *:nth-child(3) { // Summary
+    flex-grow: 2;
+    margin-bottom: 1rem;
+  }
+
   div {
-    width: 200px;
+    // width: 200px;
   }
 }
 
@@ -36,8 +57,11 @@
   .c-reviewlist__item {
     flex-shrink: 1;
     flex-grow: 1;
+
+    // flex-grow: 0;
+
     div {
-      width: 200px;
+      // width: 200px;
     }
    }
 }

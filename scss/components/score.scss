@@ -34,6 +34,23 @@ $min : 100px;
   text-shadow: 3px 3px 3px rgba(0,0,0,0.8)
 
 }
+
+.c-score--tiny {
+  border-radius: 6rem;
+  background: var(--color-grey3);
+  border: solid 2px green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  font-size: 1.1rem;
+  margin: 0rem;
+  height: 3rem;
+  width: 3rem;
+  // width: 3rem !important;
+  // display: inline-block;
+}
+
 .c-score__circle {
   background: #343434;
   margin: 18px;

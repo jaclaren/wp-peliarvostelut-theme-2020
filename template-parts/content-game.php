@@ -40,7 +40,7 @@
   <div class="col-xs-7">
     <header class="box c-gameheader">
       <h1><?php echo $game->get_title(); ?></h1>
-      <span class="c-gameheader__reviewcount">Lisätty 6 päivää sitten</span>
+      <span class="c-gameheader__reviewcount"><?php echo $game->get_added_as_string(); ?></span>
     </header>
   </div>
   <div class="col-xs-5 col-sm-4 last-sm o-box--centered">
@@ -69,12 +69,17 @@
 
         foreach($game->get_reviews() as $review): ?>
           <div class="c-reviewlist__item">
-            <h3><?php echo $review->get_site()->data['name']; ?></h3>
-            <div><?php echo $plats[array_rand($plats)]; ?></div>
-            <div>
+            <header>
+              <div class="c-score--tiny"><?php echo $review->get_score(); ?></div>
+              <h3><?php echo $review->get_site()->data['name']; ?></h3>
+            </header>
+            <div><?php echo $review->get_platform()[0]; ?></div>
+            <div class="c-reviewcard__summary">
+              <blockquote>
               <?php echo $review->get_summary(); ?>
+              </blockquote>
             </div>
-            <div>5 päivää sitten</div>
+            <a class="button--dark" href="<?php echo $review->get_url(); ?>"><?php echo __('Lue arvostelu'); ?></a>
           </div>
         <?php endforeach; ?>
 
