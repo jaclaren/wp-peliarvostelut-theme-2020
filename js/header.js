@@ -11,7 +11,7 @@ export default () => {
       document.querySelector('main').style.marginTop = '0px';
     }
   })
-  document.querySelector(".c-mobilemenu__button").addEventListener('click', _ => {
+  document.querySelector(".menu-toggle").addEventListener('click', _ => {
      document.querySelector('.c-mobilemenu').classList.toggle('opened')
   }
   )

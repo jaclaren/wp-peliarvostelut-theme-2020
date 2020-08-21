@@ -1,9 +1,19 @@
-.c-mobilemenu__button {
+.menu-toggle {
   width: 50px;
   height: 50px;
   margin: 12px;
   z-index: 100;
   position: absolute;
+
+  background: var(--color-grey1);
+  border: 0;
+  color: var(--color-grey2);
+
+  &:focus {
+    outline: 0;    
+  }
+  &:active {
+  }
 }
 
 @media only screen and (min-width: $breakpoint-md) {
@@ -46,7 +56,7 @@ header.small .c-mobilemenu__submenu {
     // position: fixed;
     transform: translateX(0);
 
-    .c-mobilemenu__menu {
+    ul {
       opacity: 1;
      }
   }

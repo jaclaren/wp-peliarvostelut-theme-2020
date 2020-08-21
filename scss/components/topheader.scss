@@ -1,4 +1,6 @@
 .c-topheader {
+  min-height: 5rem;  
+
   &.small {
     position: fixed;
     width: 100%;
@@ -6,6 +8,6 @@
     box-shadow: 5px 5px 3px rgba(0,0,0,0.2);
     background: var(--color-grey3);
     top: 0;
-    
+
   }
 }

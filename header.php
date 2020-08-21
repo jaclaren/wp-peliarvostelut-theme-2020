@@ -24,7 +24,7 @@
 <body>
 <?php wp_body_open(); ?>
 	<header class="c-topheader">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'peliarvostelut-net-2020-theme' ); ?></button>
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">X</button>
 			<?php
 			wp_nav_menu(
 				array(
