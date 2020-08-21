@@ -2,6 +2,13 @@ a, a:visited {
   color: var(--color-default-accent);
   color: var(--color-white1);
   display: inline-block;
+
+  text-decoration: none;
+
+  &:hover {
+    color: inherit;    
+  }
+
 }
 
 li {

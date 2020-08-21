@@ -100,14 +100,14 @@
 <div class="row">
   <div class="col-xs-12 col-sm-4">
     <h2>Liiteyt uutiset</h2>
-    <?php
-    for($reviewIndex = 0; $reviewIndex < 3; $reviewIndex++): ?>
-      <div class="c-reviewlist__item">
-        <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
-        <span><?php echo $sites[array_rand($sites)]; ?></span>
-        <span>10 päivää sitten</span>
-      </div>
-    <?php endfor; ?>
+    <?php error_reporting(E_ALL); ?>
+    <?php foreach(json_decode(@$game->get_news_items()[0]) as $news_item): ?>
+      <a href="<?php echo $news_item->url; ?>" class="c-reviewlist__item">
+        <h3><?php echo utf8_decode($news_item->title); ?></h3>
+        <span><?php echo get_site_name_from_url($news_item->url)->data["name"]; ?></span>
+        <span class="c-item__detail c-item__detail__creationdate"><?php echo \PANet\Utils::render_creation_date_ago(new \DateTime($news_item->write_date)); ?></span>
+      </a>
+    <?php endforeach; ?>
   </div>
 
   <div class="col-xs-12 col-sm-8 first-lg">
