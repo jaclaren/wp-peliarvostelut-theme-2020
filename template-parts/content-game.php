@@ -80,7 +80,7 @@
             </header>
             <div class="c-reviewcard__summary">
               <blockquote>
-              <?php echo $review->get_summary(); ?>
+              <?php echo $review->get_summary(180); ?>
               </blockquote>
             </div>
             <a class="button--dark" href="<?php echo $review->get_url(); ?>"><?php echo __('Lue arvostelu'); ?></a>
