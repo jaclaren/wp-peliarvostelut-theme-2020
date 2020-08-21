@@ -55,10 +55,11 @@ $min : 100px;
 }
 
 .c-score__circle {
+  $shadowblur : 40px;
   background: #343434;
   margin: 18px;
   border-radius: 50%;
-  box-shadow: 0px 0px 40px #02e0a08a;
+  box-shadow: 0px 0px $shadowblur #02e0a08a;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,6 +69,13 @@ $min : 100px;
   left: 0;
   right: 0;
   z-index: -1;
+
+  &--medium {
+    box-shadow: 0px 0px $shadowblur #fa7f0696;
+  }
+  &--low {
+    box-shadow: 0px 0px $shadowblur #fd000063;
+  }
 }
 
 @media only screen and (min-width: $breakpoint-md) {
