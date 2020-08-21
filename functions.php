@@ -179,6 +179,7 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/enqueues.php';
 
 require get_template_directory() . '/inc/shortcodes/topgame.php';
+require get_template_directory() . '/inc/shortcodes/reviewlist.php';
 require get_template_directory() . '/inc/shortcodes/gamequery_horizontal.php';
 
 /**

@@ -25,8 +25,6 @@
 ?>
 
 <div class="row main">
-  <!-- <a href="#">Traileri</a>
-  <a href="#">Pelivideo</a> -->
 
   <div class="col-xs-12 col-sm-8 col-md--full last-sm">
       <div class="box video-container">
@@ -40,10 +38,10 @@
   </div>
 
   <div class="col-xs-7">
-    <div class="box">
+    <header class="box c-gameheader">
       <h1><?php echo $game->get_title(); ?></h1>
-      Lisätty 6 päivää sitten
-    </div>
+      <span class="c-gameheader__reviewcount">Lisätty 6 päivää sitten</span>
+    </header>
   </div>
   <div class="col-xs-5 col-sm-4 last-sm o-box--centered">
     <div class="c-score box" data-score="<?php echo $game->get_average_score(); ?>"></div>
