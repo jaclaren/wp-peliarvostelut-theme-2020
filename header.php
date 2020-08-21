@@ -37,10 +37,9 @@
 
 			<div class="c-mobilemenu__submenu">
 				<ul>
-					<li><a href="#">Diablo 4</a></li>
-					<li><a href="#">Death Stranding</a></li>
-					<li><a href="#">Persona 4 Golden</a></li>
-					<li><a href="#">Astral Chain</a></li>
+					<?php foreach(\game_handler::get_with_highest_score_and_reviews() as $game): ?>
+					<li><a href="<?php echo get_permalink($game->game_object); ?>"><?php echo $game->get_title(); ?></a></li>
+					<?php endforeach; ?>
 				</ul>
 			</div>
 	</header><!-- #masthead -->

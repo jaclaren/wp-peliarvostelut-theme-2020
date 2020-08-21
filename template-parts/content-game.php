@@ -13,7 +13,7 @@
  $coverimage_is_valid = !empty($coverimage);
 
  if($coverimage_is_valid) {
-   $coverimage_is_valid = !empty(@$coverimage[0]) && get_class($coverimage[0]) !== "WP_Error";
+   $coverimage_is_valid = !empty(@$coverimage[0]) && @get_class($coverimage[0]) !== "WP_Error";
  }
 
  if(!$coverimage_is_valid && !empty($coverimage_url)) {
@@ -57,16 +57,6 @@
     <h2>Arvostelut</h2>
     <div class="c-reviewlist">
       <?php
-        $f = fopen('mocks/reviewlist01.json', 'r');
-        $j = fread($f,filesize("mocks/reviewlist01.json"));
-
-        $reviews = json_decode($j);
-        $plats = ['PC', 'PlayStation 4', 'Xbox One', 'Switch'];
-        $sites = ['Game Reality', 'Game Reactor Suomi', 'Muropaketti', 'KonsoliFIN', 'Fintendo', 'Respawn'];
-        $lorem = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-        $loremArr = explode(' ', $lorem);
-        $r = array_rand($loremArr);
-
         foreach($game->get_reviews() as $review): ?>
           <div class="c-reviewlist__item c-item">
             <header>
@@ -100,7 +90,6 @@
 <div class="row">
   <div class="col-xs-12 col-sm-4">
     <h2>Liiteyt uutiset</h2>
-    <?php error_reporting(E_ALL); ?>
     <?php foreach(json_decode(@$game->get_news_items()[0]) as $news_item): ?>
       <a href="<?php echo $news_item->url; ?>" class="c-reviewlist__item">
         <h3><?php echo utf8_decode($news_item->title); ?></h3>
