@@ -28,12 +28,20 @@ get_header();
 				$previous_game = new game($previous);
 			}
 
+			?>
+			<!-- <div class="row">
+				<div class="col-xs-12">
+			<?php
 			the_post_navigation(
 				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'peliarvostelut-net-2020-theme' ) . '</span> </span> <img src="'.(!empty($previous_game) ? $previous_game->get_coverimg(true) : '').'" class="nav-coverimage" /> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'peliarvostelut-net-2020-theme' ) . '</span> <img src="'.(!empty($next_game) ? $next_game->get_coverimg(true) : '').'" class="nav-coverimage" /></span> <span class="nav-title">%title</span>',
+					'next_text' => '<div class="nav-item-col"><img src="'.(!empty($next_game) ? $next_game->get_coverimg(true) : '').'" class="nav-coverimage" /><span>%title</span></div><header class="nav-item-head">Seuraava >></header>',
+					'prev_text' => '<div class="nav-item-col"><img src="'.(!empty($previous_game) ? $previous_game->get_coverimg(true) : '').'" class="nav-coverimage" /><span>%title</span></div><header class="nav-item-head"><< Edellinen</header>'
 				)
 			);
+			?>
+			</div>
+			</div> -->
+			<?php
 
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :

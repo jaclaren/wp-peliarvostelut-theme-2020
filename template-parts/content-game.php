@@ -94,14 +94,14 @@
       <a href="<?php echo $news_item->url; ?>" class="c-reviewlist__item">
         <h3><?php echo utf8_decode($news_item->title); ?></h3>
         <div>
-          <span class="c-item__detail c-item__detail__creationdate">
-            <?php
-            $year = date("Y", strtotime($news_item->write_date));
-            if($year > 2016)
-            echo date("j.n.o", strtotime($news_item->write_date));
-            ?>
-          </span>
-        <span class="c-item__detail c-item__detail__sitename">-- <?php echo get_site_name_from_url($news_item->url)->data["name"]; ?></span>
+        <span class="c-item__detail c-item__detail__sitename"><?php echo get_site_name_from_url($news_item->url)->data["name"]; ?></span>
+        <span class="c-item__detail c-item__detail__creationdate">
+          <?php
+          $year = date("Y", strtotime($news_item->write_date));
+          if($year > 2016)
+          echo date("j.n.o", strtotime($news_item->write_date));
+          ?>
+        </span>
       </div>
       </a>
     <?php endforeach; ?>

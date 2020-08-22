@@ -13,6 +13,7 @@ export default () => {
   })
   document.querySelector(".menu-toggle").addEventListener('click', _ => {
      document.querySelector('.c-mobilemenu').classList.toggle('opened')
+     document.querySelector('.menu-toggle').classList.toggle('opened')
   }
   )
 }

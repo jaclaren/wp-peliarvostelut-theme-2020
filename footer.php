@@ -11,10 +11,10 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer">
+	<!-- <footer id="colophon" class="site-footer">
 		Footer
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+	</footer> -->
+</div>
 
 <?php wp_footer(); ?>
 
