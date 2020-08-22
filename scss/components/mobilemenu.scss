@@ -2,16 +2,16 @@
   padding: 0.85rem;
   z-index: 100;
   position: absolute;
-  margin: 1rem;
-  border-radius: 0.5rem;
-  display: flex;
   justify-content: center;
+  margin: 1rem;
+  display: flex;
+  border-radius: 0.5rem;
 
   path {
     transition: all 1s ease 0s;
   }
 
-  &.opened {    
+  &.opened {
     path {
       fill: var(--color-white1);
     }
@@ -118,6 +118,10 @@ header.small .c-mobilemenu__submenu {
 
 
 @media only screen and (min-width: $breakpoint-md) {
+  .menu-toggle {
+    display: none;   
+
+  }
   .c-mobilemenu__submenu { display: block;   }
   .c-mobilemenu {
     transform: none;
