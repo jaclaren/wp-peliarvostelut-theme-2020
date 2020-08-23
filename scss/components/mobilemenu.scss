@@ -62,6 +62,8 @@ header.small .c-mobilemenu__submenu {
   bottom: 0;
   transition: all 0.5s ease-in;
 
+  flex-grow: 2;
+
   transform: translateX(-100%);
   background: var(--color-grey3);
   // margin-top: 100px;
@@ -119,7 +121,7 @@ header.small .c-mobilemenu__submenu {
 
 @media only screen and (min-width: $breakpoint-md) {
   .menu-toggle {
-    display: none;   
+    display: none;
 
   }
   .c-mobilemenu__submenu { display: block;   }

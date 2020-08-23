@@ -9,7 +9,7 @@ const Score = props => {
   useEffect(() => {
     setGaugeDashArray(`${circumference*progress} ${circumference}`);
 
-    if(props.score < 40)
+    if(props.score <= 40)
       setQuality('low');
     else if(props.score < 75)
       setQuality('medium')

@@ -1,0 +1,17 @@
+.c-search {
+  margin: 2rem;
+  background: none;
+  border: none;
+
+  transition: background 0.5s ease 0s; 
+
+  &:hover {
+    background: var(--color-grey5);
+  }
+
+  svg {
+    fill: var(--color-white1);
+    width: 40px;
+    height: auto;
+  }
+}
