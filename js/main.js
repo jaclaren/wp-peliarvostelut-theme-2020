@@ -6,6 +6,7 @@ import CardScroller from './components/cardscroller/index.jsx'
 import ReviewList from './components/reviewlist/index.jsx'
 
 import initHeader from './header.js'
+import initSearch from './search.js'
 
 document.querySelectorAll('.c-score').forEach(_ => {
   ReactDOM.render(
@@ -35,7 +36,7 @@ document.querySelectorAll('.reviews').forEach(_ => {
   ReactDOM.render(
     <ReviewList
     maxItems={100}
-    itemsToLoad={3}    
+    itemsToLoad={3}
     />
     ,
     _
@@ -43,3 +44,4 @@ document.querySelectorAll('.reviews').forEach(_ => {
 })
 
 initHeader();
+initSearch();

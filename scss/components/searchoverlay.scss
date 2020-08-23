@@ -1,0 +1,80 @@
+#search__overlay {
+  // display: none;
+}
+
+#navbar-search-icon {
+  margin-left: 16px;
+  cursor: pointer;
+}
+
+@keyframes fadein {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* The overlay effect with black background */
+.c-searchoverlay {
+  opacity: 0;
+  display: none;
+  background-color: rgba(0,0,0,0.9);
+
+  &.opened {
+    // background-color: rgba(0,0,0, 0.9); /* Black with a little bit see-through */
+    display: block;
+    @include fadein(0.5s);
+  }
+}
+
+/* The content */
+.c-overlay-content {
+  position: relative;
+  top: 46%;
+  width: 80%;
+  text-align: center;
+  margin-top: 30px;
+  margin: auto;
+  /* Style the search field */
+  input[type=text] {
+    padding: 15px;
+    max-height: 48px;
+    font-size: 17px;
+    border: none;
+    float: left;
+    width: 80%;
+    background: white;
+  }
+
+  input[type=text]:hover {
+    background: #f1f1f1;
+  }
+
+  /* Style the submit button */
+  button {
+    float: left;
+    width: 20%;
+    padding: 15px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #bbb;
+  }
+
+}
+
+/* Close button */
+#search-close {
+  font-family: Arial;
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 50px;
+  cursor: pointer;
+  color: white;
+  &:hover {
+    color: #ccc;
+  }
+}
