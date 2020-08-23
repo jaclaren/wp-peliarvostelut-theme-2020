@@ -1,5 +1,7 @@
 .c-topheader {
-  min-height: 5rem;  
+  min-height: 5rem;
+  display: flex;
+  justify-content: flex-end;
 
   &.small {
     position: fixed;
@@ -9,5 +11,11 @@
     background: var(--color-grey3);
     top: 0;
 
+  }
+}
+
+@media only screen and (min-width: $breakpoint-md) {
+  .c-topheader {
+    display: inherit;
   }
 }

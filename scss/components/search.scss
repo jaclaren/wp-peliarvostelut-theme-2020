@@ -1,17 +1,20 @@
 .c-search {
-  margin: 2rem;
   background: none;
   border: none;
+  margin: 0.5rem;
 
-  transition: background 0.5s ease 0s; 
-
-  &:hover {
-    background: var(--color-grey5);
-  }
+  transition: background 0.5s ease 0s;
 
   svg {
-    fill: var(--color-white1);
+    fill: var(--color-grey4);
     width: 40px;
     height: auto;
+  }
+}
+
+
+@media only screen and (min-width: $breakpoint-md) {
+  .c-search {
+    margin: 2rem;
   }
 }
