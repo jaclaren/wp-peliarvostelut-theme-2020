@@ -149,6 +149,10 @@ function peliarvostelut_net_2020_theme_scripts() {
 
 	wp_enqueue_script( 'peliarvostelut-net-2020-theme-navigation', get_template_directory_uri() . '/dist/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'peliarvostelut-net-2020-theme-mainmin', get_template_directory_uri() . '/dist/main.min.js', array(), _S_VERSION, true );
+	wp_localize_script('peliarvostelut-net-2020-theme-mainmin', 'localizedVars', array(
+		'nonce' => esc_attr(wp_create_nonce('wp_rest'))
+	));
+
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

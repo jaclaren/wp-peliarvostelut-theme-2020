@@ -25,6 +25,7 @@ document.querySelectorAll('.games').forEach(_ => {
       maxItems={7*3}
       itemsToLoad={20}
       itemsPerPage={7}
+      nonce={localizedVars.nonce}
       mode={_.dataset.mode}
     />
     ,
@@ -36,6 +37,7 @@ document.querySelectorAll('.reviews').forEach(_ => {
   ReactDOM.render(
     <ReviewList
     maxItems={100}
+    nonce={localizedVars.nonce}
     itemsToLoad={3}
     />
     ,

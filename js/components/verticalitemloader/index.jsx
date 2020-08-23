@@ -22,7 +22,13 @@ const VerticalItemLoader = props => {
     generateSkeletonObjects(_setItems, items, props.maxItems)
 
 
-    fetch(`/wp-json/compilations/${props.mode}`)
+    fetch(
+      `/wp-json/compilations/${props.mode}`, {
+        headers: {
+          'X-WP-Nonce': props.nonce
+        }
+      }
+    )
     // fetch(`/wp-json/gamesapi/latest_games?limit=${props.maxItems}`)
       .then(response => response.json())
       .then(response => {
