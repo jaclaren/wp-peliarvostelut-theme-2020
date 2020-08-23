@@ -182,6 +182,8 @@ require get_template_directory() . '/inc/shortcodes/topgame.php';
 require get_template_directory() . '/inc/shortcodes/reviewlist.php';
 require get_template_directory() . '/inc/shortcodes/gamequery_horizontal.php';
 
+require get_template_directory() . '/inc/hooks/metatitle.php';
+
 /**
  * Load Jetpack compatibility file.
  */
