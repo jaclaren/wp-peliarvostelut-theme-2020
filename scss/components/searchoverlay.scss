@@ -35,28 +35,39 @@
   margin: auto;
   /* Style the search field */
   input[type=text] {
-    padding: 15px;
-    max-height: 48px;
+    padding: 1rem 1.5rem;
+    // max-height: 48px;
     font-size: 17px;
     border: none;
     float: left;
     width: 80%;
-    background: white;
+    background: #111;
+    outline: none;
+    color: var(--color-white1);
+    font-size: 1.5rem;
+    height: 75px;
+    border-radius: 1rem 0 0 1rem;
   }
 
   input[type=text]:hover {
-    background: #f1f1f1;
   }
 
   /* Style the submit button */
   button {
+    height: 75px;
     float: left;
     width: 20%;
     padding: 15px;
-    background: #ddd;
+    background: var(--color-grey3);
+    border-radius: 0 1rem 1rem 0;
     font-size: 17px;
     border: none;
     cursor: pointer;
+    svg {
+      fill: var(--color-white1);
+      width: 40px;
+      height: auto;
+    }
   }
 
   button:hover {
