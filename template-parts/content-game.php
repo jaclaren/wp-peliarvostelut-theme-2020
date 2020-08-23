@@ -24,7 +24,9 @@
 
 ?>
 
-<div class="row main">
+<div class="row main" itemtype="http://schema.org/SoftwareApplication">
+  <meta itemprop="applicationCategory" content="Game" />
+  <link itemprop="SoftwareApplicationCategory" href="https://schema.org/VideoGame"/>
 
   <div class="col-xs-12 col-sm-8 col-md--full last-sm">
       <div class="box video-container">
@@ -39,7 +41,7 @@
 
   <div class="col-xs-7">
     <header class="box c-gameheader c-item">
-      <h1><?php echo $game->get_title(); ?></h1>
+      <h1 itemprop="name"><?php echo $game->get_title(); ?></h1>
       <span class="c-item__detail c-item__detail__creationdate"><?php echo \PANet\Utils::render_wp_post_creation_date($game->game_object); ?></span>
     </header>
   </div>
@@ -55,12 +57,14 @@
   <div class="col-xs-12 first-sm o-box--horizontal">
     <div class="box">
     <h2>Arvostelut</h2>
-    <div class="c-reviewlist">
+    <div class="c-reviewlist" itemtype="http://schema.org/AggregateRating" itemscope itemprop="aggregateRating">
+      <meta itemprop="bestRating" content="100">
       <?php
         foreach($game->get_reviews() as $review): ?>
           <div class="c-reviewlist__item c-item">
             <header>
-              <div class="c-score--tiny c-score--<?php echo \PANet\Utils::get_color_class_by_score($review->get_score()); ?>"><?php echo $review->get_score(); ?></div>
+              <meta itemprop="bestRating" content="<?php echo $review->get_score(); ?>">
+              <div class="c-reviewlist__header_score c-score--tiny c-score--<?php echo \PANet\Utils::get_color_class_by_score($review->get_score()); ?>"><?php echo $review->get_score(); ?></div>
               <div>
                 <h3><?php echo $review->get_site()->data['name']; ?></h3>
                 <div class="c-item__detail c-item__detail__creationdate">
