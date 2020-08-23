@@ -78,7 +78,7 @@
               <?php echo $review->get_summary(180); ?>
               </blockquote>
             </div>
-            <a class="button--dark" href="<?php echo $review->get_url(); ?>"><?php echo __('Lue arvostelu'); ?></a>
+            <a class="button--dark" rel="nofollow" href="<?php echo $review->get_url(); ?>"><?php echo __('Lue arvostelu'); ?></a>
           </div>
         <?php endforeach; ?>
 
