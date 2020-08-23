@@ -35,3 +35,20 @@ function peliarvostelut_net_2020_theme_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'peliarvostelut_net_2020_theme_pingback_header' );
+
+
+function peliarvostelut_net_2020_theme_google_analytics() {
+	if(strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) return;
+	?>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-20440682-2"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-20440682-2');
+	</script>
+
+	<?php
+}
