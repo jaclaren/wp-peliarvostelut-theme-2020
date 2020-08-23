@@ -7,8 +7,8 @@ export default () => {
 
 function openSearch() {
   // document.getElementById("search__overlay").style.display = "block";
-  searchButton.classList.add('hidden')
-  document.getElementById('search__overlay').classList.add('opened')
+  searchButton.classList.add('hidden');
+  document.getElementById('search__overlay').classList.add('opened');
   document.getElementById("search-box-input").focus();
 }
 
