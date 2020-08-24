@@ -69,16 +69,12 @@ header.small .c-mobilemenu__submenu {
   transform: translateX(-100%);
   background: var(--color-grey3);
   // margin-top: 100px;
+  padding-top: 5rem;
 
   &.opened {
-    // opacity: 1;
-
-    // position: fixed;
     transform: translateX(0);
+    opacity: 1;
 
-    ul {
-      opacity: 1;
-     }
   }
 
   &__submenu {
@@ -94,7 +90,7 @@ header.small .c-mobilemenu__submenu {
     }
   }
 
-    margin-top: 88px;
+    // margin-top: 88px;
 
     transition: all 0.5s ease-in;
     transition-delay: 0.3s;
@@ -104,7 +100,6 @@ header.small .c-mobilemenu__submenu {
     list-style: none;
     line-height: $baseFontSize * 3;
     font-size: $baseFontSize * 1.5;
-    padding: 0;    
 
   li {
     font-family: $fontPrimary;
@@ -128,6 +123,7 @@ header.small .c-mobilemenu__submenu {
   .c-mobilemenu {
     transform: none;
     position: relative;
+    padding-top: 0 !important;
 
 
       margin-top: 0;
