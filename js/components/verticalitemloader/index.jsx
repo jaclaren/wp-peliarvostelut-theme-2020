@@ -45,8 +45,6 @@ const VerticalItemLoader = props => {
 
   }, [])
 
-  console.log(items)
-
   return <div ref={ref} style={{ marginLeft: `-${(pageWidth * props.page) + (props.page * 10)}px` }} className={props.class}>
       {
         items.map((item, index) => {
