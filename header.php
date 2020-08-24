@@ -61,7 +61,8 @@
 
 			<div class="c-mobilemenu__submenu">
 				<ul>
-					<?php foreach(\game_handler::get_with_highest_score_and_reviews() as $game): ?>
+					<?php foreach(\game_handler::get_with_highest_score_and_reviews() as $i => $game): ?>
+						<?php if($i > 2) continue; ?>
 					<li><a href="<?php echo get_permalink($game->game_object); ?>"><?php echo $game->get_title(); ?></a></li>
 					<?php endforeach; ?>
 				</ul>
