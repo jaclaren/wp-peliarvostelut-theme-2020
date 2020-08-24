@@ -23,7 +23,7 @@ const VerticalItemLoader = props => {
 
 
     fetch(
-      `/wp-json/compilations/${props.mode}`, {
+      `/wp-json/compilations/${props.mode}?items=${props.itemsToLoad}`, {
         headers: {
           'X-WP-Nonce': props.nonce
         }
