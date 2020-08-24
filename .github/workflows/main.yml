@@ -1,5 +1,6 @@
-on: push
-      branches: - 'production'
+on:
+  push:
+    branches: - 'production'
 name: Publish Website
 jobs:
   FTP-Deploy-Action:
