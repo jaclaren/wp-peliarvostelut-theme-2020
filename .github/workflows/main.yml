@@ -17,3 +17,4 @@ jobs:
         ftp-server: ftp://linux135.unoeuro.com/
         ftp-username: peliarvostelut.net
         ftp-password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: /public_html/wp-content/themes/wp-peliarvostelut-theme-2020
