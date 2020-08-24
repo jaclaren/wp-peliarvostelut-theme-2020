@@ -9,6 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2.1.0
+      env:
+        GIT_TRACE: 1
+        GIT_CURL_VERBOSE: 1
       with:
         fetch-depth: 2
     - name: FTP-Deploy-Action
