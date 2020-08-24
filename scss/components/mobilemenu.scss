@@ -94,7 +94,6 @@ header.small .c-mobilemenu__submenu {
     }
   }
 
-  ul {
     margin-top: 88px;
 
     transition: all 0.5s ease-in;
@@ -105,8 +104,8 @@ header.small .c-mobilemenu__submenu {
     list-style: none;
     line-height: $baseFontSize * 3;
     font-size: $baseFontSize * 1.5;
-    padding: 0;
-  }
+    padding: 0;    
+
   li {
     font-family: $fontPrimary;
     text-align: center;
@@ -130,7 +129,7 @@ header.small .c-mobilemenu__submenu {
     transform: none;
     position: relative;
 
-    ul {
+
       margin-top: 0;
       opacity: 1;
       display: flex;
@@ -140,7 +139,7 @@ header.small .c-mobilemenu__submenu {
         border: none;
         line-height: normal;
       }
-    }
+
 
   }
 }

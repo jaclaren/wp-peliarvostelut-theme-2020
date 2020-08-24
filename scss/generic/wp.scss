@@ -2,6 +2,10 @@
   display: flex;
 }
 
+.menu-main-navigation-container {
+  flex-grow: 2;
+}
+
 .nav-previous, .nav-next {
   // background: var(--color-grey1);
 
