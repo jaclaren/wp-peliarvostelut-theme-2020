@@ -15,7 +15,7 @@
 	<?php
 	$game = new \game(get_post(get_the_ID()));
 	?>
-	<a href="<?php esc_url( get_permalink() ); ?>">
+	<a href="<?php echo esc_url( get_permalink() ); ?>">
 	<header class="entry-header" class="col-xs-12 col-sm-4">
 
 		<?php the_title( sprintf( '<h2 class="entry-title">', esc_url( get_permalink() ) ), '</h2>' ); ?>
