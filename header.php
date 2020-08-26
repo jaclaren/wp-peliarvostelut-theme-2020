@@ -15,6 +15,7 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Peliarvostelut.NET on suomalainen peliarvioiden koostesivusto, jonka sisältö kootaan suomalaisista peliarvioista.">
 
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Roboto&display=swap" rel="stylesheet">
 
@@ -61,7 +62,7 @@
 
 			<div class="c-mobilemenu__submenu">
 				<ul>
-					<?php foreach(\game_handler::get_with_highest_score_and_reviews() as $i => $game): ?>						
+					<?php foreach(\game_handler::get_with_highest_score_and_reviews() as $i => $game): ?>
 						<?php if($i > 2) continue; ?>
 					<li><a href="<?php echo get_permalink($game->game_object); ?>"><?php echo $game->get_title(); ?></a></li>
 					<?php endforeach; ?>
