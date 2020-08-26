@@ -96,7 +96,7 @@
   <div class="col-xs-12 col-sm-4">
     <?php $news_items = json_decode(@$game->get_news_items()[0]); ?>
     <?php if(!empty($news_items)): ?>
-      <h2>Liiteyt uutiset</h2>    
+      <h2>Liiteyt uutiset</h2>
       <?php foreach($news_items as $news_item): ?>
         <a href="<?php echo $news_item->url; ?>" class="c-reviewlist__item">
           <h3><?php echo utf8_decode($news_item->title); ?></h3>
@@ -124,10 +124,16 @@
           <td><?php echo $game->get_title(); ?></td>
         </tr>
         <?php if(!empty($game->get_developer())): ?>
-        <tr>
-          <td>Alustat</td>
-          <td><?php echo implode(', ',$game->get_tax_platforms()); ?></td>
-        </tr>
+          <tr>
+            <td>Kehittäjä</td>
+            <td><?php echo implode(', ',$game->get_developer()); ?></td>
+          </tr>
+        <?php endif; ?>
+        <?php if(!empty($game->get_tax_platforms())): ?>
+          <tr>
+            <td>Alustat</td>
+            <td><?php echo implode(', ',$game->get_tax_platforms()); ?></td>
+          </tr>
         <?php endif; ?>
         <?php if(!empty($game->get_tax_platforms())): ?>
         <tr>
@@ -141,11 +147,6 @@
             <td><?php echo !empty($genres) ? implode(', ', $genres) : null; ?></td>
           </tr>
         <?php endif; ?>
-        <tr>
-          <td colspan="2">
-            <?php #include('partials/svg.php'); ?>
-          </td>
-        </tr>
 
       </table>
 
