@@ -60,11 +60,11 @@
     <div class="c-reviewlist" itemtype="http://schema.org/AggregateRating" itemscope itemprop="aggregateRating">
       <meta itemprop="bestRating" content="100">
       <meta itemprop="ratingCount" content="<?php echo count($game->get_reviews()); ?>">
+      <meta itemprop="ratingValue" content="<?php echo  $game->get_average_score(); ?>">
       <?php
         foreach($game->get_reviews() as $review): ?>
           <div class="c-reviewlist__item c-item">
             <header>
-              <meta itemprop="ratingValue" content="<?php echo $review->get_score(); ?>">
               <div class="c-reviewlist__header_score c-score--tiny c-score--<?php echo \PANet\Utils::get_color_class_by_score($review->get_score()); ?>"><?php echo $review->get_score(); ?></div>
               <div>
                 <h3><?php echo $review->get_site()->data['name']; ?></h3>
