@@ -61,6 +61,7 @@
       <meta itemprop="bestRating" content="100">
       <meta itemprop="ratingCount" content="<?php echo count($game->get_reviews()); ?>">
       <meta itemprop="ratingValue" content="<?php echo  $game->get_average_score(); ?>">
+      <meta itemprop="itemReviewed" content="thing">
       <?php
         foreach($game->get_reviews() as $review): ?>
           <div class="c-reviewlist__item c-item">
