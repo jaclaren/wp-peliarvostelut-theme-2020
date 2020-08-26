@@ -33,7 +33,7 @@
         <iframe
           width="100%"
           height="315"
-          src="<?php echo $game->get_youtube_trailer(); ?>"
+          src="<?php echo $game->get_any_video(); ?>"
           frameborder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>

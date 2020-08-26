@@ -5,7 +5,7 @@
 
   function peliarvostelut_net_topgame($args) {
     $games = \game_handler::get_with_highest_score_and_reviews();
-    $game = @$games[0];
+    $game = @$games[0];    
     ?>
     <div class="row main">
     <div class="col-xs-12 col-sm-8 col-md--full">
@@ -13,7 +13,7 @@
       <iframe
         width="100%"
         height="315"
-        src="<?php echo $game->get_youtube_trailer(); ?>"
+        src="<?php echo $game->get_any_video(); ?>"
         frameborder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
