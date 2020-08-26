@@ -31,9 +31,5 @@
 
 	<?php peliarvostelut_net_2020_theme_post_thumbnail(); ?>
 
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
-
 </article><!-- #post-<?php the_ID(); ?> -->
 </div>
