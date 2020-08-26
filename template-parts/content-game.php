@@ -126,7 +126,7 @@
         <?php if(!empty($game->get_developer())): ?>
           <tr>
             <td>Kehittäjä</td>
-            <td><?php echo implode(', ',$game->get_developer()); ?></td>
+            <td><?php echo $game->get_developer(); ?></td>
           </tr>
         <?php endif; ?>
         <?php if(!empty($game->get_tax_platforms())): ?>
