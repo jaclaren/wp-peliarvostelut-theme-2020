@@ -10,7 +10,8 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+	<main id="primary" class="site-main row">
+		<div class="col-xs-12">
 
 		<?php if ( have_posts() ) : ?>
 
@@ -18,7 +19,7 @@ get_header();
 				<h1 class="page-title">
 					<?php
 					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'peliarvostelut-net-2020-theme' ), '<span>' . get_search_query() . '</span>' );
+					printf( esc_html__( 'Hakutulokset haulla: "%s"', 'peliarvostelut-net-2020-theme' ), '<span>' . get_search_query() . '</span>' );
 					?>
 				</h1>
 			</header><!-- .page-header -->
@@ -45,7 +46,7 @@ get_header();
 
 		endif;
 		?>
-
+		</div>
 	</main><!-- #main -->
 
 <?php

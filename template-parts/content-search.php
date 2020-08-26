@@ -9,19 +9,25 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
-		<?php if ( 'post' === get_post_type() ) : ?>
+<div class="row">
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<?php
+	$game = new \game(get_post(get_the_ID()));
+	?>
+	<a href="<?php esc_url( get_permalink() ); ?>">
+	<header class="entry-header" class="col-xs-12 col-sm-4">
+
+		<?php the_title( sprintf( '<h2 class="entry-title">', esc_url( get_permalink() ) ), '</h2>' ); ?>
+
+		<?php if ( 'game' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php
-			peliarvostelut_net_2020_theme_posted_on();
-			peliarvostelut_net_2020_theme_posted_by();
-			?>
+
+			<img src="<?php echo $game->get_coverimg(true); ?>" />
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
+	</a>
 
 	<?php peliarvostelut_net_2020_theme_post_thumbnail(); ?>
 
@@ -29,7 +35,5 @@
 		<?php the_excerpt(); ?>
 	</div><!-- .entry-summary -->
 
-	<footer class="entry-footer">
-		<?php peliarvostelut_net_2020_theme_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
+</div>
