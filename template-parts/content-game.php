@@ -24,9 +24,23 @@
 
 ?>
 
-<div class="row main" itemtype="http://schema.org/SoftwareApplication">
-  <meta itemprop="applicationCategory" content="Game" />
-  <link itemprop="SoftwareApplicationCategory" href="https://schema.org/VideoGame"/>
+<script type="application/ld+json">
+    {
+        "@context" : "https://schema.org",
+        "@type" : "VideoGame",
+                "applicationCategory" : "Game",
+                "name" : "<?php echo $game->get_title(); ?>",
+                "aggregateRating" : {
+                "@type" : "AggregateRating",
+                "bestRating" : "100",
+                "worstRating" : "0",
+                "ratingValue" : "<?php echo $game->get_average_score(); ?>",
+                "ratingCount" : "<?php echo count($game->get_reviews()); ?>"
+                            }
+            }
+</script>
+
+<div class="row main">
 
   <div class="col-xs-12 col-sm-8 col-md--full last-sm">
       <div class="box video-container">
@@ -40,12 +54,8 @@
   </div>
 
   <div class="col-xs-7">
-    <meta itemprop="bestRating" content="100">
-    <meta itemprop="ratingValue" content="<?php echo  $game->get_average_score(); ?>">
-    <meta itemprop="ratingCount" content="<?php echo count($game->get_reviews()); ?>">
-
     <header class="box c-gameheader c-item">
-      <h1 itemprop="itemReviewed" itemscope itemtype="http://schema.org/Thing"><?php echo $game->get_title(); ?></h1>
+      <h1><?php echo $game->get_title(); ?></h1>
       <span class="c-item__detail c-item__detail__creationdate"><?php echo \PANet\Utils::render_wp_post_creation_date($game->game_object); ?></span>
     </header>
   </div>
@@ -61,7 +71,7 @@
   <div class="col-xs-12 first-sm o-box--horizontal">
     <div class="box">
     <h2>Arvostelut</h2>
-    <div class="c-reviewlist" itemtype="http://schema.org/AggregateRating" itemscope itemprop="aggregateRating">
+    <div class="c-reviewlist">
       <?php
         foreach($game->get_reviews() as $review): ?>
           <div class="c-reviewlist__item c-item">
