@@ -40,6 +40,10 @@
   </div>
 
   <div class="col-xs-7">
+    <meta itemprop="bestRating" content="100">
+    <meta itemprop="ratingValue" content="<?php echo  $game->get_average_score(); ?>">
+    <meta itemprop="ratingCount" content="<?php echo count($game->get_reviews()); ?>">
+
     <header class="box c-gameheader c-item">
       <h1 itemprop="itemReviewed" itemscope itemtype="http://schema.org/Thing"><?php echo $game->get_title(); ?></h1>
       <span class="c-item__detail c-item__detail__creationdate"><?php echo \PANet\Utils::render_wp_post_creation_date($game->game_object); ?></span>
@@ -58,9 +62,6 @@
     <div class="box">
     <h2>Arvostelut</h2>
     <div class="c-reviewlist" itemtype="http://schema.org/AggregateRating" itemscope itemprop="aggregateRating">
-      <meta itemprop="bestRating" content="100">
-      <meta itemprop="ratingCount" content="<?php echo count($game->get_reviews()); ?>">
-      <meta itemprop="ratingValue" content="<?php echo  $game->get_average_score(); ?>">
       <?php
         foreach($game->get_reviews() as $review): ?>
           <div class="c-reviewlist__item c-item">
