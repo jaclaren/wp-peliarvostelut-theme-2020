@@ -94,22 +94,25 @@
 
 <div class="row">
   <div class="col-xs-12 col-sm-4">
-    <h2>Liiteyt uutiset</h2>
-    <?php foreach(json_decode(@$game->get_news_items()[0]) as $news_item): ?>
-      <a href="<?php echo $news_item->url; ?>" class="c-reviewlist__item">
-        <h3><?php echo utf8_decode($news_item->title); ?></h3>
-        <div>
-        <span class="c-item__detail c-item__detail__sitename"><?php echo get_site_name_from_url($news_item->url)->data["name"]; ?></span>
-        <span class="c-item__detail c-item__detail__creationdate">
-          <?php
-          $year = date("Y", strtotime($news_item->write_date));
-          if($year > 2016)
-          echo date("j.n.o", strtotime($news_item->write_date));
-          ?>
-        </span>
-      </div>
-      </a>
-    <?php endforeach; ?>
+    <?php $news_items = json_decode(@$game->get_news_items()[0]); ?>
+    <?php if(!empty($news_items)): ?>
+      <h2>Liiteyt uutiset</h2>    
+      <?php foreach($news_items as $news_item): ?>
+        <a href="<?php echo $news_item->url; ?>" class="c-reviewlist__item">
+          <h3><?php echo utf8_decode($news_item->title); ?></h3>
+          <div>
+          <span class="c-item__detail c-item__detail__sitename"><?php echo get_site_name_from_url($news_item->url)->data["name"]; ?></span>
+          <span class="c-item__detail c-item__detail__creationdate">
+            <?php
+            $year = date("Y", strtotime($news_item->write_date));
+            if($year > 2016)
+            echo date("j.n.o", strtotime($news_item->write_date));
+            ?>
+          </span>
+        </div>
+        </a>
+      <?php endforeach; ?>
+    <?php endif; ?>
   </div>
 
   <div class="col-xs-12 col-sm-8 first-lg">
