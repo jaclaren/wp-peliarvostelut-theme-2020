@@ -98,7 +98,7 @@
     <?php if(!empty($news_items)): ?>
       <h2>Liiteyt uutiset</h2>
       <?php foreach($news_items as $news_item): ?>
-        <a href="<?php echo $news_item->url; ?>" class="c-reviewlist__item">
+        <a href="<?php echo $news_item->url; ?>" rel="nofollow" class="c-reviewlist__item">
           <h3><?php echo utf8_decode($news_item->title); ?></h3>
           <div>
           <span class="c-item__detail c-item__detail__sitename"><?php echo get_site_name_from_url($news_item->url)->data["name"]; ?></span>
