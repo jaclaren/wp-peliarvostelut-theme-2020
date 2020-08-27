@@ -54,12 +54,13 @@ const VerticalItemLoader = props => {
 
   }, [])
 
-  return <div ref={ref} style={{ marginLeft: `-${(pageWidth * props.page) + (props.page * 10)}px` }} className={props.class}>
+  return <div ref={ref} style={{ marginLeft: window.screen.width <= 1200 ? 0 : `-${(pageWidth * props.page) + (props.page * 10)}px` }} className={props.class}>
       {
         items.map((item, index) => {
           const isLoaded = item && item.title && item.title.length > 0;
           const isOnPage = (index < (props.itemsPerPage * props.page) + props.itemsPerPage)
           const isPreviousPage = props.previousPage > props.page
+          const isIntersectionObject = (index % props.itemsPerPage) == 0
 
           return <TrackedItem
             observable={ref.current}
@@ -67,7 +68,8 @@ const VerticalItemLoader = props => {
             isLoaded={isLoaded}
             loadedClass={props.loadedClass}
             defaultClass={props.defaultClass}
-            isIntersecting={(index % props.itemsPerPage) == 0}
+            isIntersecting={isIntersectionObject}
+            onIntersect={() => props.changePage(index / props.itemsPerPage)}
             item={item}
             index={index}
             itemWrapper={isLoaded ? props.itemWrapper : props.skeletonWrapper}

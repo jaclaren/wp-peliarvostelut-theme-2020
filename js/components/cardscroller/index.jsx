@@ -40,8 +40,13 @@ const CardScroller = props => {
 
     if(page > 0) {
       setPreviousPage(page)
-      setPage(page-1)      
+      setPage(page-1)
     }
+  }
+
+  const changePage = newPage => {
+    setPreviousPage(page)
+    setPage(newPage)
   }
 
   return (
@@ -53,6 +58,7 @@ const CardScroller = props => {
           class="compilationcardlist"
           page={page}
           previousPage={previousPage}
+          changePage={changePage}
           defaultClass="compilationcard--skeleton"
           loadedClass="compilationcard"
           itemWrapper={pr => <GameCard {...pr} />}

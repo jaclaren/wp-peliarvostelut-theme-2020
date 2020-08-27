@@ -3,12 +3,13 @@ import React, {useState, useEffect} from 'react';
 const TrackedItem = props => {
   const ref = React.useRef()
   const [show, _setShow] = React.useState(true);
+  const [hasIntersected, _setHasIntersected] = React.useState(false);
 
   const cb = React.useCallback(entries => {
     entries.forEach(entry => {
       if(entry.isIntersecting) {
-        // _setShow(true)
-        console.log("INTERSECTING", entry)
+        props.onIntersect()
+        _setHasIntersected(true)
       }
     })
   })
