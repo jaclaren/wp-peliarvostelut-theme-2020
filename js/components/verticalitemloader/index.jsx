@@ -19,8 +19,7 @@ const VerticalItemLoader = props => {
       ref.current.scrollLeft = 0;     // reset scroll on resize to avoid mode overlap
     })
 
-    generateSkeletonObjects(_setItems, items, props.maxItems)
-
+    generateSkeletonObjects(_setItems, items, props.maxItems)    
 
     fetch(
       `/wp-json/compilations/${props.mode}?items=${props.itemsToLoad}`, {
@@ -29,12 +28,11 @@ const VerticalItemLoader = props => {
         }
       }
     )
-    // fetch(`/wp-json/gamesapi/latest_games?limit=${props.maxItems}`)
       .then(response => response.json())
       .then(response => {
         if(response.body) {
           setTimeout(() => {
-            _setItems(response.body.compilations)
+            _setItems(props.mock ? props.mock : response.body.compilations)
           }, 800)
         }
     })

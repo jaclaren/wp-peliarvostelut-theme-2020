@@ -5,6 +5,18 @@ const getIndexesByPage = (page, totalItems, itemsPerPage) => {
   return { start, end }
 }
 
+const mockObject = Array.from(Array(20),
+  (_, i) => {
+    return
+      {
+        ID:i,
+        title:"Doom Eternal",
+        coverimage:`http:\/\/dev-peliarvostelut.net\/wp-content\/uploads\/2020\/07\/DprojectswebPeliarvostelutNETwwwwp-contentuploads2020071595092465_${i}.png`,
+        href:"http:\/\/dev-peliarvostelut.net\/pelit\/doom-eternal\/"
+      }
+  }
+)
+
 const fillRemainingSkeletonObjects = (page, setReviews, reviews, props, _setLoading) => {
   fetch('data/mock_reviews.json')
     .then(response => response.json())
@@ -19,8 +31,10 @@ const fillRemainingSkeletonObjects = (page, setReviews, reviews, props, _setLoad
         }
       )
 
-      if(newReviews.length > 0)
-        setReviews(newReviews)
+      setReviews(mockObject)
+
+      // if(newReviews.length > 0)
+      //   setReviews(newReviews)
 
       _setLoading(false)
     }, 200)

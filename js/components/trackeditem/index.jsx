@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 
 const TrackedItem = props => {
   const ref = React.useRef()
-  const [show, _setShow] = React.useState(false);
+  const [show, _setShow] = React.useState(true);
 
   const cb = React.useCallback(entries => {
     entries.forEach(entry => {
@@ -18,10 +18,10 @@ const TrackedItem = props => {
         root : props.observable
       });
 
-      intersectionObserver.observe(ref.current);
+      // intersectionObserver.observe(ref.current);
   }, [])
 
-  // className={show && props.isLoaded ? 'compilationcard' : 'compilationcard--skeleton'}  
+  // className={show && props.isLoaded ? 'compilationcard' : 'compilationcard--skeleton'}
   return <a href={ props.item ? props.item.href : '#' }
       className={show && props.isLoaded ? props.loadedClass : props.defaultClass }
       style={ !props.isLoaded ? {animationDelay: `${props.index/10}s`} : null}
