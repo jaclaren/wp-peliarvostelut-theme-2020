@@ -22,8 +22,8 @@ document.querySelectorAll('.c-score').forEach(_ => {
 document.querySelectorAll('.games').forEach(_ => {
   ReactDOM.render(
     <CardScroller
-      maxItems={7*10}
-      itemsToLoad={7*10} 
+      maxItems={7*3}
+      itemsToLoad={7*3} 
       itemsPerPage={7}
       nonce={localizedVars.nonce}
       mode={_.dataset.mode}

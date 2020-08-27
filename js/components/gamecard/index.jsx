@@ -4,7 +4,7 @@ const GameCard = props => {
   return (
     <React.Fragment>
       <span>
-        {props.coverimage ? <img src={props.coverimage} /> : null}
+        {props.coverimage && props.displayImage ? <img src={props.coverimage} /> : null}
       </span>
       <div class="compilationcard__title">
         <div>

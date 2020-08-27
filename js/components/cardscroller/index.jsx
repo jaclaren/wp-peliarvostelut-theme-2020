@@ -8,6 +8,7 @@ import GameCard from '../gamecard/index.jsx';
 const CardScroller = props => {
   const ref = React.useRef({})
   const [page, setPage] = React.useState(0);
+  const [previousPage, setPreviousPage] = React.useState(0);
   const [controllerVisibility, setControllerVisibility] = React.useState({ left : false, right : true })
 
   React.useEffect(() => {
@@ -29,13 +30,18 @@ const CardScroller = props => {
   }, [page])
 
   const incrementPage = () => {
-    if(props.itemsPerPage * (page+1) < props.maxItems)
+    if(props.itemsPerPage * (page+1) < props.maxItems) {
+      setPreviousPage(page)
       setPage(page+1)
+    }
   }
 
   const decrementPage = () => {
-    if(page > 0)
-      setPage(page-1)
+
+    if(page > 0) {
+      setPreviousPage(page)
+      setPage(page-1)      
+    }
   }
 
   return (
@@ -46,6 +52,7 @@ const CardScroller = props => {
           <VerticalItemLoader
           class="compilationcardlist"
           page={page}
+          previousPage={previousPage}
           defaultClass="compilationcard--skeleton"
           loadedClass="compilationcard"
           itemWrapper={pr => <GameCard {...pr} />}

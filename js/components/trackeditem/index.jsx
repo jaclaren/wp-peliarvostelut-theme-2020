@@ -7,18 +7,21 @@ const TrackedItem = props => {
   const cb = React.useCallback(entries => {
     entries.forEach(entry => {
       if(entry.isIntersecting) {
-        _setShow(true)
+        // _setShow(true)
+        console.log("INTERSECTING", entry)
       }
     })
   })
 
   React.useEffect(() => {
       // REMEMBER POLYFILL
-      var intersectionObserver = new IntersectionObserver(cb, {
-        root : props.observable
-      });
+      if(props.isIntersecting) {
+        var intersectionObserver = new IntersectionObserver(cb, {
+          root : props.observable
+        });
 
-      // intersectionObserver.observe(ref.current);
+        intersectionObserver.observe(ref.current);
+      }
   }, [])
 
   // className={show && props.isLoaded ? 'compilationcard' : 'compilationcard--skeleton'}
@@ -26,7 +29,7 @@ const TrackedItem = props => {
       className={show && props.isLoaded ? props.loadedClass : props.defaultClass }
       style={ !props.isLoaded ? {animationDelay: `${props.index/10}s`} : null}
       ref={ref}>
-      { props.itemWrapper(Object.assign({}, props.item, { index: props.index, displayImage : show && props.isLoaded })) }
+      { props.itemWrapper(Object.assign({}, props.item, { index: props.index, displayImage : props.show })) }
     </a>
 }
 

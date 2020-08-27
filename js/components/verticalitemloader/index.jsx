@@ -8,6 +8,16 @@ const generateSkeletonObjects = (setReviews, reviews, num = 3) => {
   ))
 }
 
+const setItemsByPage = (page, itemsPerPage, items) => {
+  console.log("Set items by page", page, itemsPerPage, items)
+  return items.map((item, index) => {
+    if(index < page + itemsPerPage)
+      item.showImage = true
+
+    return item
+  })
+}
+
 const VerticalItemLoader = props => {
   const [items, _setItems] = React.useState([]);
   const ref = React.useRef()
@@ -19,7 +29,7 @@ const VerticalItemLoader = props => {
       ref.current.scrollLeft = 0;     // reset scroll on resize to avoid mode overlap
     })
 
-    generateSkeletonObjects(_setItems, items, props.maxItems)    
+    generateSkeletonObjects(_setItems, items, props.maxItems)
 
     fetch(
       `/wp-json/compilations/${props.mode}?items=${props.itemsToLoad}`, {
@@ -32,6 +42,7 @@ const VerticalItemLoader = props => {
       .then(response => {
         if(response.body) {
           setTimeout(() => {
+            // _setItems(props.mock ? props.mock : setItemsByPage(props.page, props.itemsPerPage, response.body.compilations))
             _setItems(props.mock ? props.mock : response.body.compilations)
           }, 800)
         }
@@ -46,18 +57,22 @@ const VerticalItemLoader = props => {
   return <div ref={ref} style={{ marginLeft: `-${(pageWidth * props.page) + (props.page * 10)}px` }} className={props.class}>
       {
         items.map((item, index) => {
-
           const isLoaded = item && item.title && item.title.length > 0;
+          const isOnPage = (index < (props.itemsPerPage * props.page) + props.itemsPerPage)
+          const isPreviousPage = props.previousPage > props.page
 
           return <TrackedItem
             observable={ref.current}
+            show={isOnPage || isPreviousPage}
             isLoaded={isLoaded}
             loadedClass={props.loadedClass}
             defaultClass={props.defaultClass}
+            isIntersecting={(index % props.itemsPerPage) == 0}
             item={item}
             index={index}
             itemWrapper={isLoaded ? props.itemWrapper : props.skeletonWrapper}
-            ></TrackedItem>
+            >
+            </TrackedItem>
       })
     }
   </div>
