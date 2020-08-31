@@ -1,8 +1,7 @@
 .c-newslist {
-  display: flex;
-  justify-content: center;
+  display: flex;  
   flex-flow: column;
-  
+
   &__item {
     background: var(--color-grey5);
     margin: 0.25rem 0;
