@@ -13,4 +13,16 @@
       fill: var(--color-white1);
     }
   }
+
+  &__some {
+    &__twitter, &__facebook {
+      circle { fill: var(--color-grey1); } // circle
+    }
+    &__facebook {
+      path { fill: white; } // f-letter
+    }
+    &__twitter {
+      path { fill: white; } // f-letter
+    }
+  }
 }

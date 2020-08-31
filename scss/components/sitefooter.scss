@@ -1,0 +1,44 @@
+.c-sitefooter {
+  padding-top: 1rem;
+
+  &__column {
+    display: flex;
+    justify-content: center;
+
+    &__partners {
+      text-align: center;
+      flex-flow: column;
+     }
+  }
+
+  &__columnheader {
+    margin-bottom: 0;
+  }
+
+  &__copyright {
+    color: var(--color-grey4);
+    line-height: 4rem;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__item {
+    margin: 0.5rem;
+  }
+
+  &__link {
+    &--icon {
+      width: 3rem;
+      height: 3rem;
+    }
+
+    &__partner {
+      color: var(--color-default-accent) !important;
+    }
+  }
+
+
+}

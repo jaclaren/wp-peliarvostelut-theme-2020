@@ -181,6 +181,7 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/customizer.php';
 
 require get_template_directory() . '/inc/enqueues.php';
+require get_template_directory() . '/inc/icons.php';
 
 require get_template_directory() . '/inc/shortcodes/topgame.php';
 require get_template_directory() . '/inc/shortcodes/reviewlist.php';
