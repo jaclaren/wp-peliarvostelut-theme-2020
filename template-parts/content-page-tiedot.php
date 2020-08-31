@@ -10,7 +10,7 @@
 ?>
 
 
-<article class="col-xs-12">
+<article class="col-xs-8 col-xs-offset-2 middle-sm">
 	<h1 class="c-page__title"><?php the_title(); ?></h1>
 	<?php	the_content(); ?>
 	<?php peliarvostelut_net_2020_theme_post_thumbnail(); ?>
