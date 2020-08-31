@@ -9,49 +9,27 @@
 
 get_header();
 ?>
+	<main id="primary" class="row middle-sm">
+			<div class="c-icon c-icon--huge c-icon__404 col-xs-12 col-sm-4">
+				<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><circle cx="15.5" cy="9.5" r="1.5"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-6c-2.33 0-4.32 1.45-5.12 3.5h1.67c.69-1.19 1.97-2 3.45-2s2.75.81 3.45 2h1.67c-.8-2.05-2.79-3.5-5.12-3.5z"/></svg>
+			</div>
+			<header class="page-header col-xs-12 col-sm-8 c-404box">
+				<h1 class="c-404box__title"><?php esc_html_e( 'Sivua ei löytynyt.', 'peliarvostelut-net-2020-theme' ); ?></h1>
+				<div class="page-content">
+					<p><?php esc_html_e( 'Hakemaasi sisältöä ei löytynyt. Tämä voi johtua linkkirakenteen muutoksista tai sisältö on siirretty toiseen osoitteeseen.', 'peliarvostelut-net-2020-theme' ); ?></p>
 
-	<main id="primary" class="site-main">
+						<?php
+						get_search_form();
 
-		<section class="error-404 not-found">
-			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'peliarvostelut-net-2020-theme' ); ?></h1>
+						// the_widget( 'WP_Widget_Recent_Posts' );
+						?>
+
+				</div><!-- .page-content -->
+
 			</header><!-- .page-header -->
 
-			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'peliarvostelut-net-2020-theme' ); ?></p>
 
-					<?php
-					get_search_form();
-
-					the_widget( 'WP_Widget_Recent_Posts' );
-					?>
-
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'peliarvostelut-net-2020-theme' ); ?></h2>
-						<ul>
-							<?php
-							wp_list_categories(
-								array(
-									'orderby'    => 'count',
-									'order'      => 'DESC',
-									'show_count' => 1,
-									'title_li'   => '',
-									'number'     => 10,
-								)
-							);
-							?>
-						</ul>
-					</div><!-- .widget -->
-
-					<?php
-					/* translators: %1$s: smiley */
-					$peliarvostelut_net_2020_theme_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'peliarvostelut-net-2020-theme' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$peliarvostelut_net_2020_theme_archive_content" );
-
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
-
-			</div><!-- .page-content -->
+		<section class="col-xs-12 not-found">
 		</section><!-- .error-404 -->
 
 	</main><!-- #main -->

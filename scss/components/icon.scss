@@ -14,6 +14,16 @@
     }
   }
 
+  &__404 {
+    // text-align: center;
+    svg {
+      width: 100%;
+      height: 100%;
+      fill: var(--color-grey2);
+      // fill: var(--color-defaul);
+    }
+  }
+
   &__some {
     &__twitter, &__facebook {
       circle { fill: var(--color-grey1); } // circle
