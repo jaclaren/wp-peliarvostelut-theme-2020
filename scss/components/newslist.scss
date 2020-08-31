@@ -1,0 +1,31 @@
+.c-newslist {
+  &__item {
+    background: var(--color-grey5);
+    margin: 0.25rem 0;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+
+    padding: 0.5rem;
+
+    &__metas {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__header {
+      font-size: 1rem;
+      margin: 0;
+      margin-bottom: 0.5rem;
+    }
+
+    &__sitename {
+      color: var(--color-grey2);
+    }
+
+    &__creationdate {
+
+    }
+  }
+}
