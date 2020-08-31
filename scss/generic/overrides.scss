@@ -1,8 +1,12 @@
 // Flexboxgrid overrides
 
+#primary {
+  min-height: 50vh;
+}
+
 .row {
   margin-right: 0;
-  margin-left: 0;  
+  margin-left: 0;
 }
 
 @media only screen and (max-width: 800px) {
