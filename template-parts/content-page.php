@@ -9,19 +9,20 @@
 
 ?>
 
-<article class="row">
+<article <?php post_class(); ?>>
 
 	<?php peliarvostelut_net_2020_theme_post_thumbnail(); ?>
 
-	<div class="col-xs-12">
-		<h1 class="c-page__title"><?php the_title(); ?></h1>
-		<?php	the_content(); ?>
-	</div><!-- .entry-content -->
+	<div class="entry-content">
+		<?php
+		the_content();
+		?>
+	</div>
 
 	<?php if ( get_edit_post_link() ) : ?>
 		<footer class="entry-footer">
 			<?php
 			?>
-		</footer><!-- .entry-footer -->
+		</footer>
 	<?php endif; ?>
-</article><!-- #post-<?php the_ID(); ?> -->
+</article>

@@ -9,10 +9,10 @@
 
 ?>
 
-<article>
 
-	<?php peliarvostelut_net_2020_theme_post_thumbnail(); ?>
-
+<article class="col-xs-12">
+	<h1 class="c-page__title"><?php the_title(); ?></h1>
 	<?php	the_content(); ?>
+	<?php peliarvostelut_net_2020_theme_post_thumbnail(); ?>
 
 </article><!-- #post-<?php the_ID(); ?> -->

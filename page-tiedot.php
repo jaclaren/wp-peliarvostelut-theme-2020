@@ -14,12 +14,12 @@
 
 get_header();
 ?>
-	<main id="primary" class="">
+	<main id="primary" class="row">
 		<?php
 		while ( have_posts() ) :
 			the_post();
 
-			get_template_part( 'template-parts/content', 'page-koosteet' );
+			get_template_part( 'template-parts/content', 'page-tiedot' );
 
 		endwhile; // End of the loop.
 		?>
