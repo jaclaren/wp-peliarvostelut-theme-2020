@@ -6,12 +6,6 @@
 
 }
 
-.c-reviewlist__header {
-  &_score {
-    margin-right: 0.75rem;
-  }
-}
-
 .c-reviewlist__item {
   flex-shrink : 0;
   flex-grow: 0;
@@ -22,9 +16,13 @@
     // margin-left: 0px;
   }
 
-  header {
+  &__header {
     display: flex;
-    align-items: center;
+    justify-content: flex-start;
+
+    &__score {
+      margin-right: 0.75rem;
+    }
   }
 
   h3 {

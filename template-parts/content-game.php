@@ -75,8 +75,8 @@
       <?php
         foreach($game->get_reviews() as $review): ?>
           <div class="c-reviewlist__item c-item">
-            <header>
-              <div class="c-reviewlist__header_score c-score--tiny c-score--<?php echo \PANet\Utils::get_color_class_by_score($review->get_score()); ?>"><?php echo $review->get_score(); ?></div>
+            <header class="c-reviewlist__item__header">
+              <div class="c-reviewlist__item__header__score c-score--tiny c-score--<?php echo \PANet\Utils::get_color_class_by_score($review->get_score()); ?>"><?php echo $review->get_score(); ?></div>
               <div>
                 <h3><?php echo $review->get_site()->data['name']; ?></h3>
                 <div class="c-item__detail c-item__detail__creationdate">
