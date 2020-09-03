@@ -108,7 +108,23 @@ header.small .c-mobilemenu__submenu {
     border-bottom: solid 1px var(--color-grey1);
 
     a {
-      line-height: 6rem !important;
+      $px: 2px;
+      // line-height: 6rem !important;
+      transition: all 1s ease 0s;
+      border-bottom: solid $px transparent;
+      outline: none;
+      padding: 0.25rem 0.5rem;
+      position: relative;
+
+      color: var(--color-grey2);
+
+      /* Primary menu links */
+
+      &:focus, &:hover {
+        color: var(--color-white1);
+
+        border-bottom: solid $px var(--color-grey4);
+      }
     }
   }
 }

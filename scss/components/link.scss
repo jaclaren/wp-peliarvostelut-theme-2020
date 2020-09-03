@@ -1,0 +1,7 @@
+.c-link {
+  &--underline {
+    &:focus, &:hover {
+      outline: solid 1px red;
+    }
+  }
+}
