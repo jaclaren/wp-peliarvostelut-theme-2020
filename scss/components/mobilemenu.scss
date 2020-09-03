@@ -116,12 +116,12 @@ header.small .c-mobilemenu__submenu {
       padding: 0.15rem 0rem;
       position: relative;
 
-      color: var(--color-grey2);
+      color: var(--color-white1);
 
       /* Primary menu links */
 
       &:focus, &:hover {
-        color: var(--color-white1);
+        color: #fff;
 
         border-bottom: solid $px var(--color-grey4);
       }
