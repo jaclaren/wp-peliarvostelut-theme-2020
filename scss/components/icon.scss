@@ -25,6 +25,16 @@
   }
 
   &__some {
+    circle {
+      transition: fill 1s ease 0s;
+    }
+
+    &:hover, &:focus {
+      circle {
+        fill: var(--color-grey4);
+      }
+    }
+
     &__twitter, &__facebook {
       circle { fill: var(--color-grey1); } // circle
     }
