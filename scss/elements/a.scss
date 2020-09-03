@@ -1,12 +1,20 @@
 a, a:visited {
-  color: var(--color-default-accent);
   color: var(--color-white1);
+  // color: var(--color-grey7);
   display: inline-block;
+
+  transition: color 1s ease 0s;
 
   text-decoration: none;
 
   &:hover {
-    color: inherit;    
+    color: inherit;
+  }
+
+  &:focus {
+    color: var(--color-white3);
+    outline: none;
+    color: inherit;
   }
 
 }

@@ -3,15 +3,28 @@
   padding: 0.6rem 1.5rem;
   border-radius: 2rem;
   font-size: 1.3rem;
+  transition: background 1s ease 0s;
+
+  &:hover,&:focus {
+    background: var(--color-default-accent2);
+  }
 }
 
 .button--dark {
+  transition: all 0.75s ease 0s;
   text-align: center;
   border-radius: 2rem;
   border: solid 2px var(--color-grey1);
   background: var(--color-grey3);
   padding: 0.5rem 1rem;
   font-size: 1.1rem;
+
+  &:hover,&:focus {
+    // background: var(--color-default-accent2);
+    border-color: var(--color-default-accent);
+    color: white;
+  }
+
 }
 
 .button--secondary {
