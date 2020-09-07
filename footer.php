@@ -24,6 +24,11 @@
             <?php peliarvostelut_net_2020_icons_twitter(); ?>
           </a>
         </li>
+        <li class="c-sitefooter__item">
+          <a rel="nofollow" href="/yhteydenotto" class="c-sitefooter__link c-sitefooter__link--icon c-icon c-icon--circle c-icon__some c-icon__some__twitter">
+            <?php peliarvostelut_net_2020_icons_contact(); ?>
+          </a>
+        </li>
       </ul>
     </div>
     <div class="c-sitefooter__column c-sitefooter__column__partners">

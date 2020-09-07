@@ -14,24 +14,41 @@
     }
   }
 
+  $onhover_color : var(--color-grey4);
+  $transition_attrs : 1.25s ease 0s;
+
+  &--circle {
+    background: var(--color-grey1);
+    border-radius: 5rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: background $transition_attrs;      // TODO: Unify with circle
+
+    &:hover, &:focus {
+      background: $onhover_color;
+    }
+
+  }
+
   &__404 {
-    // text-align: center;
     svg {
       width: 100%;
       height: 100%;
       fill: var(--color-grey2);
-      // fill: var(--color-defaul);
     }
   }
 
   &__some {
     circle {
-      transition: fill 1s ease 0s;
+      transition: fill $transition_attrs;
     }
 
     &:hover, &:focus {
       circle {
-        fill: var(--color-grey4);
+        fill: $onhover_color;
       }
     }
 
