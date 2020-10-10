@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 
 import CardScrollerController from '../cardscrollercontroller/index.jsx';
-import VerticalItemLoader from '../verticalitemloader/index.jsx';
+import ContentRow from '../contentrow/index.jsx';
 import GameSkeleton from '../gameskeleton/index.jsx';
 import GameCard from '../gamecard/index.jsx';
 
@@ -54,7 +54,7 @@ const CardScroller = props => {
       <CardScrollerController
         show={controllerVisibility.left}
         onClick={decrementPage} />
-          <VerticalItemLoader
+          <ContentRow
           class="compilationcardlist"
           page={page}
           previousPage={previousPage}

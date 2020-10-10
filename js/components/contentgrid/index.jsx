@@ -18,7 +18,7 @@ const setItemsByPage = (page, itemsPerPage, items) => {
   })
 }
 
-const VerticalItemLoader = props => {
+const ContentRow = props => {
   const [items, _setItems] = React.useState([]);
   const ref = React.useRef()
   const [page, _setPage] = React.useState(0);
@@ -26,7 +26,7 @@ const VerticalItemLoader = props => {
 
   React.useEffect(() => {
     window.addEventListener('resize', () => {
-      ref.current.scrollLeft = 0;     // reset scroll on resize to avoid mode overlap
+      ref.current.scrollLeft = 0;
     })
 
     generateSkeletonObjects(_setItems, items, props.maxItems)
@@ -42,7 +42,6 @@ const VerticalItemLoader = props => {
       .then(response => {
         if(response.body) {
           setTimeout(() => {
-            // _setItems(props.mock ? props.mock : setItemsByPage(props.page, props.itemsPerPage, response.body.compilations))
             _setItems(props.mock ? props.mock : response.body.compilations)
           }, 800)
         }
@@ -53,6 +52,8 @@ const VerticalItemLoader = props => {
     }
 
   }, [])
+
+  return <div>Hi</div>
 
   return <div ref={ref} style={{ marginLeft: window.screen.width <= 1200 ? 0 : `-${(pageWidth * props.page) + (props.page * 10)}px` }} className={props.class}>
       {
@@ -80,4 +81,4 @@ const VerticalItemLoader = props => {
   </div>
 }
 
-export default VerticalItemLoader
+export default ContentRow

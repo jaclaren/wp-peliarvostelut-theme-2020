@@ -7,7 +7,6 @@ const GameSkeleton = props => {
     </span>
     <span></span>
     </React.Fragment>
-
   )
 }
 

@@ -17,10 +17,17 @@
     "url": "https://github.com/Automattic/_s/issues"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
     "@wordpress/scripts": "9.1.0",
+    "babel-jest": "^26.5.2",
     "dir-archiver": "^1.1.1",
+    "enzyme-adapter-react-15": "^1.4.2",
+    "enzyme-adapter-react-16": "^1.15.5",
     "node-sass": "^4.14.1",
-    "rtlcss": "^2.5.0"
+    "react-test-renderer": "^16.13.1",
+    "rtlcss": "^2.5.0",
+    "whatwg-fetch": "^3.4.1"
   },
   "rtlcssConfig": {
     "options": {
@@ -41,6 +48,7 @@
     "compile:rtl": "rtlcss style.css style-rtl.css",
     "lint:scss": "wp-scripts lint-style 'sass/**/*.scss'",
     "lint:js": "wp-scripts lint-js 'js/*.js'",
-    "bundle": "dir-archiver --src . --dest ../_s.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map"
+    "bundle": "dir-archiver --src . --dest ../_s.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map",
+    "test": "jest --watch"
   }
 }
