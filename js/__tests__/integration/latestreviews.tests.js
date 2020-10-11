@@ -4,7 +4,6 @@ import ContentGrid from '../../components/contentgrid/index.jsx'
 import ReviewCard from '../../components/reviewcard/index.jsx'
 import ReviewSkeleton from '../../components/reviewskeleton/index.jsx'
 import React from 'react';
-// import { act } from 'react-test-renderer';
 import { act } from 'react-dom/test-utils';
 import Adapter from 'enzyme-adapter-react-16';
 const fetchPolyFill = require('whatwg-fetch')
@@ -26,7 +25,6 @@ const fetch = jest.fn(() =>
 );
 
 global.fetch = fetch
-
 
 describe('Horizontal review list', () => {
   it(`Initializes with ${itemsPerLoad} review skeleton cards`, async () => {
@@ -69,6 +67,10 @@ describe('Horizontal review list', () => {
     })
    })
 
+  it(`Sends a new fetch on page change`, async () => {
+    expect(true).toEqual(false)
+  })
+
   it(`Respects max page count`, async () => {
     global.fetch = fetch
     const maxPage = 5
@@ -77,4 +79,16 @@ describe('Horizontal review list', () => {
     wrapper.update()
     expect(wrapper.find(ReviewSkeleton).length).toEqual(itemsPerLoad * maxPage)
    })
+
+  it(`Sends correct fetches`, async () => {
+    const nonce = "abcd"
+   const wrapper = mount(<ReviewList
+     itemsPerLoad={itemsPerLoad}
+     nonce={nonce}
+     />)
+   await Promise.resolve()
+   expect(global.fetch.mock.calls[global.fetch.mock.calls.length-1][0]).toEqual("/wp-json/compilations/undefined?items=undefined");
+   expect(global.fetch.mock.calls[global.fetch.mock.calls.length-1][1]).toEqual({ headers: { 'X-WP-Nonce': nonce } });
+  })
+
 })

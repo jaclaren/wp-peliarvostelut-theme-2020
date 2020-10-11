@@ -15,6 +15,7 @@ const ReviewList = props => {
   React.useEffect(() => {
     _setItems(Utils.generateEmptyReviews(props.itemsPerLoad))
   }, [])
+
   React.useEffect(() => {
     _setItems(Utils.generateEmptyReviews(props.itemsPerLoad * ((props.page ? props.page : 0)+1)))
   }, [props.page])
@@ -24,6 +25,7 @@ const ReviewList = props => {
       class="compilationcardlist"
       defaultClass="compilationcard--skeleton"
       loadedClass="compilationcard"
+      nonce={props.nonce}
       items={items}
       itemWrapper={pr => <ReviewCard {...pr} />}
       skeletonWrapper={pr => <ReviewSkeleton {...pr} />}

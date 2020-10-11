@@ -17,7 +17,7 @@ const setItemsByPage = (page, itemsPerPage, items) => {
   })
 }
 
-const ContentRow = props => {
+const ContentGrid = props => {
   const [items, _setItems] = React.useState([]);
   const ref = React.useRef()
   const [page, _setPage] = React.useState(0);
@@ -82,4 +82,4 @@ const ContentRow = props => {
   </div>
 }
 
-export default ContentRow
+export default ContentGrid
