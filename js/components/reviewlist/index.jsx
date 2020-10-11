@@ -13,12 +13,13 @@ const ReviewList = props => {
   const [reviews, _setReviews] = React.useState([]);
   const ref = React.useRef(reviews);
 
-  return <div class="row" ref={ref}>
+  return <div className="row" ref={ref}>
     <ContentGrid
       page={props.page ? props.page : 0}
       class="compilationcardlist"
       defaultClass="compilationcard--skeleton"
       loadedClass="compilationcard"
+      items={Utils.generateEmptyReviews(props.itemsPerLoad)}
       itemWrapper={pr => <ReviewCard {...pr} />}
       skeletonWrapper={pr => <ReviewSkeleton {...pr} />}
       {...props}

@@ -29,8 +29,6 @@ const ContentRow = props => {
       ref.current.scrollLeft = 0;
     })
 
-    generateSkeletonObjects(_setItems, items, props.maxItems)
-
     fetch(
       `/wp-json/compilations/${props.mode}?items=${props.itemsToLoad}`, {
         headers: {
@@ -53,17 +51,16 @@ const ContentRow = props => {
 
   }, [])
 
-  return <div>Hi</div>
-
-  return <div ref={ref} style={{ marginLeft: window.screen.width <= 1200 ? 0 : `-${(pageWidth * props.page) + (props.page * 10)}px` }} className={props.class}>
+  return <div key={props.key ? props.key : 'contentrow'} ref={ref} className={props.class}>
       {
-        items.map((item, index) => {
+        props.items.map((item, index) => {
           const isLoaded = item && item.title && item.title.length > 0;
           const isOnPage = (index < (props.itemsPerPage * props.page) + props.itemsPerPage)
           const isPreviousPage = props.previousPage > props.page
           const isIntersectionObject = (index % props.itemsPerPage) == 0
 
           return <TrackedItem
+            key={'TrackedItem_'.concat(index)}
             observable={ref.current}
             show={isOnPage || isPreviousPage}
             isLoaded={isLoaded}

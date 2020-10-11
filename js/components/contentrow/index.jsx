@@ -38,7 +38,7 @@ const ContentGrid = props => {
 
   }, [])
 
-  return <div ref={ref} className={props.class}>
+  return <div key="contentrow" ref={ref} className={props.class}>
       {
         items.map((item, index) => {
           const isLoaded = item && item.title && item.title.length > 0;

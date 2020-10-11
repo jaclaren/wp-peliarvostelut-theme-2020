@@ -25,12 +25,12 @@ const TrackedItem = props => {
       }
   }, [])
 
-  // className={show && props.isLoaded ? 'compilationcard' : 'compilationcard--skeleton'}
-  return <a href={ props.item ? props.item.href : '#' }
+  return <a key={props.index} href={ props.item ? props.item.href : '#' }
       className={show && props.isLoaded ? props.loadedClass : props.defaultClass }
       style={ !props.isLoaded ? {animationDelay: `${props.index/10}s`} : null}
+      key={'trackedItem'.concat(props.index)}
       ref={ref}>
-      { props.itemWrapper(Object.assign({}, props.item, { index: props.index, displayImage : props.show })) }
+      { props.itemWrapper(Object.assign({}, props.item, { key: props.index, index: props.index, displayImage : props.show })) }
     </a>
 }
 

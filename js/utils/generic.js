@@ -18,6 +18,15 @@ const generateSkeletonObjects = (setReviews, reviews, num = 3) => {
   ))
 }
 
+const generateEmptyReviews = num => {
+  return Array(parseInt(num)).fill(null).map((u, i) => {
+    return {
+      title : "",
+      href : ""
+    }
+   })
+}
+
 const generateSkeletonReviews = (num) => {
   let reviews = Array(num).fill(null).map((u,i) => {
     return {
@@ -31,5 +40,6 @@ const generateSkeletonReviews = (num) => {
 module.exports = {
   isInViewport,
   generateSkeletonObjects,
-  generateSkeletonReviews
+  generateSkeletonReviews,
+  generateEmptyReviews
 }
