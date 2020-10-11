@@ -8,6 +8,7 @@ const ContentGrid = props => {
   const ref = React.useRef()
   const [page, _setPage] = React.useState(0);
   const [pageWidth, _setPageWidth] = React.useState(0);
+  const [error, _setError] = React.useState(false);
 
   React.useEffect(() => {
     window.addEventListener('resize', () => {
@@ -31,6 +32,9 @@ const ContentGrid = props => {
           }, 800)
         }
     })
+    .catch(error => {
+      _setError(true)
+    })
 
     if(ref.current && pageWidth == 0) {
       _setPageWidth(ref.current.clientWidth)
@@ -39,6 +43,7 @@ const ContentGrid = props => {
   }, [])
 
   return <div key="contentrow" ref={ref} className={props.class}>
+    { error ? <div className="error">Errortext</div> : null }
       {
         items.map((item, index) => {
           const isLoaded = item && item.title && item.title.length > 0;

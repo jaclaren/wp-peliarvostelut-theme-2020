@@ -9,17 +9,22 @@ const ReviewList = props => {
   const [bottomReached, _setBottomReached] = React.useState(false);
   const [currentPage, _setCurrentPage] = React.useState(0);
   const [loading, _setLoading] = React.useState(false);
+  const [items, _setItems] = React.useState([]);
+  const ref = React.useRef(items);
 
-  const [reviews, _setReviews] = React.useState([]);
-  const ref = React.useRef(reviews);
+  React.useEffect(() => {
+    _setItems(Utils.generateEmptyReviews(props.itemsPerLoad))
+  }, [])
+  React.useEffect(() => {
+    _setItems(Utils.generateEmptyReviews(props.itemsPerLoad * ((props.page ? props.page : 0)+1)))
+  }, [props.page])
 
   return <div className="row" ref={ref}>
     <ContentGrid
-      page={props.page ? props.page : 0}
       class="compilationcardlist"
       defaultClass="compilationcard--skeleton"
       loadedClass="compilationcard"
-      items={Utils.generateEmptyReviews(props.itemsPerLoad)}
+      items={items}
       itemWrapper={pr => <ReviewCard {...pr} />}
       skeletonWrapper={pr => <ReviewSkeleton {...pr} />}
       {...props}
