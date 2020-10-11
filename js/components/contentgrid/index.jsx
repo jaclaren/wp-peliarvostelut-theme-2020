@@ -8,8 +8,7 @@ const generateSkeletonObjects = (setReviews, reviews, num = 3) => {
   ))
 }
 
-const setItemsByPage = (page, itemsPerPage, items) => {
-  console.log("Set items by page", page, itemsPerPage, items)
+const setItemsByPage = (page, itemsPerPage, items) => {  
   return items.map((item, index) => {
     if(index < page + itemsPerPage)
       item.showImage = true

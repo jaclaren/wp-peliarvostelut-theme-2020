@@ -9,30 +9,36 @@ import Adapter from 'enzyme-adapter-react-16';
 const fetchPolyFill = require('whatwg-fetch')
 
 configure({ adapter : new Adapter() })
-const component = mount(<ReviewList itemsPerLoad="6" />);
+// const component = mount(<ReviewList itemsPerLoad="6" />);
 
-// global.fetch = fetchPolyFill.fetch
-// global.Request = fetchPolyFill.Request
-// global.Headers = fetchPolyFill.Headers
-// global.Response = fetchPolyFill.Respons
+global.fetch = fetchPolyFill.fetch
+global.Request = fetchPolyFill.Request
+global.Headers = fetchPolyFill.Headers
+global.Response = fetchPolyFill.Respons
+
+global.fetchCalled = 0;
 
 const mockFetchPromise = Promise.resolve({
     json: () => mockJsonPromise,
 });
-jest.spyOn(global, 'fetch').mockImplementation(() => mockFetchPromise); // 4
+
+global.fetch = jest.fn(() =>
+  Promise.resolve({
+    json: () => Promise.resolve({ rates: { CAD: 1.42 } }),
+  })
+);
 
 describe('Latest reviews grid tests', () => {
-  it('Generates initial items before the fetch', () => {
-    component.update();
-    expect(component.find(ReviewSkeleton)).toHaveLength(6)
+  it('Generates initial items before the fetch', async () => {
+    const comp = mount(<ReviewList itemsPerLoad="6" />);
+    await Promise.resolve()
+    expect(comp.find(ReviewSkeleton)).toHaveLength(6)
 
-    component.find(ReviewCard).forEach((c) => {
-      console.log(c)
-    })
   });
 
   it('Sends the fetch command', () => {
-    // expect(global.fetch.toHaveBeenCalledTimes(1))
+    expect(global.fetch).toHaveBeenCalledWith("http:jee");
+    // expect(global.fetchCalled).toEqual(1)
   });
   it('Loads new skeleton items on page change', () => {});
   it('Sends new fetch command on page change', () => {
