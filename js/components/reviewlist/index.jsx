@@ -26,6 +26,7 @@ const ReviewList = props => {
       class="compilationcardlist"
       defaultClass="compilationcard--skeleton"
       loadedClass="compilationcard"
+      itemsToLoad={props.itemsPerLoad*props.maxPages}
       nonce={props.nonce}
       items={items}
       itemWrapper={pr => <ReviewCard {...pr} />}

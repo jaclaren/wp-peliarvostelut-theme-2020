@@ -20,7 +20,9 @@ const itemsPerLoad = 6;
 
 const fetch = jest.fn(() =>
   Promise.resolve({
-    json: () => Promise.resolve({ rates: { CAD: 1.42 } }),
+    json: () => Promise.resolve({
+
+     }),
   })
 );
 
@@ -67,14 +69,12 @@ describe('Horizontal review list', () => {
     })
    })
 
-  it(`Sends a new fetch on page change`, async () => {
-    expect(true).toEqual(false)
-  })
-
   it(`Respects max page count`, async () => {
     global.fetch = fetch
+
     const maxPage = 5
     const wrapper = mount(<ReviewList itemsPerLoad={itemsPerLoad} maxPageCount={maxPage}/>)
+
     wrapper.setProps({ page : 3 })
     wrapper.update()
     expect(wrapper.find(ReviewSkeleton).length).toEqual(itemsPerLoad * 4)
@@ -87,13 +87,18 @@ describe('Horizontal review list', () => {
    })
 
   it(`Sends correct fetches`, async () => {
-    const nonce = "abcd"
+   const nonce = "abcd"
+   const maxPages = 5;
+
    const wrapper = mount(<ReviewList
      itemsPerLoad={itemsPerLoad}
      nonce={nonce}
+     maxPages={maxPages}
+     endpoint="/wp-json/reviews/latest?count="
      />)
    await Promise.resolve()
-   expect(global.fetch.mock.calls[global.fetch.mock.calls.length-1][0]).toEqual("/wp-json/compilations/undefined?items=undefined");
+
+   expect(global.fetch.mock.calls[global.fetch.mock.calls.length-1][0]).toEqual(`/wp-json/reviews/latest?count=${maxPages*itemsPerLoad}`);
    expect(global.fetch.mock.calls[global.fetch.mock.calls.length-1][1]).toEqual({ headers: { 'X-WP-Nonce': nonce } });
   })
 

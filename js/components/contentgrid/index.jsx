@@ -30,7 +30,7 @@ const ContentGrid = props => {
     })
 
     fetch(
-      `/wp-json/compilations/${props.mode}?items=${props.itemsToLoad}`, {
+      `${props.endpoint}${props.itemsToLoad}`, {
         headers: {
           'X-WP-Nonce': props.nonce
         }
