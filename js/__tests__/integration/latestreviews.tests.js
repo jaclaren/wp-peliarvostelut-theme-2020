@@ -75,9 +75,15 @@ describe('Horizontal review list', () => {
     global.fetch = fetch
     const maxPage = 5
     const wrapper = mount(<ReviewList itemsPerLoad={itemsPerLoad} maxPageCount={maxPage}/>)
+    wrapper.setProps({ page : 3 })
+    wrapper.update()
+    expect(wrapper.find(ReviewSkeleton).length).toEqual(itemsPerLoad * 4)
+    wrapper.setProps({ page : 5 })
+    wrapper.update()
+    expect(wrapper.find(ReviewSkeleton).length).toEqual(itemsPerLoad * (maxPage+1))
     wrapper.setProps({ page : 20 })
     wrapper.update()
-    expect(wrapper.find(ReviewSkeleton).length).toEqual(itemsPerLoad * maxPage)
+    expect(wrapper.find(ReviewSkeleton).length).toEqual(itemsPerLoad * (maxPage+1))
    })
 
   it(`Sends correct fetches`, async () => {

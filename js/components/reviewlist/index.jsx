@@ -17,7 +17,8 @@ const ReviewList = props => {
   }, [])
 
   React.useEffect(() => {
-    _setItems(Utils.generateEmptyReviews(props.itemsPerLoad * ((props.page ? props.page : 0)+1)))
+    if(props.page <= props.maxPageCount)
+      _setItems(Utils.generateEmptyReviews(props.itemsPerLoad * ((props.page ? props.page : 0)+1)))
   }, [props.page])
 
   return <div className="row" ref={ref}>
@@ -32,6 +33,11 @@ const ReviewList = props => {
       {...props}
     />
   </div>
+}
+
+ReviewList.defaultProps = {
+  page : 0,
+  maxPageCount : 5
 }
 
 export default ReviewList;
