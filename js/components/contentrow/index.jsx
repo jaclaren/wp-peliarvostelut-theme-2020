@@ -48,8 +48,7 @@ const ContentGrid = props => {
   const marginLeft = window.screen.width <= 1200 ? 0 : `-${(pageWidth * props.page) + (props.page * 10)}px`
 
   return <div key="contentrow" ref={ref} className={props.class} style={{ marginLeft  }} >
-    { error ? <div className="error">Errortext</div> : null }
-      {
+    { error ? <div className="error">Virhe ladattaessa listaa</div> :       
         items.map((item, index) => {
           const isLoaded = item && item.title && item.title.length > 0;
           const isOnPage = (index < (props.itemsPerPage * props.page) + props.itemsPerPage)

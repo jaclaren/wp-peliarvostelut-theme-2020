@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react';
 
+import axios from 'axios'
+
 import TrackedItem from '../trackeditem/index.jsx';
 
 const generateSkeletonObjects = (setReviews, reviews, num = 3) => {
-  setReviews(reviews.concat(
-    Array(num).fill(null).map((u, i) => { reload: true })
-  ))
+    return Array(num).fill(null).map((u, i) => { reload: true })  
 }
 
 const setItemsByPage = (page, itemsPerPage, items) => {
@@ -18,7 +18,7 @@ const setItemsByPage = (page, itemsPerPage, items) => {
 }
 
 const ContentGrid = props => {
-  const [items, _setItems] = React.useState([]);
+  const [items, _setItems] = React.useState(generateSkeletonObjects());
   const ref = React.useRef()
   const [page, _setPage] = React.useState(0);
   const [pageWidth, _setPageWidth] = React.useState(0);
@@ -29,19 +29,16 @@ const ContentGrid = props => {
       ref.current.scrollLeft = 0;
     })
 
-    fetch(
+    axios.get(
       `${props.endpoint}${props.itemsToLoad}`, {
         headers: {
           'X-WP-Nonce': props.nonce
         }
       }
     )
-      .then(response => response.json())
       .then(response => {
-        if(response.body) {
-          setTimeout(() => {
-            _setItems(props.mock ? props.mock : response.body.compilations)
-          }, 800)
+        if(response.data) {
+          _setItems(props.mock ? props.mock : response.data)
         }
     })
     .catch((error) => {
@@ -56,7 +53,7 @@ const ContentGrid = props => {
 
   return <div key={props.key ? props.key : 'contentrow'} ref={ref} className={props.class}>
     { error ? <div className="error">{props.errorText}</div> :
-        props.items.map((item, index) => {
+        items.map((item, index) => {
           const isLoaded = item && item.title && item.title.length > 0;
           const isOnPage = (index < (props.itemsPerPage * props.page) + props.itemsPerPage)
           const isPreviousPage = props.previousPage > props.page

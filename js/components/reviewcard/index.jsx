@@ -1,20 +1,30 @@
 import React, {useState, useEffect} from 'react';
 
 const ReviewCard = props => {
+  const isSkeleton = !props.item.title && !props.item.href
+  const extraClasses = isSkeleton ? 'skeleton' : ''
+
   return (
-    <div key={props.key} class="box reviewcard col-xs-12 col-sm-6 col-md-4">
-      <div class="c-reviewcard__col">
-        <img src={props.img} />
+    <div key={props.key} className={`box col-xs-12 col-sm-6 col-md-4 reviewlink ${extraClasses}`}>
+      <div className="reviewlink__col">
+        {isSkeleton ?
+          <div className={`reviewlink__img ${extraClasses}`}></div> :
+          <img className={`reviewlink__img ${extraClasses}`} src={props.img} />
+        }
       </div>
-      <div class="c-reviewcard__col">
-        <h3>{props.title}</h3>
-        <div>{props.site}</div>
-        <div>{props.platform}</div>
-        <div>2 arvostelua</div>
-        <a href="" class="button button--secondary">Lue arvostelu</a>
+      <div className="reviewlink__col">
+        <h3 className={`reviewlink__title ${extraClasses}`}>{props.title}</h3>
+        <div className={`reviewlink__site ${extraClasses}`}>{props.site}</div>
+        <div className={`reviewlink__platform ${extraClasses}`}>{props.platform}</div>
+        <span className="reviewlink__buttonrow">
+          <a href="#" className={`button button--secondary reviewlink__button ${extraClasses}`}>Arvostelu</a>
+          <a href="#" className={`button button--secondary reviewlink__button ${extraClasses}`}>Kooste</a>
+        </span>
       </div>
     </div>
   )
 }
+
+
 
 export default ReviewCard;

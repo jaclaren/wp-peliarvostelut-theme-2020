@@ -1,13 +1,34 @@
 .reviewcard {
-  display: flex;
-  padding: 0;
-  margin-bottom: 20px;
-
   &--skeleton {
-    background: var(--color-grey5);
-    margin: 12px;
-  }
+    font-size: 0;
 
+    margin-bottom: 1rem;
+
+    img, a, h3 {
+      padding: 1em;
+      // outline: solid 1px red;
+      color: rgba(0,0,0,0);
+      background: var(--color-grey5);
+    }
+
+    img {
+      $i : 80px;
+      width: $i;
+      height: $i;
+      border-radius: 12px;
+      outline: none;
+    }
+
+  }
+  // display: flex;
+  // padding: 0;
+  // margin-bottom: 20px;
+  //
+  // &--skeleton {
+  //   background: var(--color-grey5);
+  //   margin: 12px;
+  // }
+  //
   img {
     $i : 80px;
     width: $i;
@@ -33,9 +54,10 @@
   &:first-child() {
     padding: 0;
   }
-}
+
 
 .reviewcardlist {
   display: flex;
   flex-direction: column;
+}
 }
