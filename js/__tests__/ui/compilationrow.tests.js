@@ -39,7 +39,7 @@ afterEach(() => {
 });
 
 axios.get.mockImplementation(() =>
-  Promise.resolve(JSON.parse(json))
+  Promise.resolve({ data : JSON.parse(json)})
 );
 
 Utils.initAll(container)
@@ -78,10 +78,11 @@ describe('Compilation row UI tests', () => {
 
   it('Changes translation on button clicks', async () => {
     const pageWidth = 2000
+    const itemsPerPage = 7
+    const maxPage = 3
     await act(async () => {
-      const itemsPerPage = 7
       const wrapper = render(<CardScroller
-        maxItems={itemsPerPage*3}
+        maxItems={itemsPerPage*maxPage}
         itemsToLoad={itemsPerPage*3}
         itemsPerPage={itemsPerPage}
         nonce="abcd"
@@ -93,25 +94,19 @@ describe('Compilation row UI tests', () => {
         expect(container.querySelector('.compilationcardlist').style.marginLeft).toEqual("-0px")
     })
 
-    act(() => {
-      container
-      .querySelectorAll('.c-cardscroller__control')[1]
-      .dispatchEvent(new MouseEvent('click', { bubbles: true }))
-    })
+    for(let i=1; i < 10; i++) {
+        act(() => {
+          container
+          .querySelectorAll('.c-cardscroller__control')[1]
+          .dispatchEvent(new MouseEvent('click', { bubbles: true }))
+        })
 
-    act(() => {
-      expect(container.querySelector('.compilationcardlist').style.marginLeft).toEqual(`${(pageWidth * -1)-10}px`)
-    })
-
-    act(() => {
-      container
-      .querySelectorAll('.c-cardscroller__control')[1]
-      .dispatchEvent(new MouseEvent('click', { bubbles: true }))
-    })
-
-    act(() => {
-      expect(container.querySelector('.compilationcardlist').style.marginLeft).toEqual(`${(pageWidth * -2)-10}px`)
-    })
+        act(() => {
+          const page = i >= (maxPage-1) ? maxPage-1 : i
+          const expected = (pageWidth * (page * -1))-(10*page)
+            expect(container.querySelector('.compilationcardlist').style.marginLeft).toEqual(`${expected}px`)
+        })
+    }
 
   })
 

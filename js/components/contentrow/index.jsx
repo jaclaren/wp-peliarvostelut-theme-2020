@@ -28,8 +28,8 @@ const ContentGrid = props => {
       }
     )
       .then(response => {
-        if(response.body) {
-          _setItems(props.mock ? props.mock : response.body.compilations)
+        if(response.data) {
+          _setItems(props.mock ? props.mock : response.data.body.compilations)
         }
     })
     .catch(error => {
