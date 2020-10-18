@@ -55,8 +55,7 @@ const ContentGrid = props => {
   }, [])
 
   return <div key={props.key ? props.key : 'contentrow'} ref={ref} className={props.class}>
-    { error ? <div className="error">Errortext</div> : null }
-      {
+    { error ? <div className="error">{props.errorText}</div> :
         props.items.map((item, index) => {
           const isLoaded = item && item.title && item.title.length > 0;
           const isOnPage = (index < (props.itemsPerPage * props.page) + props.itemsPerPage)
@@ -80,6 +79,10 @@ const ContentGrid = props => {
       })
     }
   </div>
+}
+
+ContentGrid.defaultProps = {
+  errorText : 'Virhe: sisältölistausta ei voitu noutaa.'
 }
 
 export default ContentGrid

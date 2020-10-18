@@ -35,19 +35,19 @@ describe('Horizontal review list', () => {
     expect(wrapper.find(ReviewSkeleton).length).toEqual(itemsPerLoad);
   })
 
-  it(`Generates new skeleton items immediately on page change`, async () => {
-    const wrapper = mount(<ReviewList itemsPerLoad={itemsPerLoad}/>)
-    await Promise.resolve();
-    expect(wrapper.find(ReviewSkeleton).length).toEqual(itemsPerLoad);
-    wrapper.setProps({ page : 1})
-    wrapper.update()
-    expect(wrapper.find(ReviewSkeleton).length).toEqual(itemsPerLoad*2);
-  })
+  // it(`Display`, async () => {
+  //   const wrapper = mount(<ReviewList itemsPerLoad={itemsPerLoad}/>)
+  //   await Promise.resolve();
+  //   expect(wrapper.find(ReviewSkeleton).length).toEqual(itemsPerLoad);
+  //   wrapper.setProps({ page : 1})
+  //   wrapper.update()
+  //   expect(wrapper.find(ReviewSkeleton).length).toEqual(itemsPerLoad*2);
+  // })
 
   it(`Replaces skeleton items with ReviewCards on succesful data fetch`, async () => {
-    const wrapper = mount(<ReviewList itemsPerLoad={itemsPerLoad}/>)
+    const wrapper = mount(<ReviewList itemsPerLoad={itemsPerLoad} maxPages={10}/>)
     await Promise.resolve();
-    expect(wrapper.find(ReviewCard).length).toEqual(itemsPerLoad)
+    expect(wrapper.find(ReviewCard).length).toEqual(itemsPerLoad*10)
     expect(wrapper.find(ReviewSkeleton).length).toEqual(0)
    })
 
@@ -85,6 +85,22 @@ describe('Horizontal review list', () => {
     wrapper.update()
     expect(wrapper.find(ReviewSkeleton).length).toEqual(itemsPerLoad * (maxPage+1))
    })
+
+  it(`Loads first page as skeleton items`, () => {
+    const wrapper = mount(<ReviewList
+      itemsPerLoad={10}
+      maxPages={10}
+      />)
+
+    expect(wrapper.find(ReviewSkeleton).length).toEqual(10);
+
+  })
+  it(`On succesful fetch, replaces all the skeleton items as normal items`, () => {
+
+  })
+  it(`Only displays items up to current page`, () => {
+
+  })
 
   it(`Sends correct fetches`, async () => {
    const nonce = "abcd"

@@ -52,6 +52,7 @@ const ContentGrid = props => {
           const isIntersectionObject = (index % props.itemsPerPage) == 0
 
           return <TrackedItem
+            key={'TrackedItem_'.concat(index)}
             observable={ref.current}
             show={isOnPage || isPreviousPage}
             isLoaded={isLoaded}

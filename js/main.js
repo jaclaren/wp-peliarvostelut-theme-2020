@@ -36,9 +36,10 @@ document.querySelectorAll('.games').forEach(_ => {
 document.querySelectorAll('.reviewgrid').forEach(_ => {
   ReactDOM.render(
     <ReviewList
-    maxItems={100}
+    maxPages={5}
     nonce={localizedVars.nonce}
-    itemsToLoad={3}
+    itemsPerLoad={6}
+    endpoint="/wp-json/latest_reviews?count="
     />
     ,
     _
