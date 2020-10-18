@@ -55,7 +55,7 @@ const CardScroller = props => {
         show={controllerVisibility.left}
         onClick={decrementPage} />
           <ContentRow
-          className="compilationcardlist"
+          class="compilationcardlist"
           page={page}
           previousPage={previousPage}
           changePage={changePage}

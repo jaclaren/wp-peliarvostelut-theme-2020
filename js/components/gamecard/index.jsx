@@ -6,7 +6,7 @@ const GameCard = props => {
       <span>
         {props.coverimage && props.displayImage ? <img src={props.coverimage} /> : null}
       </span>
-      <div class="compilationcard__title">
+      <div className="compilationcard__title">
         <div>
           {props.coverimage ? props.title : ''}
         </div>

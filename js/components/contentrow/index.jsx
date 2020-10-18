@@ -3,6 +3,8 @@ import React, {useState, useEffect} from 'react';
 import TrackedItem from '../trackeditem/index.jsx';
 import * as Utils from '../../utils/generic.js';
 
+import axios from 'axios'
+
 const ContentGrid = props => {
   const [items, _setItems] = React.useState([]);
   const ref = React.useRef()
@@ -12,37 +14,40 @@ const ContentGrid = props => {
 
   React.useEffect(() => {
     window.addEventListener('resize', () => {
-      ref.current.scrollLeft = 0;
+      if(ref.current != null)
+        ref.current.scrollLeft = 0;
     })
 
     Utils.generateSkeletonObjects(_setItems, items, props.maxItems)
 
-    fetch(
+    axios.get(
       `/wp-json/compilations/${props.mode}?items=${props.itemsToLoad}`, {
         headers: {
           'X-WP-Nonce': props.nonce
         }
       }
     )
-      .then(response => response.json())
       .then(response => {
         if(response.body) {
-          setTimeout(() => {
-            _setItems(props.mock ? props.mock : response.body.compilations)
-          }, 800)
+          _setItems(props.mock ? props.mock : response.body.compilations)
         }
     })
     .catch(error => {
       _setError(true)
     })
 
-    if(ref.current && pageWidth == 0) {
+    if(props.pageWidth) {
+      _setPageWidth(props.pageWidth)
+    }
+    else if(ref.current && pageWidth == 0) {
       _setPageWidth(ref.current.clientWidth)
     }
 
   }, [])
 
-  return <div key="contentrow" ref={ref} className={props.class}>
+  const marginLeft = window.screen.width <= 1200 ? 0 : `-${(pageWidth * props.page) + (props.page * 10)}px`
+
+  return <div key="contentrow" ref={ref} className={props.class} style={{ marginLeft  }} >
     { error ? <div className="error">Errortext</div> : null }
       {
         items.map((item, index) => {
