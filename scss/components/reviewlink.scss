@@ -17,11 +17,18 @@
     width: 80px;
     height: 100px;
     filter: saturate(0) brightness(0.55);
+    border-radius: 0.5rem;
     &.skeleton { filter: none; }
   }
 
   &__title {
     margin: 0;
+    min-width: 0;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
     &.skeleton { width: 200px; }
   }
 
@@ -36,7 +43,7 @@
   }
 
   &__button {
-    font-size: 1rem !important;
+    font-size: 1.1rem !important;
 
     &.skeleton:first-child, &:first-child {
       margin-right: 0.5rem;
@@ -54,22 +61,26 @@
 }
 
 .reviewlink__col {
+  display: flex;
   padding: 0.75rem;
-  // outline: solid 1px red;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   &:first-child {
     flex-shrink: 0;
+    padding-right: 0.5rem;
   }
 
   &:nth-child(2) {
-    display: flex;
     flex-direction: column;
     justify-content: space-between;
-
+    // outline: solid 1px red;
   }
 }
 
 .reviewlink__buttonrow {
   display: flex;
-  justify-content: space-around;
+  margin-top: 0.75rem;
+  // justify-content: space-between;
 }

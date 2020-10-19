@@ -11,7 +11,7 @@ const ReviewList = props => {
     window.addEventListener("keypress", () => {
       _setItems(
         Array(10).fill(null).map((u, i) => { return {
-          title : 'Example game',
+          title : 'Example game Example game Example game Example game',
           site : 'Gamesite',
           platform : 'PC',
           img : 'http://dev-peliarvostelut.net/wp-content/uploads/2020/08/DprojectswebPeliarvostelutNETwwwwp-contentuploads2020081597492664_66.png'

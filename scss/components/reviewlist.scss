@@ -1,9 +1,6 @@
 .c-reviewlist {
-  display: flex;
-  overflow-x: auto;
-  justify-content: flex-start;
-  // outline: solid 1px green;
-
+  display: grid;
+  grid-template-columns: repeat(3,33%);
 }
 
 .c-reviewlist__item {
