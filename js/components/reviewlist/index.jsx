@@ -13,7 +13,8 @@ const ReviewList = props => {
         Array(10).fill(null).map((u, i) => { return {
           title : 'Example game',
           site : 'Gamesite',
-          platform : 'PC'
+          platform : 'PC',
+          img : 'http://dev-peliarvostelut.net/wp-content/uploads/2020/08/DprojectswebPeliarvostelutNETwwwwp-contentuploads2020081597492664_66.png'
         } })
       )
     });

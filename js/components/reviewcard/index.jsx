@@ -10,11 +10,11 @@ const ReviewCard = props => {
   return (
     <div key={props.key}
       style={ extraStyle }
-      className={`box col-xs-12 col-sm-6 col-md-4 reviewlink ${extraClasses}`}>
+      className={`reviewlink ${extraClasses}`}>
       <div className="reviewlink__col">
         {isSkeleton ?
           <div style={ extraStyle } className={`reviewlink__img ${extraClasses}`}></div> :
-          <img className={`reviewlink__img ${extraClasses}`} src={props.img} />
+          <img className={`reviewlink__img ${extraClasses}`} src={props.item.img} />
         }
       </div>
       <div className="reviewlink__col">
