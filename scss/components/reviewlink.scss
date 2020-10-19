@@ -68,6 +68,7 @@
   text-overflow: ellipsis;
 
   &:first-child {
+    display: none;
     flex-shrink: 0;
     padding-right: 0.5rem;
   }
@@ -83,4 +84,10 @@
   display: flex;
   margin-top: 0.75rem;
   // justify-content: space-between;
+}
+
+@media only screen and (min-width: 380px) {
+  .reviewlink__col:first-child {
+    display: flex;
+  }
 }

@@ -38,7 +38,7 @@ document.querySelectorAll('.reviewgrid').forEach(_ => {
     <ReviewList
     maxPages={5}
     nonce={localizedVars.nonce}
-    itemsPerLoad={6}
+    itemsPerLoad={9}
     endpoint="/wp-json/gamesapi/latest_reviews?count="
     />
     ,
