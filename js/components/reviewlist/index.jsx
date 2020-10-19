@@ -5,10 +5,20 @@ import ContentGrid from '../contentgrid/index.jsx';
 import * as Utils from '../../utils/generic.js';
 
 const ReviewList = props => {
-  const [items, _setItems] = React.useState(Array(10).fill(null).map((u, i) => { return {reload: true} }))
+  const [items, _setItems] = React.useState(Array(10).fill(null).map((u, i) => { return { reload : true } }))
 
   React.useEffect(() => {
+    window.addEventListener("keypress", () => {
+      _setItems(
+        Array(10).fill(null).map((u, i) => { return {
+          title : 'Example game',
+          site : 'Gamesite',
+          platform : 'PC'
+        } })
+      )
+    });
   }, [])
+
 
   return <div className="c-reviewlist">{
     items.map((item, index) => {

@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react';
 
 const ReviewCard = props => {
+
+  // const [isSkeleton, _setIsSkeleton] = React.useState(!props.item.title && !props.item.href)
   const isSkeleton = !props.item.title && !props.item.href
-  const extraClasses = isSkeleton ? 'skeleton' : ''
-  const extraStyle = {animationDelay: `${props.index/10}s`}
+  const extraClasses = isSkeleton ? 'skeleton' : 'u-fadein'
+  const extraStyle = {animationDelay: isSkeleton ? `${props.index/10}s` : null}
 
   return (
     <div key={props.key}
@@ -16,9 +18,9 @@ const ReviewCard = props => {
         }
       </div>
       <div className="reviewlink__col">
-        <h3 style={ extraStyle } className={`reviewlink__title ${extraClasses}`}>{props.title}</h3>
-        <div style={ extraStyle } className={`reviewlink__site ${extraClasses}`}>{props.site}</div>
-        <div style={ extraStyle } className={`reviewlink__platform ${extraClasses}`}>{props.platform}</div>
+        <h3 style={ extraStyle } className={`reviewlink__title ${extraClasses}`}>{props.item.title}</h3>
+        <div style={ extraStyle } className={`reviewlink__site ${extraClasses}`}>{props.item.site}</div>
+        <div style={ extraStyle } className={`reviewlink__platform ${extraClasses}`}>{props.item.platform}</div>
         <span className="reviewlink__buttonrow">
           <a href="#" style={ extraStyle } className={`button button--secondary reviewlink__button ${extraClasses}`}>Arvostelu</a>
           <a href="#" style={ extraStyle } className={`button button--secondary reviewlink__button ${extraClasses}`}>Kooste</a>
@@ -27,7 +29,5 @@ const ReviewCard = props => {
     </div>
   )
 }
-
-
 
 export default ReviewCard;
