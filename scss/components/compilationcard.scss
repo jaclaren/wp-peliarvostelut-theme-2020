@@ -1,7 +1,7 @@
 @keyframes mymove {
-  0% {background-color: var(--color-grey3);}
+  0% {background-color: var(--color-grey5);}
   50% {background-color: var(--color-grey1);}
-  100% {background-color: var(--color-grey3);}
+  100% {background-color: var(--color-grey5);}
 }
 
 @keyframes fadein {
@@ -110,7 +110,7 @@
   }
 
   section > * {
-    margin-bottom: 0.5rem;    
+    margin-bottom: 0.5rem;
   }
 
   h2 {

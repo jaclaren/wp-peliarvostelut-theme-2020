@@ -12,7 +12,10 @@ const ReviewList = props => {
 
   return <div className="c-reviewlist">{
     items.map((item, index) => {
-      return <ReviewCard item={item} key={`reviewcard_${index}`}/>
+      return <ReviewCard
+        item={item}
+        index={index}
+        key={`reviewcard_${index}`}/>
     })
   }</div>
 }
