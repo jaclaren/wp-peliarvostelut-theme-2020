@@ -37,6 +37,9 @@ document.querySelectorAll('.reviewgrid').forEach(_ => {
   ReactDOM.render(
     <ReviewList
     maxPages={5}
+    onEnterViewport={() => {
+      console.log("???")
+    }}
     nonce={localizedVars.nonce}
     itemsPerLoad={9}
     endpoint="/wp-json/gamesapi/latest_reviews?count="
@@ -45,6 +48,6 @@ document.querySelectorAll('.reviewgrid').forEach(_ => {
     _
   );
 })
-
+ 
 initHeader();
 initSearch();
