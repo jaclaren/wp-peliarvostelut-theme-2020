@@ -22,8 +22,8 @@ document.querySelectorAll('.c-score').forEach(_ => {
 document.querySelectorAll('.games').forEach(_ => {
   ReactDOM.render(
     <CardScroller
-      maxItems={7*3}
-      itemsToLoad={7*3}
+      maxItems={7*4}
+      itemsToLoad={7*4}
       itemsPerPage={7}
       nonce={localizedVars.nonce}
       mode={_.dataset.mode}
@@ -48,6 +48,6 @@ document.querySelectorAll('.reviewgrid').forEach(_ => {
     _
   );
 })
- 
+
 initHeader();
 initSearch();

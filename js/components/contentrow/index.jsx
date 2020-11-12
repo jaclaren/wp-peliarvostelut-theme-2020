@@ -7,6 +7,7 @@ import axios from 'axios'
 
 const ContentGrid = props => {
   const [items, _setItems] = React.useState([]);
+  const [loaded, _setLoaded] = React.useState(false);
   const ref = React.useRef()
   const [page, _setPage] = React.useState(0);
   const [pageWidth, _setPageWidth] = React.useState(0);
@@ -30,6 +31,7 @@ const ContentGrid = props => {
       .then(response => {
         if(response.data) {
           _setItems(props.mock ? props.mock : response.data.body.compilations)
+          _setLoaded(true)
         }
     })
     .catch(error => {
@@ -45,10 +47,17 @@ const ContentGrid = props => {
 
   }, [])
 
-  const marginLeft = window.screen.width <= 1200 ? 0 : `-${(pageWidth * props.page) + (props.page * 10)}px`
+  const itemMargin = 10
 
-  return <div key="contentrow" ref={ref} className={props.class} style={{ marginLeft  }} >
-    { error ? <div className="error">Virhe ladattaessa listaa</div> :       
+  // const marginLeft = window.screen.width <= 1200 ? 0 : `-${(pageWidth * props.page) + (props.page * 10)}px`
+  const marginLeft = window.screen.width <= 1200 ? 0 : (pageWidth * props.page) - (itemMargin/2) - props.page
+  const maxWidth = items.length * (pageWidth / props.itemsPerPage) + itemMargin
+  const maxMarginLeft = (maxWidth - pageWidth) - (itemMargin*2)
+
+  console.log({marginLeft}, {maxWidth}, {maxMarginLeft})
+
+  return <div key="contentrow" ref={ref} className={props.class} style={ props.page > 0 ? { marginLeft : `-${ (marginLeft < maxMarginLeft) ? marginLeft : maxMarginLeft}px`} : null} >
+    { error ? <div className="error">Virhe ladattaessa listaa</div> :
         items.map((item, index) => {
           const isLoaded = item && item.title && item.title.length > 0;
           const isOnPage = (index < (props.itemsPerPage * props.page) + props.itemsPerPage)

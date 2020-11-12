@@ -20,6 +20,7 @@
   overflow-x: auto;
   // -webkit-overflow-scrolling: touch;
   // scroll-snap-type: x mandatory;
+  padding: 10px;
   transition: all 1.5s ease 0s;
 
   &::-webkit-scrollbar {
@@ -47,6 +48,8 @@
   display: flex;
   flex-direction: column;
 
+  $anim: 1s;
+
   position: relative;
 
   animation-delay: 0 !important;
@@ -56,6 +59,31 @@
   box-shadow: 3px 3px 5px rgba(0,0,0,0.3);
 
   width: 60%;
+
+  transition: transform $anim ease 0s, box-shadow 2s;
+  overflow: hidden;
+
+  &::before {
+    top: 5rem;
+    bottom: 0%;
+    left: -5rem;
+    right: -5rem;
+    top: -5rem;
+    bottom: 100%;
+    position: absolute;
+    background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.15) 8%);
+    transform: rotate(-35deg);
+    transition: bottom 1.25s ;
+    content: "";
+  }
+
+  &:hover {
+    &::before {
+      bottom: 70%;
+    }
+    transform: perspective(900px) rotate3d(1, 0,0, 20deg) scale(1.08);
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+  }
 
   span:first-child {
     flex-basis: 70% !important;
@@ -145,5 +173,5 @@
   .compilationcard, .compilationcard--skeleton { width: 16%; }
 }
 @media only screen and (min-width: 1200px) {
-  .compilationcard, .compilationcard--skeleton { width: calc(1152px / 8); margin: 10px; }
+  .compilationcard, .compilationcard--skeleton { width: calc(1152px / 8); margin: 9px; }
 }
