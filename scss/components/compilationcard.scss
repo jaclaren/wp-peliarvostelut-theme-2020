@@ -18,7 +18,7 @@
   position: relative;
   justify-content: space-between;
   overflow-x: auto;
-  padding: 10px;
+  padding: 0 10px 0 10px;
   transition: all 1.5s ease 0s;
 
   &::-webkit-scrollbar {
@@ -157,7 +157,7 @@
   .compilationcard__wrapper, .compilationcard--skeleton { min-width: 16%; }
 }
 @media only screen and (min-width: 1200px) {
-  .compilationcard__wrapper, .compilationcard--skeleton { min-width: auto; width: calc(1152px / 8); margin: 10px; }
+  .compilationcard__wrapper, .compilationcard--skeleton { min-width: auto; width: calc(1152px / 8); margin: 0 10px; }
 }
 
 /* Glossiness and 3d rotation only added to devices capable of hover-functionality */
