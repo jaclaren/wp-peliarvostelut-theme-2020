@@ -56,7 +56,7 @@
   background: var(--color-grey4);
   box-shadow: 3px 3px 5px rgba(0,0,0,0.3);
 
-  width: 60%;
+  width: 90%;
 
   transition: transform $anim ease 0s, box-shadow 2s;
   overflow: hidden;
@@ -98,6 +98,7 @@
 .compilationcard__wrapper {
   perspective: 500px;
   perspective-origin: center;
+  min-width: 65%;
 
   &:first-child {
     margin-left: 0;
@@ -109,7 +110,7 @@
   background: var(--color-grey3);
   animation: mymove 2s infinite;
   animation-timing-function: ease-in-out;
-  // visibility: hidden;
+  width: auto;
 }
 
 .compilationcard--primary {
@@ -140,17 +141,23 @@
   }
 }
 
-@media only screen and (min-width: 328px) {
-  .compilationcard__wrapper, .compilationcard--skeleton { width: 70%; }
+@media only screen and (min-width: 372px) {
+  .compilationcard__wrapper, .compilationcard--skeleton { min-width: 45%; }
 }
-@media only screen and (min-width: 500px) {
-  // .compilationcard__wrapper, .compilationcard--skeleton { width: 35%; }
+@media only screen and (min-width: 536px) {
+  .compilationcard__wrapper, .compilationcard--skeleton { min-width: 30%; }
 }
-@media only screen and (min-width: 650px) {
-  .compilationcard__wrapper, .compilationcard--skeleton { width: 26%; }
+@media only screen and (min-width: 620px) {
+  .compilationcard__wrapper, .compilationcard--skeleton { min-width: 30%; }
+}
+@media only screen and (min-width: 742px) {
+  .compilationcard__wrapper, .compilationcard--skeleton { min-width: 22%; }
+}
+@media only screen and (min-width: 970px) {
+  .compilationcard__wrapper, .compilationcard--skeleton { min-width: 16%; }
 }
 @media only screen and (min-width: 1200px) {
-  .compilationcard__wrapper, .compilationcard--skeleton { width: calc(1152px / 8); margin: 10px; }
+  .compilationcard__wrapper, .compilationcard--skeleton { min-width: auto; width: calc(1152px / 8); margin: 10px; }
 }
 
 /* Glossiness and 3d rotation only added to devices capable of hover-functionality */
