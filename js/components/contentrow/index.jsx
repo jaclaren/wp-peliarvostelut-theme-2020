@@ -49,12 +49,9 @@ const ContentGrid = props => {
 
   const itemMargin = 10
 
-  // const marginLeft = window.screen.width <= 1200 ? 0 : `-${(pageWidth * props.page) + (props.page * 10)}px`
   const marginLeft = window.screen.width <= 1200 ? 0 : (pageWidth * props.page) - (itemMargin/2) - props.page
   const maxWidth = items.length * (pageWidth / props.itemsPerPage) + itemMargin
   const maxMarginLeft = (maxWidth - pageWidth) - (itemMargin*2)
-
-  console.log({marginLeft}, {maxWidth}, {maxMarginLeft})
 
   return <div key="contentrow" ref={ref} className={props.class} style={ props.page > 0 ? { marginLeft : `-${ (marginLeft < maxMarginLeft) ? marginLeft : maxMarginLeft}px`} : null} >
     { error ? <div className="error">Virhe ladattaessa listaa</div> :
@@ -72,9 +69,9 @@ const ContentGrid = props => {
             loadedClass={props.loadedClass}
             defaultClass={props.defaultClass}
             isIntersecting={isIntersectionObject}
-            onIntersect={() => props.changePage(index / props.itemsPerPage)}
             item={item}
             index={index}
+            onIntersect={() => null}
             itemWrapper={isLoaded ? props.itemWrapper : props.skeletonWrapper}
             >
             </TrackedItem>

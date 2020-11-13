@@ -18,8 +18,6 @@
   position: relative;
   justify-content: space-between;
   overflow-x: auto;
-  // -webkit-overflow-scrolling: touch;
-  // scroll-snap-type: x mandatory;
   padding: 10px;
   transition: all 1.5s ease 0s;
 
@@ -48,7 +46,7 @@
   display: flex;
   flex-direction: column;
 
-  $anim: 1s;
+  $anim: 0.5s;
 
   position: relative;
 
@@ -62,28 +60,6 @@
 
   transition: transform $anim ease 0s, box-shadow 2s;
   overflow: hidden;
-
-  &::before {
-    top: 5rem;
-    bottom: 0%;
-    left: -5rem;
-    right: -5rem;
-    top: -5rem;
-    bottom: 100%;
-    position: absolute;
-    background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.15) 8%);
-    transform: rotate(-35deg);
-    transition: bottom 1.25s ;
-    content: "";
-  }
-
-  &:hover {
-    &::before {
-      bottom: 70%;
-    }
-    transform: perspective(900px) rotate3d(1, 0,0, 20deg) scale(1.08);
-    box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
-  }
 
   span:first-child {
     flex-basis: 70% !important;
@@ -99,9 +75,6 @@
       object-fit:cover;
       margin: 10px;
     }
-  }
-  span {
-    // padding: 10px;
   }
 
    &__title {
@@ -122,6 +95,15 @@
      }
   }
 }
+.compilationcard__wrapper {
+  perspective: 500px;
+  perspective-origin: center;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
 .compilationcard--skeleton {
   @extend %c;
   background: var(--color-grey3);
@@ -155,23 +137,48 @@
 @media only screen and (min-width: $breakpoint-lg) {
   .compilationcardlist {
     overflow: hidden;
-    // overflow-x: visible;
-  }
-
-  .compilationcard {
-    // display: none;
   }
 }
 
 @media only screen and (min-width: 328px) {
-  .compilationcard, .compilationcard--skeleton { width: 36%; }
+  .compilationcard__wrapper, .compilationcard--skeleton { width: 70%; }
 }
 @media only screen and (min-width: 500px) {
-  .compilationcard, .compilationcard--skeleton { width: 35%; }
+  // .compilationcard__wrapper, .compilationcard--skeleton { width: 35%; }
 }
-@media only screen and (min-width: 600px) {
-  .compilationcard, .compilationcard--skeleton { width: 16%; }
+@media only screen and (min-width: 650px) {
+  .compilationcard__wrapper, .compilationcard--skeleton { width: 26%; }
 }
 @media only screen and (min-width: 1200px) {
-  .compilationcard, .compilationcard--skeleton { width: calc(1152px / 8); margin: 9px; }
+  .compilationcard__wrapper, .compilationcard--skeleton { width: calc(1152px / 8); margin: 10px; }
+}
+
+/* Glossiness and 3d rotation only added to devices capable of hover-functionality */
+
+@media (hover : hover) {
+  .compilationcard {
+    &::before {
+      top: 5rem;
+      bottom: 0%;
+      left: -5rem;
+      right: -5rem;
+      top: -5rem;
+      bottom: 100%;
+      position: absolute;
+      background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.15) 8%);
+      transform: rotate(-35deg);
+      transition: bottom 1.25s ;
+      content: "";
+    }
+
+    &:hover {
+      &::before {
+        bottom: 70%;
+      }
+      transform: rotate3d(1, 0,0, 20deg);
+      box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+    }
+
+  }
+
 }
