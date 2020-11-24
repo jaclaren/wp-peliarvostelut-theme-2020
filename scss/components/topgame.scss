@@ -1,0 +1,32 @@
+.c-topgame {
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    > button {
+      padding: 0.75rem 1.25rem;
+    }
+
+
+    &__counter {
+      color: var(--color-grey4);
+      span {
+        padding: 0 0.15rem;
+        font-size: 1.25rem;
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+
+    &:hover {
+      outline: none;
+    }
+    > * {
+      // outline: solid 1px red;
+    }
+    // outline: solid 1px red;
+  }
+}

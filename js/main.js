@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 import Score from './components/score/index.jsx'
 import CardScroller from './components/cardscroller/index.jsx'
 import ReviewList from './components/reviewlist/index.jsx'
+import TopGames from './components/topgames/index.jsx'
 
 import initHeader from './header.js'
 import initSearch from './search.js'
@@ -49,5 +50,14 @@ document.querySelectorAll('.reviewgrid').forEach(_ => {
   );
 })
 
+document.querySelectorAll('.c-topgame').forEach(_ => {
+  ReactDOM.render(
+    <TopGames
+    items={topGames}
+    />
+    ,
+    _
+  );
+})
 initHeader();
 initSearch();

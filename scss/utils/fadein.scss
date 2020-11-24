@@ -7,6 +7,11 @@
   animation-delay: 0 !important;
 }
 
+.u-fadeout {
+	transition: opacity 0.5s ease-in 0s;
+	opacity: 0;
+}
+
 @keyframes fadeInOpacity {
 	0% {
 		opacity: 0;
