@@ -3,8 +3,8 @@
   add_shortcode('gamequery-topgame', 'peliarvostelut_net_topgame');
 
 
-  function peliarvostelut_net_topgame($args) {
-    $games = \game_handler::get_with_highest_score_and_reviews();
+  function peliarvostelut_net_topgame($args) {    
+    $games = \game_handler::get_top_recent(2, 80);
     $game = @$games[0];
     ?>
     <script>
