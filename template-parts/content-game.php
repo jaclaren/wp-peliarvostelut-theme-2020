@@ -22,6 +22,13 @@
    }
  }
 
+ $Review_platforms = [];
+ foreach($game->get_reviews() as $review) {
+   $platform = platform_handler::create_platform_instance_by_name(@$review->get_platform()[0]->name);
+   if(!empty($platform->post_object))
+    $Review_platforms[] = $platform;
+ }
+
 ?>
 
 <script type="application/ld+json">
@@ -56,7 +63,20 @@
   <div class="col-xs-7">
     <header class="box c-gameheader c-item">
       <h1><?php echo $game->get_title(); ?></h1>
-      <span class="c-item__detail c-item__detail__creationdate"><?php echo \PANet\Utils::render_wp_post_creation_date($game->game_object); ?></span>
+      <div class="c-gameheader__metas">
+        <?php if(!empty($Review_platforms)): ?>
+        <div class="c-gameheader__metas__platforms">
+          <?php foreach($Review_platforms as $plat): ?>
+          <?php if(!empty($plat->post_object)): ?>
+            <span class="c-item__detail c-reviewlist__item__platform" style="background: <?php echo $plat->get_color(); ?>">
+              <?php echo $plat->get_title(); ?>
+            </span>
+          <?php endif; ?>
+        <?php endforeach; ?>
+      </div>
+    <?php endif; ?>
+    <span class="c-item__detail c-item__detail__creationdate"><?php echo \PANet\Utils::render_wp_post_creation_date($game->game_object); ?></span>
+  </div>
     </header>
   </div>
   <div class="col-xs-5 col-sm-4 last-sm o-box--centered">
@@ -86,13 +106,6 @@
                 </div>
               </div>
             </header>
-            <?php $plat = platform_handler::create_platform_instance_by_name(@$review->get_platform()[0]->name); ?>
-            <?php if(!empty($plat->post_object)): ?>
-              <span class="c-item__detail c-reviewlist__item__platform" style="background: <?php echo $plat->get_color(); ?>">
-                <?php echo $plat->get_title(); ?>
-              </span>
-            <?php endif; ?>
-
             <div class="c-reviewcard__summary">
               <blockquote>
               <?php echo $review->get_summary(180); ?>

@@ -6,6 +6,16 @@
     word-break: break-all;
   }
   margin-bottom: 1rem;
+
+  &__metas {
+    display: flex;
+    // outline: solid 1px red;
+    flex-direction: column;
+
+    >*:first-child {
+      margin-left: 0;
+    }
+  }
 }
 
 .c-gameheader__reviewcount {
@@ -17,5 +27,12 @@
     font-size: 2.5rem;
     line-height: 3rem;
     word-break: normal;
+  }
+  .c-gameheader__metas  {
+    align-items: center;
+    flex-direction: row;
+  }
+  .c-gameheader__metas__platforms {
+    margin-right: 0.5rem;
   }
 }
