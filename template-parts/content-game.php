@@ -80,19 +80,19 @@
               <div>
                 <h3><?php echo $review->get_site()->data['name']; ?></h3>
                 <div class="c-reviewlist__item__metas">
-                  <?php $plat = platform_handler::create_platform_instance_by_name(@$review->get_platform()[0]->name); ?>
-                  <?php if(!empty($plat->post_object)): ?>
-                  <span class="c-item__detail c-reviewlist__item__platform" style="color: <?php echo $plat->get_color(); ?>">
-                    <?php echo $plat->get_title(); ?>
-                  </span>
-                  <span class="c-reviewlist__item__divider">|</span>
-                  <?php endif; ?>
                   <div class="c-item__detail c-item__detail__creationdate">
                     <?php echo \PANet\Utils::render_wp_post_creation_date($review->review_object); ?>
                   </div>
                 </div>
               </div>
             </header>
+            <?php $plat = platform_handler::create_platform_instance_by_name(@$review->get_platform()[0]->name); ?>
+            <?php if(!empty($plat->post_object)): ?>
+              <span class="c-item__detail c-reviewlist__item__platform" style="background: <?php echo $plat->get_color(); ?>">
+                <?php echo $plat->get_title(); ?>
+              </span>
+            <?php endif; ?>
+
             <div class="c-reviewcard__summary">
               <blockquote>
               <?php echo $review->get_summary(180); ?>
