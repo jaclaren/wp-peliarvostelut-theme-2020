@@ -36,6 +36,8 @@
     font-size: 0.8rem;
     color: #fff;
     padding: 0.2rem 1rem;
+    margin-top: 1rem;
+    margin-bottom: 0;
   }
 
   &__header {
@@ -61,8 +63,6 @@
   background: var(--color-grey5);
 
   >*:nth-child(2) { // Summary
-    flex-grow: 2;
-    margin: 1rem 0;    
   }
 
   div {
