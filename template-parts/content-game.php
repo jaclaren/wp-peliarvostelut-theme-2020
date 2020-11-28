@@ -26,7 +26,7 @@
  foreach($game->get_reviews() as $review) {
    $platform = platform_handler::create_platform_instance_by_name(@$review->get_platform()[0]->name);
    if(!empty($platform->post_object))
-    $Review_platforms[] = $platform;
+    $Review_platforms[$platform->get_id()] = $platform;
  }
 
 ?>
