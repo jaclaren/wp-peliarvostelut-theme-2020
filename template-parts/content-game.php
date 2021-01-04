@@ -88,9 +88,10 @@
 </div>
 
 <div class="row">
-  <div class="col-xs-12 col-sm-8 first-sm">    
+  <div class="col-xs-12 col-sm-8 first-sm">
     <?php $highlight_texts = $GLOBALS['game']->get_highlight_texts(); ?>
-    <?php if(count($highlight_texts) > 0): ?>
+    <?php $highlight_texts_exist = count($highlight_texts) > 0; ?>
+    <?php if($highlight_texts_exist): ?>
     <div class="c-hlquote">
       <div class="c-hlquote__quote">
           <?php $item = @$GLOBALS['game']->get_highlight_texts()[0]; ?>
@@ -103,6 +104,7 @@
     </div>
   <?php endif; ?>
   </div>
+  <?php if(count($game->get_reviews()) > 1 || !$highlight_texts_exist): ?>
   <div class="col-xs-12 first-sm o-box--horizontal">
     <div class="box">
     <h2><?php echo __('Arvostelut'); ?></h2>
@@ -133,6 +135,7 @@
       </div>
     </div>
   </div>
+  <?php endif; ?>
 
 </div>
 
