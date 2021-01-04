@@ -88,9 +88,24 @@
 </div>
 
 <div class="row">
+  <div class="col-xs-12 col-sm-8 first-sm">    
+    <?php $highlight_texts = $GLOBALS['game']->get_highlight_texts(); ?>
+    <?php if(count($highlight_texts) > 0): ?>
+    <div class="c-hlquote">
+      <div class="c-hlquote__quote">
+          <?php $item = @$GLOBALS['game']->get_highlight_texts()[0]; ?>
+          "<?php echo $item['text']; ?>"
+      </div>
+      <div>
+        <span>--</span>
+        <span class="c-hlquote__site"><a rel="nofollow" href="<?php echo $item['url']; ?>"><?php echo $item['site_name']; ?></a></span>
+      </div>
+    </div>
+  <?php endif; ?>
+  </div>
   <div class="col-xs-12 first-sm o-box--horizontal">
     <div class="box">
-    <h2>Arvostelut</h2>
+    <h2><?php echo __('Arvostelut'); ?></h2>
     <div class="c-reviewlist">
       <?php
         foreach($game->get_reviews() as $review): ?>

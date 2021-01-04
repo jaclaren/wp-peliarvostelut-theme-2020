@@ -1,0 +1,28 @@
+.c-hlquote {
+  background: var(--color-grey8);
+
+  color: #333;
+
+  padding: 1.5rem;
+  margin-top: 1rem;
+
+  font-size: 1.1rem;
+  line-height: 1.6rem;
+  font-weight: normal;
+
+  box-shadow: 5px 5px 5px #00000033;
+  border-radius: 0.5rem;
+
+  &__quote {
+    // color: blue;
+    color: #7d7d7d;
+    margin-bottom: 0.7rem;
+    // color: white;
+  }
+
+  &__site {
+    font-size: 1rem;
+    color: var(--color-white1);
+    margin-left: 0.25rem;
+  }
+}
