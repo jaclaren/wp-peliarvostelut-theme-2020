@@ -87,6 +87,23 @@
 
 </div>
 
+<?php if(current_user_can( 'edit_others_posts' )): ?>
+<div>
+  <?php foreach($GLOBALS['game']->get_connections() as $k =>$conn): ?>
+    <?php if(!empty($k)): ?>
+      <?php $connected_game = new \game(get_post($k)); ?>
+      <?php if( $GLOBALS['game']->get_id() !== $k) :?>
+      <div>
+        <a href="<?php echo get_permalink($connected_game->get_id()); ?>">
+          <?php echo $connected_game->get_title(); ?> <?php echo $connected_game->get_id(); ?>
+        </a>
+      </div>
+      <?php endif; ?>
+    <?php endif; ?>
+  <?php endforeach; ?>
+</div>
+<?php endif; ?>
+
 <div class="row">
   <div class="col-xs-12 col-sm-8 first-sm">
     <?php $highlight_texts = $GLOBALS['game']->get_highlight_texts(); ?>
