@@ -87,29 +87,13 @@
 
 </div>
 
-<?php if(current_user_can( 'edit_others_posts' )): ?>
-<div>
-  <?php foreach($GLOBALS['game']->get_connections() as $k =>$conn): ?>
-    <?php if(!empty($k)): ?>
-      <?php $connected_game = new \game(get_post($k)); ?>
-      <?php if( $GLOBALS['game']->get_id() !== $k) :?>
-      <div>
-        <a href="<?php echo get_permalink($connected_game->get_id()); ?>">
-          <?php echo $connected_game->get_title(); ?> <?php echo $connected_game->get_id(); ?>
-        </a>
-      </div>
-      <?php endif; ?>
-    <?php endif; ?>
-  <?php endforeach; ?>
-</div>
-<?php endif; ?>
-
 <div class="row">
+<?php $highlight_texts = $GLOBALS['game']->get_highlight_texts(); ?>
+<?php $highlight_texts_exist = count($highlight_texts) > 0; ?>
+<?php if($highlight_texts_exist): ?>
   <div class="col-xs-12 col-sm-8 first-sm">
-    <?php $highlight_texts = $GLOBALS['game']->get_highlight_texts(); ?>
-    <?php $highlight_texts_exist = count($highlight_texts) > 0; ?>
-    <?php if($highlight_texts_exist): ?>
     <div class="c-hlquote">
+      <h3>Lainaus sivustolta</h3>
       <div class="c-hlquote__quote">
           <?php $item = @$GLOBALS['game']->get_highlight_texts()[0]; ?>
           "<?php echo $item['text']; ?>"
@@ -119,8 +103,31 @@
         <span class="c-hlquote__site"><a rel="nofollow" href="<?php echo $item['url']; ?>"><?php echo $item['site_name']; ?></a></span>
       </div>
     </div>
-  <?php endif; ?>
   </div>
+<?php endif; ?>
+
+  <?php
+      // if(current_user_can( 'edit_others_posts' )):
+      if(true):
+    ?>
+    <?php
+    // $connected_games = \game_handler::generate_game_instances_by_ids(
+    $ids =[];
+    foreach($GLOBALS['game']->get_connections() as $id => $value) {
+      if($id > 0)
+        $ids[] = $id;
+    }
+    ?>
+
+    <?php if(!empty(@$GLOBALS['game']->get_highlight_texts()[0])): ?>
+  <div class="col-xs-12 col-sm-4 <?php echo !empty(@$GLOBALS['game']->get_highlight_texts()[0]) ? 'first-sm' : ''; ?>">
+    <?php get_template_part( 'template-parts/components/c-gamecard-assoc', 'page', ["games" => array_map(function($id) {
+      return $id !== $GLOBALS['game']->get_id() ? new \game(get_post($id)) : null;
+    },$ids)]); ?>
+  </div>
+    <?php endif; ?>
+  <?php endif; ?>
+
   <?php if(count($game->get_reviews()) > 1 || !$highlight_texts_exist): ?>
   <div class="col-xs-12 first-sm o-box--horizontal">
     <div class="box">
