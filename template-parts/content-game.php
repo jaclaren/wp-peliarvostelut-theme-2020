@@ -60,7 +60,7 @@
       </div>
   </div>
 
-  <div class="col-xs-7">
+  <div class="col-xs-7">    
     <header class="box c-gameheader c-item">
       <h1><?php echo $game->get_title(); ?></h1>
       <div class="c-gameheader__metas">
@@ -118,7 +118,6 @@
         $ids[] = $id;
     }
     ?>
-
     <?php if(!empty(@$GLOBALS['game']->get_highlight_texts()[0])): ?>
   <div class="col-xs-12 col-sm-4 <?php echo !empty(@$GLOBALS['game']->get_highlight_texts()[0]) ? 'first-sm' : ''; ?>">
     <?php get_template_part( 'template-parts/components/c-gamecard-assoc', 'page', ["games" => array_map(function($id) {
