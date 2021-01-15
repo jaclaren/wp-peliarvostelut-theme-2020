@@ -101,7 +101,7 @@
         <span>--</span>
         <a href="<?php echo $item['url']; ?>" rel="nofollow" class="c-hlquote__site">
           <?php echo \PANet\Utils::get_site_name_from_url($item['url']); ?>
-        </a>
+        </a> 
         <!-- <a class="c-button c-button--link" rel="nofollow" href=""><?php echo __('Lue arvostelu'); ?><span>&raquo;</span></a> -->
     </figure>
   </div>
