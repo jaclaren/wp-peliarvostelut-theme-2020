@@ -60,7 +60,7 @@
       </div>
   </div>
 
-  <div class="col-xs-7">    
+  <div class="col-xs-7">
     <header class="box c-gameheader c-item">
       <h1><?php echo $game->get_title(); ?></h1>
       <div class="c-gameheader__metas">
@@ -92,17 +92,18 @@
 <?php $highlight_texts_exist = count($highlight_texts) > 0; ?>
 <?php if($highlight_texts_exist): ?>
   <div class="col-xs-12 col-sm-8 first-sm">
-    <div class="c-hlquote">
-      <h3>Lainaus sivustolta</h3>
-      <div class="c-hlquote__quote">
-          <?php $item = @$GLOBALS['game']->get_highlight_texts()[0]; ?>
-          "<?php echo $item['text']; ?>"
-      </div>
-      <div>
+    <figure class="c-hlquote">
+      <?php $random_index = array_rand(@$GLOBALS['game']->get_highlight_texts()); ?>
+      <?php $item = @$GLOBALS['game']->get_highlight_texts()[$random_index]; ?>
+      <blockquote cite="<?php echo $item['url']; ?>" class="c-hlquote__quote">
+          <p><?php echo $item['text']; ?></p>
+      </blockquote>
         <span>--</span>
-        <span class="c-hlquote__site"><a rel="nofollow" href="<?php echo $item['url']; ?>"><?php echo $item['site_name']; ?></a></span>
-      </div>
-    </div>
+        <span class="c-hlquote__site">
+          <?php echo $item['site_name']; ?>
+        </span>
+        <a class="c-button c-button--link" rel="nofollow" href="<?php echo $item['url']; ?>"><?php echo __('Lue koko arvostelu'); ?><span>&raquo;</span></a>          
+    </figure>
   </div>
 <?php endif; ?>
 
