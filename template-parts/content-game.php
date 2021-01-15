@@ -99,10 +99,10 @@
           <p><?php echo $item['text']; ?></p>
       </blockquote>
         <span>--</span>
-        <span class="c-hlquote__site">
-          <?php echo $item['site_name']; ?>
-        </span>
-        <a class="c-button c-button--link" rel="nofollow" href="<?php echo $item['url']; ?>"><?php echo __('Lue koko arvostelu'); ?><span>&raquo;</span></a>
+        <a href="<?php echo $item['url']; ?>" rel="nofollow" class="c-hlquote__site">
+          <?php echo \PANet\Utils::get_site_name_from_url($item['url']); ?>
+        </a>
+        <!-- <a class="c-button c-button--link" rel="nofollow" href=""><?php echo __('Lue arvostelu'); ?><span>&raquo;</span></a> -->
     </figure>
   </div>
 <?php endif; ?>
@@ -139,7 +139,7 @@
             <header class="c-reviewlist__item__header">
               <div class="c-reviewlist__item__header__score c-score--tiny c-score--<?php echo \PANet\Utils::get_color_class_by_score($review->get_score()); ?>"><?php echo $review->get_score(); ?></div>
               <div>
-                <h3><?php echo $review->get_site()->data['name']; ?></h3>
+                <h3><?php echo \PANet\Utils::get_site_name_from_url($review->get_url()); ?></h3>
                 <div class="c-reviewlist__item__metas">
                   <div class="c-item__detail c-item__detail__creationdate">
                     <?php echo \PANet\Utils::render_wp_post_creation_date($review->review_object); ?>
@@ -176,7 +176,7 @@
         <a href="<?php echo $news_item->url; ?>" rel="nofollow" class="c-newslist__item">
           <h3 class="c-newslist__item__header"><?php echo utf8_decode($news_item->title); ?></h3>
           <div class="c-newslist__item__metas">
-            <span class="c-item__detail c-item__detail__sitename c-newslist__item__sitename"><?php echo \PANet\Utils::get_site_name_from_url($news_item->url)->data["name"]; ?></span>
+            <span class="c-item__detail c-item__detail__sitename c-newslist__item__sitename"><?php echo \PANet\Utils::get_site_name_from_url($news_item->url); ?></span>
             <span class="c-item__detail c-item__detail__creationdate c-newslist__item__creationdate">
               <?php
               $year = date("Y", strtotime($news_item->write_date));
