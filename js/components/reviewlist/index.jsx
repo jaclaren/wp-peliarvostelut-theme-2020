@@ -15,22 +15,20 @@ const ReviewList = props => {
   const ref = React.useRef(null)
 
   React.useEffect(() => {
-    // window.addEventListener("keypress", () => {      // FOR DEBUGGING
-    //   _setItems(
-    //     Array(props.itemsPerLoad).fill(null).map((u, i) => { return {
-    //       title : 'Example game Example game Example game Example game',
-    //       site_name : 'Gamesite',
-    //       platform : 'PC',
-    //       img : 'http://dev-peliarvostelut.net/wp-content/uploads/2020/08/DprojectswebPeliarvostelutNETwwwwp-contentuploads2020081597492664_66.png'
-    //     } })
-    //   )
-    // });
+    console.log(items)
+  }, [items])
 
+  React.useEffect(() => {
     observer = new IntersectionObserver(entries => {
       entries.forEach((entry) => {
         if(entry.isIntersecting && !loaded) {
           axios.get(
-            `/wp-json/gamesapi/latest_reviews?displaytype=full&per_page=${props.itemsPerLoad}`, {
+            `/wp-json/public/review/get`, {
+              params : {
+                displaytype : 'full',
+                page : 0,
+                items : props.itemsPerLoad
+              },
               headers: {
                 'X-WP-Nonce': props.nonce
               }
@@ -38,7 +36,7 @@ const ReviewList = props => {
           )
           .then(response => {
             if(response.data) {
-              _setItems(props.mock ? props.mock : response.data)
+              _setItems(props.mock ? props.mock : response.data.body.reviews)
               _setLoaded(true)
             }
           })

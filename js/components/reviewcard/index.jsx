@@ -23,7 +23,10 @@ const ReviewCard = props => {
         <div style={ extraStyle } className={`reviewlink__platform ${extraClasses}`}>{props.item.platform}</div>
         <span className="reviewlink__buttonrow">
           <a href={props.item.url} style={ extraStyle } className={`button button--secondary reviewlink__button ${extraClasses}`}>Arvostelu</a>
-          <a href={props.item.game_url} style={ extraStyle } className={`button button--secondary reviewlink__button ${extraClasses}`}>Kooste</a>
+          {
+            props.item.game_url && props.item.game_url.length > 0 ? <a href={props.item.game_url} style={ extraStyle } className={`button button--secondary reviewlink__button ${extraClasses}`}>Kooste</a> : ''
+          }
+
         </span>
       </div>
     </div>
