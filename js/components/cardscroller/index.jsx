@@ -57,6 +57,7 @@ const CardScroller = props => {
           <ContentRow
           class="compilationcardlist"
           page={page}
+          nonce={props.nonce}
           previousPage={previousPage}
           changePage={changePage}
           defaultClass="compilationcard--skeleton"

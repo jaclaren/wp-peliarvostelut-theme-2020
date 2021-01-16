@@ -22,15 +22,19 @@ const ContentGrid = props => {
     Utils.generateSkeletonObjects(_setItems, items, props.maxItems)
 
     axios.get(
-      `/wp-json/compilations/${props.mode}?items=${props.itemsToLoad}`, {
+      `/wp-json/public/game/get`, {
+        params : {
+          itemCount : props.itemsToLoad,
+          mode : props.mode
+        },
         headers: {
           'X-WP-Nonce': props.nonce
         }
       }
     )
       .then(response => {
-        if(response.data) {
-          _setItems(props.mock ? props.mock : response.data.body.compilations)
+        if(response.data) {          
+          _setItems(props.mock ? props.mock : response.data.body.games)
           _setLoaded(true)
         }
     })
