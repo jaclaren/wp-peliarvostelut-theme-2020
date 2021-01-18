@@ -29,7 +29,7 @@ const GameQuote = props => {
 }
 
 GameQuote.defaultProps = {
-  interval : 8000
+  interval : 14000
 }
 
 export default GameQuote;
