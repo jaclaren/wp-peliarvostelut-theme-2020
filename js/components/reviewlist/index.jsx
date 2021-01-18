@@ -61,7 +61,7 @@ const ReviewList = props => {
 
   return <div ref={ref} className="c-reviewlist--grid">{
     items.map((item, index) => {
-      return <ReviewCard
+      return !item ? '' : <ReviewCard      
         item={item}
         index={index}
         key={`reviewcard_${index}`}/>
