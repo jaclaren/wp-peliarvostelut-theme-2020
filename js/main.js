@@ -5,6 +5,7 @@ import Score from './components/score/index.jsx'
 import CardScroller from './components/cardscroller/index.jsx'
 import ReviewList from './components/reviewlist/index.jsx'
 import TopGames from './components/topgames/index.jsx'
+import GameQuote from './components/gamequote/index.jsx'
 
 import initHeader from './header.js'
 import initSearch from './search.js'
@@ -39,11 +40,21 @@ document.querySelectorAll('.reviewgrid').forEach(_ => {
     <ReviewList
     maxPages={5}
     onEnterViewport={() => {
-      console.log("???")
+      
     }}
     nonce={localizedVars.nonce}
     itemsPerLoad={9}
     endpoint="/wp-json/gamesapi/latest_reviews?count="
+    />
+    ,
+    _
+  );
+})
+
+document.querySelectorAll('#gamequote').forEach(_ => {
+  ReactDOM.render(
+    <GameQuote
+      items={gameHighlightTexts}
     />
     ,
     _
