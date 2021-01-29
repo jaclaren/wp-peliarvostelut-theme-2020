@@ -1,5 +1,6 @@
 import React from 'react';
 import { useRef, useState, useEffect } from 'react'
+import parse from 'html-react-parser'
 
 const GameQuote = props => {
   const [_itemIndex, _setItemIndex] = useState(0)
@@ -15,10 +16,11 @@ const GameQuote = props => {
     }, props.interval)
   }, [_itemIndex])
 
+  
   return (
     <figure class="c-hlquote">
       <blockquote cite={props.items[_itemIndex].url} class="c-hlquote__quote">
-          <p>{props.items[_itemIndex].text}</p>
+        <p>{parse(props.items[_itemIndex].text)}</p>
       </blockquote>
         <span>--</span>
         <a href={props.items[_itemIndex].url} rel="nofollow" class="c-hlquote__site">
