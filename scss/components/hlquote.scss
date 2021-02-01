@@ -1,5 +1,5 @@
 .c-hlquote {
-  background: var(--color-grey8);
+  // background: var(--color-grey8);
   color: var(--color-white1);
 
   padding: 1.5rem;
@@ -9,9 +9,9 @@
   line-height: 1.6rem;
   font-weight: normal;
 
-  box-shadow: 5px 5px 5px #00000033;
+  // box-shadow: 5px 5px 5px #00000033;
   border-radius: 0.5rem;
-  padding: 1.8rem 2.5rem;
+  // padding: 1.8rem 2.5rem;
 
   h3 {
     color: #737373;
@@ -36,7 +36,7 @@
     &:before{
     content: "\201C";
     font-size: 3rem;
-    color: var(--color-grey1);
+    color: var(--color-purple);
     // margin-right: 0.5rem;
     position: absolute;
     left: -1.5rem;
@@ -52,5 +52,6 @@
     color: var(--color-white1);
     margin-left: 0.25rem;
     margin-top: 0.5rem;
+    margin-right: 0.75rem;
   }
 }

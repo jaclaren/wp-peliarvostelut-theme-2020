@@ -1,12 +1,29 @@
 .button {
   background: var(--color-default-accent);
-  padding: 0.6rem 1.5rem;
+  padding: 0.5rem 1rem;  
   border-radius: 2rem;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   transition: background 1s ease 0s;
 
   &:hover,&:focus {
     background: var(--color-default-accent2);
+  }
+}
+
+.button--thin {
+  background: none;
+  border-radius: 5rem;
+  border: solid 2px var(--color-default-accent);
+  color: var(--color-bright1);
+}
+
+.button--purple {
+  border-color: var(--color-purple);
+
+  &:hover {
+    background: var(--color-purple) !important;    
+    border-color: var(--color-purple);
+    color: white;
   }
 }
 

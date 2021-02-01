@@ -26,6 +26,9 @@ const GameQuote = props => {
         <a href={props.items[_itemIndex].url} rel="nofollow" class="c-hlquote__site">
           {props.items[_itemIndex].site_name}
         </a>
+        <a href={props.items[_itemIndex].url} rel="nofollow" class="c-hlquote__site">
+        <button class="button button--thin button--purple">Lue arvostelu</button>
+        </a>
     </figure>
   )
 }
