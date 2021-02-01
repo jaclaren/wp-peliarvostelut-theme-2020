@@ -53,15 +53,15 @@ document.querySelectorAll('.reviewgrid').forEach(_ => {
   );
 }) 
 
-const htexts = _.shuffle(gameHighlightTexts)
 
-document.querySelectorAll('#gamequote').forEach(_ => {
+document.querySelectorAll('#gamequote').forEach(element => {
+  const htexts = (gameHighlightTexts != null) ? _.shuffle(gameHighlightTexts) : []
   ReactDOM.render(
     <GameQuote
       items={htexts}
     />
     ,
-    _
+    element
   );
 })
 
