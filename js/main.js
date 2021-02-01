@@ -10,6 +10,8 @@ import GameQuote from './components/gamequote/index.jsx'
 import initHeader from './header.js'
 import initSearch from './search.js'
 
+import _ from 'underscore';
+
 document.querySelectorAll('.c-score').forEach(_ => {
   ReactDOM.render(
     <Score
@@ -49,12 +51,14 @@ document.querySelectorAll('.reviewgrid').forEach(_ => {
     ,
     _
   );
-})
+}) 
+
+const htexts = _.shuffle(gameHighlightTexts)
 
 document.querySelectorAll('#gamequote').forEach(_ => {
   ReactDOM.render(
     <GameQuote
-      items={gameHighlightTexts}
+      items={htexts}
     />
     ,
     _

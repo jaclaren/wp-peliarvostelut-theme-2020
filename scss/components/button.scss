@@ -15,6 +15,10 @@
   border-radius: 5rem;
   border: solid 2px var(--color-default-accent);
   color: var(--color-bright1);
+
+  font-size: 0.85rem;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
 }
 
 .button--purple {
@@ -23,6 +27,16 @@
   &:hover {
     background: var(--color-purple) !important;    
     border-color: var(--color-purple);
+    color: white;
+  }
+}
+
+.button--grey {
+  border-color: var(--color-grey4);
+
+  &:hover {
+    background: var(--color-grey4) !important;    
+    border-color: var(--color-grey4);
     color: white;
   }
 }
