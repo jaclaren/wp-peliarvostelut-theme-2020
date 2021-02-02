@@ -187,7 +187,6 @@ require get_template_directory() . '/inc/shortcodes/reviewlist.php';
 require get_template_directory() . '/inc/shortcodes/reviewquery_grid.php';
 require get_template_directory() . '/inc/shortcodes/gamequery_horizontal.php';
 require get_template_directory() . '/inc/rendering_functions.class.php';
-require get_template_directory() . '/inc/hooks/compilations.php';
 
 require get_template_directory() . '/inc/hooks/metatitle.php';
 
