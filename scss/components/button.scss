@@ -21,6 +21,25 @@
   text-transform: uppercase;
 }
 
+.button--tiny {
+  font-size: 0.8rem; 
+  display: inline-block;  
+}
+
+.button--coldred {
+  background: var(--color-coldred);
+  &:hover {
+    background: var(--color-coldred-hl);
+  }
+}
+
+.button--dark1 {
+  background: var(--color-grey5);
+  &:hover {
+    background: var(--color-grey1);
+  }
+}
+
 .button--purple {
   border-color: var(--color-purple);
 

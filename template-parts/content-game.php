@@ -76,7 +76,9 @@
       </div>
     <?php endif; ?>
     <span class="c-item__detail c-item__detail__creationdate"><?php echo \PANet\Utils::render_wp_post_creation_date($game->game_object); ?></span>
-    <?php get_template_part( 'template-parts/content', 'game-genres', ['genres' => $game->get_tax_genres()] ); ?>
+    <div class="c-gameheader__meta__genre">
+      <?php get_template_part( 'template-parts/content', 'game-genres', ['genres' => $game->get_tax_genres()] ); ?>
+    </div>
   </div>
     </header>
   </div>
