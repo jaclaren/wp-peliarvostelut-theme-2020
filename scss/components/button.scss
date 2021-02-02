@@ -43,11 +43,12 @@
 .button--purple {
   border-color: var(--color-purple);
 
-  &:hover {
+  &:hover, &.active {
     background: var(--color-purple) !important;    
     border-color: var(--color-purple);
     color: white;
-  }
+  }  
+  
 }
 
 .button--grey {
