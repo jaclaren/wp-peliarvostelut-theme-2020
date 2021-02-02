@@ -76,6 +76,7 @@
       </div>
     <?php endif; ?>
     <span class="c-item__detail c-item__detail__creationdate"><?php echo \PANet\Utils::render_wp_post_creation_date($game->game_object); ?></span>
+    <?php get_template_part( 'template-parts/content', 'game-genres', ['genres' => $game->get_tax_genres()] ); ?>
   </div>
     </header>
   </div>
@@ -96,12 +97,10 @@
   </div>
 <?php endif; ?>
 
-  <?php
-      // if(current_user_can( 'edit_others_posts' )):
+  <?php      
       if(true):
     ?>
-    <?php
-    // $connected_games = \game_handler::generate_game_instances_by_ids(
+    <?php    
     $ids =[];
     foreach($GLOBALS['game']->get_connections() as $id => $value) {
       if($id > 0)

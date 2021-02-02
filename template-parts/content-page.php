@@ -12,6 +12,7 @@
 <article <?php post_class(); ?>>
 
 	<?php peliarvostelut_net_2020_theme_post_thumbnail(); ?>
+	
 
 	<div class="entry-content">
 		<?php
