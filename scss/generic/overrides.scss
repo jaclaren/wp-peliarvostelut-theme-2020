@@ -9,6 +9,18 @@
   margin-left: 0;
 }
 
+.page-numbers {
+  background: var(--color-grey5);
+  padding: 1rem;  
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+
+  &.current {
+    padding: 1rem;
+    background: var(--color-grey1);
+  }
+}
+
 @media only screen and (max-width: 800px) {
   .col-md--full {
     padding-left: 0;
