@@ -26,15 +26,11 @@
       left: 0;    
   
       .c-sitebranding svg { height: 2.2rem; }
-      .c-sitesvg__text { opacity: 0; }
+      .c-sitebranding__svg__text { opacity: 0; }
   
       .c-search {
         margin-top: 0.75rem;
         margin-bottom: 0.75rem;      
-      }
-  
-      a {
-        color: rgb(255, 224, 251) !important;
       }
   
     }
