@@ -30,6 +30,9 @@ h1,h2,h3,h4 {
   }
 }
 
+main {
+  margin-top: 10rem !important;
+}
 
 @import 'components/compilationcard';
 @import 'components/associatedgames';

@@ -27,6 +27,11 @@
 <?php wp_body_open(); ?>
 	<header class="c-topheader">
 		<nav class="c-nav--primary">
+		<div class="c-sitebranding">
+			<a href="<?php echo get_site_url(); ?>"><?php peliarvostelut_net_2020_theme_utils::the_site_svg_icon(); ?></a>
+			<?php peliarvostelut_net_2020_theme_utils::the_site_text(); ?>		
+		</div>
+
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
 				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 					<path d="M2 15.5v2h20v-2H2zm0-5v2h20v-2H2zm0-5v2h20v-2H2z"></path>

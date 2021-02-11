@@ -1,14 +1,46 @@
 .c-nav {
-  height: 75px;
+  // height: 75px;  
   display: flex;
   justify-content: space-between;
   z-index: 500;
   width: 100%;
-  background: var(--color-grey3);
+  font-size: 0.25rem;
+  // background: var(--color-grey3);
 }
 
 .c-nav--primary {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.c-sitebranding {
+  display: flex;
+  flex-direction: row;
+  align-items: center;  
+}
+
+.c-sitesvg {
+  
+  svg {
+    height: 6rem;
+    transition: all ease-in 0.5s;    
+  }
+  
+  &__icon {
+    width: 7rem;
+    // outline: solid 1px red;
+
+    svg {
+      height: 4rem;
+      margin: 1.5rem;
+    }    
+  }
+
+  &__text {
+    transition: opacity ease-in-out 0.4s;
+    svg {
+      width: 12rem;
+    }    
+  }
 }
