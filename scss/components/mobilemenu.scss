@@ -1,13 +1,15 @@
 .menu-toggle {
   padding: 0.85rem;
   z-index: 100;
-  position: absolute;
+  // position: absolute;
+  // align-content: flex-end;  
   justify-content: center;
   margin: 1rem;
   display: flex;
   border-radius: 0.5rem;
-  left: 0;
+  right: 0;
   top: 0;  
+  order: 2;
 
   path {
     transition: all 1s ease 0s;

@@ -31,7 +31,13 @@ h1,h2,h3,h4 {
 }
 
 main {
-  margin-top: 12rem !important;
+  margin-top: 7.5rem !important;
+}
+
+@media only screen and (min-width: $breakpoint-md) {
+  main {
+    margin-top: 12rem !important;
+  }  
 }
 
 @import 'components/compilationcard';

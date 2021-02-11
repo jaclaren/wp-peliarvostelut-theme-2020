@@ -1,17 +1,15 @@
 .c-hlquote {
-  // background: var(--color-grey8);
   color: var(--color-white1);
+  background: var(--color-grey9);
 
-  padding: 1.5rem;
+  padding: 1.5rem 2.5rem;
   margin-top: 1.5rem;
 
   font-size: 1.1rem;
   line-height: 1.6rem;
   font-weight: normal;
 
-  // box-shadow: 5px 5px 5px #00000033;
   border-radius: 0.5rem;
-  // padding: 1.8rem 2.5rem;
 
   h3 {
     color: #737373;
@@ -25,25 +23,21 @@
     margin: 0;
     color: var(--color-grey7);
     position: relative;
-    font-size: 1.1rem;
+    font-size: 1.1rem;    
 
     p {
       margin: 0.2rem 0;
       margin-bottom: 0.5rem;
-      // font-style: italic;
     }
 
     &:before{
     content: "\201C";
     font-size: 3rem;
-    color: var(--color-purple);
-    // margin-right: 0.5rem;
+    color: var(--color-primary);
     position: absolute;
     left: -1.5rem;
     top: 0;
    }
-
-    // color: white;
   }
 
   &__site {
