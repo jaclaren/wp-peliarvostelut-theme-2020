@@ -3,7 +3,7 @@
 abstract class peliarvostelut_net_2020_theme_utils {
     public static function the_site_text() {
         ?>
-        <div class="c-sitesvg c-sitesvg__text">
+        <div class="c-sitebranding__svg c-sitebranding__svg__text">
 
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2035.156 165.593">
   <defs>
@@ -24,7 +24,7 @@ abstract class peliarvostelut_net_2020_theme_utils {
     public static function the_site_svg_icon() {
         ?>
 
-        <div class="c-sitesvg c-sitesvg__icon">
+        <div class="c-sitebranding__svg c-sitebranding__svg__icon">
         
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 495.281 524.407">
   <defs>

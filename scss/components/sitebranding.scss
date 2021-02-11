@@ -1,0 +1,39 @@
+.c-sitebranding {
+    display: flex;
+    flex-direction: row;
+    align-items: center;  
+  }
+  
+  .c-sitebranding__svg {
+    
+    svg {
+      height: 6rem;
+      transition: all ease-in 0.5s;    
+    }
+    
+    &__icon {
+      width: 4rem;    
+  
+      svg {
+        height: 3rem;
+        margin: 1.5rem;
+      }    
+    }
+  
+    &__text {
+      display: none;
+      transition: opacity ease-in-out 0.4s;
+      svg {
+        width: 12rem;
+      }    
+    }
+  }
+
+  @media only screen and (min-width: $breakpoint-md) {
+    .c-sitebranding__svg__icon {
+        width: 7rem;
+        svg { height: 4rem; width: 4rem; }
+    }
+    .c-sitebranding__svg__text { display: inherit; }
+  }
+  
