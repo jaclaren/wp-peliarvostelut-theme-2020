@@ -151,6 +151,12 @@ header.small .c-mobilemenu__submenu {
       li {
         border: none;
         line-height: normal;
+
+        a {
+          // color: var(--color-grey7)
+          font-size: 1.1rem;
+          color: var(--color-grey7)
+        }
       }
   }
 }
