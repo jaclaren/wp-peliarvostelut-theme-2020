@@ -6,9 +6,10 @@
 
     &__column {        
         &:nth-child(3) {
-            background: var(--color-grey9)
+            background: var(--color-grey9);
+            padding-left: 0;
         }
-        padding: 0;
+        &:nth-child(2) { padding-right: 0; }
     }
 }
 .video-container iframe {

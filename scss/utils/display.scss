@@ -1,0 +1,8 @@
+.disp {
+    @each $breakpointName, $breakpoint in $breakpoints {
+      @media only screen and (min-width: $breakpoint) {
+        &-#{$breakpointName}-block { display: block; }
+        &-#{$breakpointName}-none { display: none; }
+      }    
+    }
+  }

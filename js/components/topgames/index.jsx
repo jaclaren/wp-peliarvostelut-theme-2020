@@ -55,16 +55,16 @@ const TopGames = props => {
         <button onClick={() => nextPage()}><ChevronIcon direction="right" /></button>
       </div>
         <div className={"col-xs-12 col-sm-8 col-md--full".concat(' '+animationClass)}>
-          <div className="box video-container" style={!animationComplete ? {visibility: 'hidden'} : null }>
+          <div className="box video-container video-container__column" style={!animationComplete ? {visibility: 'hidden'} : null }>
             <iframe
               width="100%"
-              height="315"
+              height="100%"
               src={item.video}
               frameborder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
-      <div className={"col-xs-12 col-sm-4".concat(' '+animationClass)}>
+      <div className={"video-container__column col-xs-12 col-sm-4".concat(' '+animationClass)}>
         <div className="box">
           <div className="row compilationcard--primary middle-xs">
             <section className="col-xs-8 col-sm-12">

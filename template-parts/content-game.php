@@ -48,7 +48,7 @@
 </script>
 
 <div class="row main">
-<div class="col-xs-7">
+<div class="col-xs-12">
     <header class="box c-gameheader c-item">
       <h1><?php echo $game->get_title(); ?></h1>
       <div class="c-gameheader__metas">
@@ -112,8 +112,13 @@
                     <?php echo \PANet\Utils::render_wp_post_creation_date($review->review_object); ?>
                   </div>
                 </div>
-              </div>
+              </div>              
             </header>
+            <div class="c-reviewcard__summary">
+              <blockquote cite="<?php echo $review->get_url(); ?>">
+              <?php echo $review->get_summary(180); ?>
+              </blockquote>
+            </div>
             <a class="button button--thin button--grey" rel="nofollow" href="<?php echo $review->get_url(); ?>"><?php echo __('Lue arvostelu'); ?></a>
           </div>
         <?php endforeach; ?>
@@ -124,7 +129,7 @@
 
   <div class="col-xs-12 last-sm o-box--centered">
     <div class="c-score box" data-score="<?php echo $game->get_average_score(); ?>"></div>
-    Perustuu <?php echo count($game->get_reviews()); ?> suomalaisen arvostelusivuston antamaan arvosanaan
+    <!-- Perustuu <?php echo count($game->get_reviews()); ?> suomalaisen arvostelusivuston antamaan arvosanaan -->
   </div>
 
 </div>
@@ -133,7 +138,7 @@
 
 </div>
 
-<div class="row">
+<!-- <div class="row">
   <div class="col-xs-12 col-sm-4 c-newslist">
     <?php $news_items = json_decode(@$game->get_news_items()[0]); ?>
     <?php if(!empty($news_items)): ?>
@@ -193,6 +198,6 @@
 
 
     </div>
-  </div>
+  </div> -->
 
 </div>

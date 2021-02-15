@@ -6,13 +6,12 @@
         frameborder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
-      <div class="col-xs-12 col-md-4 video-container__column">
+      <div class="col-xs-12 col-md-4 video-container__column disp-xs-none disp-md-block">
       <?php $highlight_texts = $GLOBALS['game']->get_highlight_texts(); ?>
         <?php $highlight_texts_exist = count($highlight_texts) > 0; ?>
         <?php if($highlight_texts_exist): ?>
             <div id="gamequote"></div>
         <?php endif; ?>
-
       </div>
   </div>
 
