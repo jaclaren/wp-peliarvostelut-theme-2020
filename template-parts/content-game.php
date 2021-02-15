@@ -48,19 +48,7 @@
 </script>
 
 <div class="row main">
-
-  <div class="col-xs-12 col-sm-8 col-md--full last-sm">
-      <div class="box video-container">
-        <iframe
-          width="100%"
-          height="315"
-          src="<?php echo $game->get_any_video(); ?>"
-          frameborder="0"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-  </div>
-
-  <div class="col-xs-7">
+<div class="col-xs-7">
     <header class="box c-gameheader c-item">
       <h1><?php echo $game->get_title(); ?></h1>
       <div class="c-gameheader__metas">
@@ -82,22 +70,12 @@
   </div>
     </header>
   </div>
-  <div class="col-xs-5 col-sm-4 last-sm o-box--centered">
-    <div class="c-score box" data-score="<?php echo $game->get_average_score(); ?>"></div>
-  </div>
 
-
+  <?php get_template_part( 'template-parts/components/content-game-trailerbox', 'page', ['game' => $game] ); ?>
 
 </div>
 
 <div class="row">
-<?php $highlight_texts = $GLOBALS['game']->get_highlight_texts(); ?>
-<?php $highlight_texts_exist = count($highlight_texts) > 0; ?>
-<?php if($highlight_texts_exist): ?>
-  <div class="col-xs-12 col-sm-8 first-sm" id="gamequote">
-
-  </div>
-<?php endif; ?>
 
   <?php      
       if(true):
@@ -110,16 +88,15 @@
     }
     ?>
     <?php if(!empty(@$GLOBALS['game']->get_highlight_texts()[0])): ?>
-  <div class="col-xs-12 col-sm-4 <?php echo !empty(@$GLOBALS['game']->get_highlight_texts()[0]) ? 'first-sm' : ''; ?>">
+  <!-- <div class="col-xs-12 col-sm-4 <?php echo !empty(@$GLOBALS['game']->get_highlight_texts()[0]) ? 'first-sm' : ''; ?>">
     <?php get_template_part( 'template-parts/components/c-gamecard-assoc', 'page', ["games" => array_map(function($id) {
       return $id !== $GLOBALS['game']->get_id() ? new \game(get_post($id)) : null;
     },$ids)]); ?>
-  </div>
+  </div> -->
     <?php endif; ?>
   <?php endif; ?>
 
-  <?php if(count($game->get_reviews()) > 1 || !$highlight_texts_exist): ?>
-  <div class="col-xs-12 first-sm o-box--horizontal">
+  <div class="col-xs-12">
     <div class="box">
     <h2><?php echo __('Arvostelut'); ?></h2>
     <div class="c-reviewlist">
@@ -137,11 +114,6 @@
                 </div>
               </div>
             </header>
-            <div class="c-reviewcard__summary">
-              <blockquote>
-              <?php echo $review->get_summary(180); ?>
-              </blockquote>
-            </div>            
             <a class="button button--thin button--grey" rel="nofollow" href="<?php echo $review->get_url(); ?>"><?php echo __('Lue arvostelu'); ?></a>
           </div>
         <?php endforeach; ?>
@@ -149,7 +121,11 @@
       </div>
     </div>
   </div>
-  <?php endif; ?>
+
+  <div class="col-xs-12 last-sm o-box--centered">
+    <div class="c-score box" data-score="<?php echo $game->get_average_score(); ?>"></div>
+    Perustuu <?php echo count($game->get_reviews()); ?> suomalaisen arvostelusivuston antamaan arvosanaan
+  </div>
 
 </div>
 
