@@ -23,3 +23,9 @@
     height: 100%;
 }
 
+@media only screen and (min-width: $breakpoint-md) {
+    .video-container__column {
+        min-height: 430px;
+    }
+}
+
