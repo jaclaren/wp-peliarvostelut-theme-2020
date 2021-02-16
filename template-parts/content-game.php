@@ -100,29 +100,10 @@
     <div class="box">
     <h2><?php echo __('Arvostelut'); ?></h2>
     <div class="c-reviewlist">
-      <?php
-        foreach($game->get_reviews() as $review): ?>
-          <div class="c-reviewlist__item c-item">
-            <header class="c-reviewlist__item__header">
-              <div class="c-reviewlist__item__header__score c-score--tiny c-score--<?php echo \PANet\Utils::get_color_class_by_score($review->get_score()); ?>"><?php echo $review->get_score(); ?></div>
-              <div>
-                <h3><?php echo \PANet\Utils::get_site_name_from_url($review->get_url()); ?></h3>
-                <div class="c-reviewlist__item__metas">
-                  <div class="c-item__detail c-item__detail__creationdate">
-                    <?php echo \PANet\Utils::render_wp_post_creation_date($review->review_object); ?>
-                  </div>
-                </div>
-              </div>              
-            </header>
-            <div class="c-reviewcard__summary">
-              <blockquote cite="<?php echo $review->get_url(); ?>">
-              <?php echo $review->get_summary(180); ?>
-              </blockquote>
-            </div>
-            <a class="button button--thin button--grey" rel="nofollow" href="<?php echo $review->get_url(); ?>"><?php echo __('Lue arvostelu'); ?></a>
-          </div>
-        <?php endforeach; ?>
-
+      <?php $sites = \PANet\Utils::combine_sites_with_reviews(\PANet\Utils::get_all_sites(), $game->get_reviews()); ?>
+      <?php foreach(\PANet\Utils::sort_sites_by_review_score($sites) as $site): ?>      
+         <?php get_template_part( 'template-parts/components/content-site-review-card', 'page', ['site' => $site] ); ?>          
+      <?php endforeach; ?>
       </div>
     </div>
   </div>
