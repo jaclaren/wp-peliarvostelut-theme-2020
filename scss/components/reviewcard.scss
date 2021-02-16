@@ -1,3 +1,61 @@
+.c-reviewcard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: 20%; 
+  text-align: center;   
+  margin-bottom: 4rem;
+  margin: 1.5rem;  
+  
+  
+  &__score {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 5.5rem;
+    width: 5.5rem;
+    background: var(--color-grey9);
+    border-radius: 50%;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+
+    @each $quality in ('high', 'medium', 'poor') { 
+      &--quality-#{$quality} {
+        border: solid 0.4rem var(--color-quality-#{$quality});        
+        
+      }
+    }
+  }
+  &__title {
+    font-size: 1.5rem;
+    text-align: center;    
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__creation {    
+    color: var(--color-grey2);
+  }
+  &__link {
+    margin-top: 1.3rem;
+  }
+}
+
+.c-reviewcard--empty {
+  color: var(--color-grey1);
+  
+  .c-reviewcard__creation {
+    color: var(--color-grey1);
+  }
+
+  .c-reviewcard__score {
+    background: var(--color-grey9);    
+  }
+}
+
 .reviewcard {
   &--skeleton {
     font-size: 0;
@@ -64,4 +122,11 @@
   display: flex;
   flex-direction: column;
 }
+}
+
+@media only screen and (min-width: $breakpoint-md) {
+  .c-reviewcard {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
