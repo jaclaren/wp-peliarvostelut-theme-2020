@@ -18,7 +18,7 @@
     width: 5rem;
     background: var(--color-grey9);
     border-radius: 50%;
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     margin-bottom: 1rem;
 
     @each $quality in ('high', 'medium', 'poor') { 

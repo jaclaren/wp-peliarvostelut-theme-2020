@@ -14,13 +14,13 @@ const ReviewList = props => {
   const [loaded, _setLoaded] = React.useState(false)
   const ref = React.useRef(null)
 
-  React.useEffect(() => {
-    console.log(items)
+  React.useEffect(() => { 
+    console.log(items) 
   }, [items])
 
   React.useEffect(() => {
     observer = new IntersectionObserver(entries => {
-      entries.forEach((entry) => {
+      entries.forEach((entry) => { 
         if(entry.isIntersecting && !loaded) {
           axios.get(
             `/wp-json/public/review/get`, {

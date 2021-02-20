@@ -9,7 +9,7 @@ import GameQuote from './components/gamequote/index.jsx'
 
 import initHeader from './header.js'
 import initSearch from './search.js'
-
+ 
 import _ from 'underscore';
 
 document.querySelectorAll('.c-score').forEach(_ => {
