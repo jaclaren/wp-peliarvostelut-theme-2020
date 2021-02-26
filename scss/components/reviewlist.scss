@@ -1,8 +1,4 @@
 .c-reviewlist {
-  display: flex;
-  overflow-x: auto;
-  align-items: flex-start;    
-  justify-content: flex-start;
 
   &--grid {
     display: grid;
@@ -72,11 +68,17 @@
 }
 
 @media only screen and (min-width: $breakpoint-md) {
-  .c-reviewlist {
-    overflow-x: inherit;
+  .c-reviewlist {    
+    display: flex;
+    align-items: stretch;    
+    justify-content: flex-start;
+
+    // overflow-x: inherit;
     flex-wrap: wrap;
-    // justify-content: space-between;
-    align-items: stretch;
+    // // justify-content: space-between;
+    // align-items: stretch;
+
+
   }
   .c-reviewlist__item {
     flex-shrink: 1;

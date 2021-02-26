@@ -5,8 +5,13 @@
   flex-basis: 20%; 
   text-align: center;   
   margin-bottom: 4rem;
-  margin: 1.5rem;  
-  
+  margin: 1.5rem;    
+  border-top: solid 2px var(--color-grey4);
+
+  &:first-child {
+    border-top: none;    
+  }
+  padding-top: 1.5rem;  
   
   &__score {
     display: flex;
@@ -23,15 +28,18 @@
 
     @each $quality in ('high', 'medium', 'poor') { 
       &--quality-#{$quality} {
-        // border: solid 0.4rem var(--color-quality-#{$quality});        
-        // color: var(--color-quality-#{$quality});
         background: linear-gradient(to bottom, var(--color-quality-#{$quality}), var(--color-quality-#{$quality}-secondary));
         text-shadow: 1px 1px 4px var(--color-quality-#{$quality}-dark)
-        
       }
     }
   }
-  &__title {
+  &__cite {
+    color: var(--color-grey7);
+    flex-grow: 5;    
+    padding: 1rem;
+  }
+
+  &__title {    
     font-size: 1.5rem;
     text-align: center;    
     margin: 0;
@@ -49,6 +57,7 @@
 
 .c-reviewcard--empty {
   color: var(--color-grey1);
+  display: none;
   
   .c-reviewcard__creation {
     color: var(--color-grey1);
@@ -81,15 +90,6 @@
     }
 
   }
-  // display: flex;
-  // padding: 0;
-  // margin-bottom: 20px;
-  //
-  // &--skeleton {
-  //   background: var(--color-grey5);
-  //   margin: 12px;
-  // }
-  //
   img {
     $i : 80px;
     width: $i;
@@ -129,7 +129,10 @@
 
 @media only screen and (min-width: $breakpoint-md) {
   .c-reviewcard {
+    border:none;
     margin-left: 0;
     margin-right: 0;
-  }
+
+    &--empty { display: flex; }
+  }  
 }
