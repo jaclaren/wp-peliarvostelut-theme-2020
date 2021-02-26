@@ -2,7 +2,7 @@
 
 <?php if(!empty($review)): ?>
 
-    <div class="c-reviewcard">            
+    <div class="c-reviewcard revealable">            
     
         <div class="c-reviewcard__score c-reviewcard__score--quality-<?php echo \PANet\Utils::get_quality_class_from_score(@$review->get_score()); ?>"><?php echo @$review->get_score(); ?></div>
         
@@ -15,7 +15,7 @@
         
     </div>    
 <?php else: ?>
-    <div class="c-reviewcard c-reviewcard--empty">
+    <div class="c-reviewcard c-reviewcard--empty revealable">
         <div class="c-reviewcard__score">?</div>
         <h3 class="c-reviewcard__title"><?php echo $args['site']['name']; ?></h3>
         <div class="c-reviewcard__creation"><?php echo __('Ei arvosteltu'); ?></div>        

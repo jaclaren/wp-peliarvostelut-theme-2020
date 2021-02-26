@@ -7,6 +7,12 @@
   margin-bottom: 4rem;
   margin: 1.5rem;    
   border-top: solid 2px var(--color-grey4);
+  opacity: 0;
+
+  &.revealed {
+    @include fadein;
+    animation-duration: 2s;  
+  }
 
   &:first-child {
     border-top: none;    

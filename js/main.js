@@ -9,8 +9,11 @@ import GameQuote from './components/gamequote/index.jsx'
 
 import initHeader from './header.js'
 import initSearch from './search.js'
+import {attachRevealToElementsBySelector} from './utils/reveal.js'
  
 import _ from 'underscore';
+
+attachRevealToElementsBySelector('.revealable', document.querySelector('.c-reviewlist'))
 
 document.querySelectorAll('.c-score').forEach(_ => {
   ReactDOM.render(
