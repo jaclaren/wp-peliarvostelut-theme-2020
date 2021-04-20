@@ -20,6 +20,7 @@ const Score = props => {
     <div class="c-score">
       <div class={`c-score__circle c-score__circle--${quality}`}>
         <div class="c-score__score">{props.score}%</div>
+        <div class="c-score__textrating">{textRating(props)}</div>
       </div>
       <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
         <defs>
@@ -57,9 +58,26 @@ const Score = props => {
             />
 
         </g>
-      </svg>
+      </svg>      
     </div>
   )
 }
 
 export default Score;
+
+function textRating(props) {    // Todo: Localization?
+  if(props.score > 90)
+    return 'Erinomainen'
+
+  if(props.score > 80)
+    return 'Hyvätasoinen'
+
+  if(props.score > 50)
+    return 'Keskitasoinen'
+
+  if(props.score > 30)
+    return 'Heikkotasoinen'
+
+  return 'Huonotasoinen'  
+}
+

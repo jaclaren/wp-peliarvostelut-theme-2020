@@ -108,18 +108,13 @@
     </div>
   </div>
 
-  <div class="col-xs-12 last-sm o-box--centered">
-    <div class="c-score box" data-score="<?php echo $game->get_average_score(); ?>"></div>
-    <!-- Perustuu <?php echo count($game->get_reviews()); ?> suomalaisen arvostelusivuston antamaan arvosanaan -->
-  </div>
-
 </div>
 
 <div class="row">
 
 </div>
 
-<!-- <div class="row">
+<div class="row">
   <div class="col-xs-12 col-sm-4 c-newslist">
     <?php $news_items = json_decode(@$game->get_news_items()[0]); ?>
     <?php if(!empty($news_items)): ?>
@@ -179,6 +174,6 @@
 
 
     </div>
-  </div> -->
+  </div>
 
 </div>

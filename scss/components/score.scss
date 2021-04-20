@@ -1,5 +1,5 @@
 $max : 250px;
-$min : 100px;
+$min : 190px;
 // $max : 160px;
 .c-score {
   position: relative;
@@ -9,13 +9,21 @@ $min : 100px;
   min-width: $min;
   min-height: $min;
   font-size: 3.8vw;
-  flex-basis: 300px;
+  // flex-basis: 300px;
+  
+  // height: 100%;
+  // width: 100%;
 
   svg {
     // max-height: 250px;
-    z-index: 50;
+    z-index: 2;
+    position: absolute;
     // max-width: $max;
     max-height: $max;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;    
   }
 
   circle:nth-child(3) {
@@ -30,9 +38,9 @@ $min : 100px;
 }
 .c-score__score {
   color: var(--color-white1);
-  font-size: $baseFontSize*2;
-  text-shadow: 3px 3px 3px rgba(0,0,0,0.8)
-
+  font-size: 3rem;  
+  text-shadow: 3px 3px 3px rgba(0,0,0,0.8);
+  line-height: 100%
 }
 
 .c-score--tiny {
@@ -47,6 +55,18 @@ $min : 100px;
   width: 3.5rem;
 }
 
+.c-score__textrating {
+  // position: absolute;
+  // bottom: 27%;  
+  margin: 0;
+  padding: 0;
+  color: var(--color-grey7);
+  text-align: center;  
+  font-size: 0.8rem;
+  left: 0;
+  right: 0;
+}
+
 .c-score {
   $px : 2px;
   &--high { border: solid $px var(--color-quality-high); }
@@ -57,18 +77,19 @@ $min : 100px;
 .c-score__circle {
   $shadowblur : 40px;
   background: #343434;
-  margin: 18px;
+  margin: 14px;
   border-radius: 50%;
   box-shadow: 0px 0px $shadowblur #02e0a08a;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: -1;
+  // z-index: -1;
 
   &--medium {
     box-shadow: 0px 0px $shadowblur #fa7f0696;
@@ -80,7 +101,7 @@ $min : 100px;
 
 @media only screen and (min-width: $breakpoint-md) {
   .c-score {
-    font-size: 1.6rem;
+    font-size: 2.5rem;
   }
 }
 
