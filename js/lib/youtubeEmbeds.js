@@ -2,12 +2,37 @@ var player;
 
 var gameplayId, trailerId;
 
+import _ from 'underscore'
+
 const onPlayerReady = () => {}
 
 const onPlayerStateChange = state => {
-  const PLAYER_PAUSED = 2
-  const PLAYER_ENDED = 0
-  const PLAYER_PLAYING = 1
+  const PLAYER_PAUSED = state.data == 2
+  const PLAYER_ENDED = state.data == 0
+  const PLAYER_PLAYING = state.data == 1
+  const PLAYER_BUFFERING = state.data == 3
+
+  const element = document.querySelector('#gamevideo-highlights')
+
+  if(PLAYER_PLAYING) {
+    document.querySelectorAll('[yv-hide-on-play]').forEach(el => {
+        el.style.display = 'none'
+    })
+    document.querySelectorAll('[yv-show-on-play]').forEach(el => {
+        el.style.display = 'inherit'
+    })
+  } 
+
+  if(PLAYER_PAUSED || PLAYER_ENDED) {
+    document.querySelectorAll('[yv-hide-on-play]').forEach(el => {
+        el.style.display = 'inherit'
+    })
+    document.querySelectorAll('[yv-show-on-play]').forEach(el => {
+        el.style.display = 'none'
+    })
+    element.style.display = 'none'
+  }
+    
 
 }
 
@@ -23,6 +48,8 @@ window.onYouTubeIframeAPIReady = function() {
       gameplayId = extractIdFromYoutubeEmbed(el.getAttribute('data-gameplay-url'))
       trailerId = extractIdFromYoutubeEmbed(el.getAttribute('data-trailer-url'))
     })
+
+    addEventListeners()
   
     player = new window.YT.Player(document.querySelector(`[data-coltype='youtube-embed']`), {
             height: '390',
@@ -34,7 +61,11 @@ window.onYouTubeIframeAPIReady = function() {
             }
           })    
   }
-  
+
+  const activateTabByVideoId = id => {
+      player.loadVideoById(id)
+  }
+    
   document.querySelectorAll('#video-toggler').forEach(e => {  
     e.innerHTML = 'Pelivideo'
     
@@ -46,4 +77,24 @@ window.onYouTubeIframeAPIReady = function() {
       e.innerHTML = currentIsTrailer ? 'Pelivideo' : 'Traileri'
     })
   })
+
+const addEventListeners = () => {
+    const classNameActive = 'active'
+    const elements = [
+        { el: document.querySelector(`[yt-button-action='load:trailer']`), id: trailerId },
+        { el: document.querySelector(`[yt-button-action='load:gameplay']`), id: gameplayId }
+    ]
+
+    elements.forEach(data => {        
+        data.el.addEventListener('click', el => {
+            elements.forEach(dataElement => {                
+                if(dataElement.el != null)
+                    dataElement.el.classList.remove(classNameActive);
+            })                        
+            
+            activateTabByVideoId(data.id)            
+            el.target.classList.add(classNameActive)
+        });
+    });
+}
   

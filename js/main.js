@@ -81,4 +81,3 @@ document.querySelectorAll('.c-topgame').forEach(_ => {
 })
 initHeader();
 initSearch();
-loadYoutubeVideos();

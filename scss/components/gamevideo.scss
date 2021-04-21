@@ -1,0 +1,30 @@
+.c-gamevideo {
+    &__highlights {
+        display: none;
+    }
+
+    &__infobox {        
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__tabcontrol {
+        display: flex;        
+        justify-content: stretch;
+        align-content: stretch;                
+
+        &__column {                     
+            flex-grow: 1;              
+            text-align: center;
+            padding: 0.45rem 2rem;
+            font-size: 0.9rem;
+            color: var(--color-grey6);
+            background: var(--color-grey3);                
+            
+            &.active {
+                // border-bottom: solid 3px var(--color-grey1);
+                background: var(--color-grey1);                
+            }
+        }
+    }
+}
