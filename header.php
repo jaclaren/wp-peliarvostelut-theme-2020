@@ -21,6 +21,7 @@
 
 	<?php peliarvostelut_net_2020_theme_google_analytics(); ?>
 	<?php wp_head(); ?>
+	
 </head>
 
 <body>

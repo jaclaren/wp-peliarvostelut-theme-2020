@@ -13,6 +13,8 @@ import {attachRevealToElementsBySelector} from './utils/reveal.js'
  
 import _ from 'underscore';
 
+require('./lib/youtubeEmbeds')
+
 attachRevealToElementsBySelector('.revealable', document.querySelector('.c-reviewlist'))
 
 document.querySelectorAll('.c-score').forEach(_ => {
@@ -79,3 +81,4 @@ document.querySelectorAll('.c-topgame').forEach(_ => {
 })
 initHeader();
 initSearch();
+loadYoutubeVideos();
