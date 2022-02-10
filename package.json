@@ -26,7 +26,7 @@
     "enzyme-adapter-react-15": "^1.4.2",
     "enzyme-adapter-react-16": "^1.15.5",
     "jest-fetch-mock": "^3.0.3",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "react-in-viewport": "^1.0.0-alpha.14",
     "react-test-renderer": "^16.13.1",
     "rtlcss": "^2.5.0",
